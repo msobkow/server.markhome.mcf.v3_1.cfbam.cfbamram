@@ -323,6 +323,32 @@ public class CFBamRamSchemaTweakTable
 	}
 
 	@Override
+	public ICFBamSchemaTweak readDerivedByUDefIdx( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 TenantId,
+		CFLibDbKeyHash256 ScopeId,
+		CFLibDbKeyHash256 DefSchemaTenantId,
+		CFLibDbKeyHash256 DefSchemaId,
+		String Name )
+	{
+		final String S_ProcName = "CFBamRamTweak.readDerivedByUDefIdx";
+		ICFBamTweak buff = schema.getTableTweak().readDerivedByUDefIdx( Authorization,
+			TenantId,
+			ScopeId,
+			DefSchemaTenantId,
+			DefSchemaId,
+			Name );
+		if( buff == null ) {
+			return( null );
+		}
+		else if( buff instanceof ICFBamSchemaTweak ) {
+			return( (ICFBamSchemaTweak)buff );
+		}
+		else {
+			return( null );
+		}
+	}
+
+	@Override
 	public ICFBamSchemaTweak[] readDerivedBySchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 SchemaDefId )
 	{
@@ -489,6 +515,29 @@ public class CFBamRamSchemaTweakTable
 			}
 		}
 		return( filteredList.toArray( new ICFBamSchemaTweak[0] ) );
+	}
+
+	@Override
+	public ICFBamSchemaTweak readRecByUDefIdx( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 TenantId,
+		CFLibDbKeyHash256 ScopeId,
+		CFLibDbKeyHash256 DefSchemaTenantId,
+		CFLibDbKeyHash256 DefSchemaId,
+		String Name )
+	{
+		final String S_ProcName = "CFBamRamTweak.readRecByUDefIdx() ";
+		ICFBamSchemaTweak buff = readDerivedByUDefIdx( Authorization,
+			TenantId,
+			ScopeId,
+			DefSchemaTenantId,
+			DefSchemaId,
+			Name );
+		if( ( buff != null ) && ( buff.getClassCode() == ICFBamTweak.CLASS_CODE ) ) {
+			return( (ICFBamSchemaTweak)buff );
+		}
+		else {
+			return( null );
+		}
 	}
 
 	@Override
@@ -823,6 +872,58 @@ public class CFBamRamSchemaTweakTable
 		if( argKey.getOptionalDefSchemaId() != null ) {
 			anyNotNull = true;
 		}
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamBuffSchemaTweak> matchSet = new LinkedList<CFBamBuffSchemaTweak>();
+		Iterator<CFBamBuffSchemaTweak> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamBuffSchemaTweak> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = (CFBamBuffSchemaTweak)(schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,
+				cur.getRequiredId() ));
+			deleteSchemaTweak( Authorization, cur );
+		}
+	}
+
+	@Override
+	public void deleteSchemaTweakByUDefIdx( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 argTenantId,
+		CFLibDbKeyHash256 argScopeId,
+		CFLibDbKeyHash256 argDefSchemaTenantId,
+		CFLibDbKeyHash256 argDefSchemaId,
+		String argName )
+	{
+		CFBamBuffTweakByUDefIdxKey key = (CFBamBuffTweakByUDefIdxKey)schema.getFactoryTweak().newByUDefIdxKey();
+		key.setRequiredTenantId( argTenantId );
+		key.setRequiredScopeId( argScopeId );
+		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
+		key.setOptionalDefSchemaId( argDefSchemaId );
+		key.setRequiredName( argName );
+		deleteSchemaTweakByUDefIdx( Authorization, key );
+	}
+
+	@Override
+	public void deleteSchemaTweakByUDefIdx( ICFSecAuthorization Authorization,
+		ICFBamTweakByUDefIdxKey argKey )
+	{
+		CFBamBuffSchemaTweak cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		anyNotNull = true;
+		if( argKey.getOptionalDefSchemaTenantId() != null ) {
+			anyNotNull = true;
+		}
+		if( argKey.getOptionalDefSchemaId() != null ) {
+			anyNotNull = true;
+		}
+		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
