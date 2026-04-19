@@ -123,6 +123,9 @@ public class CFBamRamTweakTable
 			else if (classCode == ICFBamSchemaTweak.CLASS_CODE) {
 				return( ((CFBamBuffSchemaTweakDefaultFactory)(schema.getFactorySchemaTweak())).ensureRec((ICFBamSchemaTweak)rec) );
 			}
+			else if (classCode == ICFBamIndexTweak.CLASS_CODE) {
+				return( ((CFBamBuffIndexTweakDefaultFactory)(schema.getFactoryIndexTweak())).ensureRec((ICFBamIndexTweak)rec) );
+			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
 			}
@@ -259,6 +262,11 @@ public class CFBamRamTweakTable
 			else if (classCode == ICFBamSchemaTweak.CLASS_CODE) {
 				CFBamBuffSchemaTweak retbuff = ((CFBamBuffSchemaTweak)(schema.getFactorySchemaTweak().newRec()));
 				retbuff.set((ICFBamSchemaTweak)Buff);
+				return( retbuff );
+			}
+			else if (classCode == ICFBamIndexTweak.CLASS_CODE) {
+				CFBamBuffIndexTweak retbuff = ((CFBamBuffIndexTweak)(schema.getFactoryIndexTweak().newRec()));
+				retbuff.set((ICFBamIndexTweak)Buff);
 				return( retbuff );
 			}
 			else {
@@ -834,6 +842,20 @@ public class CFBamRamTweakTable
 				pkey );
 		}
 
+		if( schema.getTableIndexTweak().readDerivedByIdIdx( Authorization,
+					existing.getRequiredId() ) != null )
+		{
+			throw new CFLibDependentsDetectedException( getClass(),
+				"deleteTweak",
+				"Superclass",
+				"Superclass",
+				"SuperClass",
+				"SuperClass",
+				"IndexTweak",
+				"IndexTweak",
+				pkey );
+		}
+
 		// Delete is valid
 		Map< CFLibDbKeyHash256, CFBamBuffTweak > subdict;
 
@@ -887,6 +909,9 @@ public class CFBamRamTweakTable
 			else if( ICFBamSchemaTweak.CLASS_CODE == subClassCode ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (ICFBamSchemaTweak)cur );
 			}
+			else if( ICFBamIndexTweak.CLASS_CODE == subClassCode ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (ICFBamIndexTweak)cur );
+			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-by-suffix-class-walker-", (Integer)subClassCode, "Classcode not recognized: " + Integer.toString(subClassCode));
 			}
@@ -939,6 +964,9 @@ public class CFBamRamTweakTable
 			else if( ICFBamSchemaTweak.CLASS_CODE == subClassCode ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (ICFBamSchemaTweak)cur );
 			}
+			else if( ICFBamIndexTweak.CLASS_CODE == subClassCode ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (ICFBamIndexTweak)cur );
+			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-by-suffix-class-walker-", (Integer)subClassCode, "Classcode not recognized: " + Integer.toString(subClassCode));
 			}
@@ -988,6 +1016,9 @@ public class CFBamRamTweakTable
 			else if( ICFBamSchemaTweak.CLASS_CODE == subClassCode ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (ICFBamSchemaTweak)cur );
 			}
+			else if( ICFBamIndexTweak.CLASS_CODE == subClassCode ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (ICFBamIndexTweak)cur );
+			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-by-suffix-class-walker-", (Integer)subClassCode, "Classcode not recognized: " + Integer.toString(subClassCode));
 			}
@@ -1036,6 +1067,9 @@ public class CFBamRamTweakTable
 			}
 			else if( ICFBamSchemaTweak.CLASS_CODE == subClassCode ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (ICFBamSchemaTweak)cur );
+			}
+			else if( ICFBamIndexTweak.CLASS_CODE == subClassCode ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (ICFBamIndexTweak)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-by-suffix-class-walker-", (Integer)subClassCode, "Classcode not recognized: " + Integer.toString(subClassCode));
@@ -1087,6 +1121,9 @@ public class CFBamRamTweakTable
 			}
 			else if( ICFBamSchemaTweak.CLASS_CODE == subClassCode ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (ICFBamSchemaTweak)cur );
+			}
+			else if( ICFBamIndexTweak.CLASS_CODE == subClassCode ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (ICFBamIndexTweak)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-by-suffix-class-walker-", (Integer)subClassCode, "Classcode not recognized: " + Integer.toString(subClassCode));
@@ -1152,6 +1189,9 @@ public class CFBamRamTweakTable
 			}
 			else if( ICFBamSchemaTweak.CLASS_CODE == subClassCode ) {
 				schema.getTableSchemaTweak().deleteSchemaTweak( Authorization, (ICFBamSchemaTweak)cur );
+			}
+			else if( ICFBamIndexTweak.CLASS_CODE == subClassCode ) {
+				schema.getTableIndexTweak().deleteIndexTweak( Authorization, (ICFBamIndexTweak)cur );
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-by-suffix-class-walker-", (Integer)subClassCode, "Classcode not recognized: " + Integer.toString(subClassCode));

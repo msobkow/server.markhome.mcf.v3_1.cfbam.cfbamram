@@ -131,6 +131,7 @@ public class CFBamRamSchema
 		tableId64Gen = new CFBamRamId64GenTable( this );
 		tableIndex = new CFBamRamIndexTable( this );
 		tableIndexCol = new CFBamRamIndexColTable( this );
+		tableIndexTweak = new CFBamRamIndexTweakTable( this );
 		tableInt16Col = new CFBamRamInt16ColTable( this );
 		tableInt16Def = new CFBamRamInt16DefTable( this );
 		tableInt16Type = new CFBamRamInt16TypeTable( this );
@@ -335,6 +336,9 @@ public class CFBamRamSchema
 		}
 		if (tableSchemaTweak == null || !(tableSchemaTweak instanceof CFBamRamSchemaTweakTable)) {
 			tableSchemaTweak = new CFBamRamSchemaTweakTable(this);
+		}
+		if (tableIndexTweak == null || !(tableIndexTweak instanceof CFBamRamIndexTweakTable)) {
+			tableIndexTweak = new CFBamRamIndexTweakTable(this);
 		}
 		if (tableValue == null || !(tableValue instanceof CFBamRamValueTable)) {
 			tableValue = new CFBamRamValueTable(this);
