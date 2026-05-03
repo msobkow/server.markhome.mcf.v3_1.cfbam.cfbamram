@@ -158,8 +158,10 @@ public class CFBamRamSchema
 		tablePopTopDep = new CFBamRamPopTopDepTable( this );
 		tableRelation = new CFBamRamRelationTable( this );
 		tableRelationCol = new CFBamRamRelationColTable( this );
+		tableRoleDef = new CFBamRamRoleDefTable( this );
 		tableSchemaDef = new CFBamRamSchemaDefTable( this );
 		tableSchemaRef = new CFBamRamSchemaRefTable( this );
+		tableSchemaRole = new CFBamRamSchemaRoleTable( this );
 		tableSchemaTweak = new CFBamRamSchemaTweakTable( this );
 		tableScope = new CFBamRamScopeTable( this );
 		tableServerListFunc = new CFBamRamServerListFuncTable( this );
@@ -263,6 +265,12 @@ public class CFBamRamSchema
 
 	@Override
 	public CFLibDbKeyHash256 nextValueIdGen() {
+		CFLibDbKeyHash256 retval = new CFLibDbKeyHash256(0);
+		return( retval );
+	}
+
+	@Override
+	public CFLibDbKeyHash256 nextRoleIdGen() {
 		CFLibDbKeyHash256 retval = new CFLibDbKeyHash256(0);
 		return( retval );
 	}
@@ -726,6 +734,12 @@ public class CFBamRamSchema
 		}
 		if (tableUuid6Gen == null || !(tableUuid6Gen instanceof CFBamRamUuid6GenTable)) {
 			tableUuid6Gen = new CFBamRamUuid6GenTable(this);
+		}
+		if (tableRoleDef == null || !(tableRoleDef instanceof CFBamRamRoleDefTable)) {
+			tableRoleDef = new CFBamRamRoleDefTable(this);
+		}
+		if (tableSchemaRole == null || !(tableSchemaRole instanceof CFBamRamSchemaRoleTable)) {
+			tableSchemaRole = new CFBamRamSchemaRoleTable(this);
 		}
 	}
 }
