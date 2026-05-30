@@ -112,7 +112,7 @@ public class CFBamRamDelDepTable
 		CFBamBuffDelDep Buff = (CFBamBuffDelDep)(schema.getTableScope().createScope( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffDelDepByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffDelDepByDefSchemaIdxKey)schema.getFactoryDelDep().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
@@ -479,7 +479,7 @@ public class CFBamRamDelDepTable
 		ICFBamDelDep iBuff )
 	{
 		CFBamBuffDelDep Buff = (CFBamBuffDelDep)(schema.getTableScope().updateScope( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffDelDep existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

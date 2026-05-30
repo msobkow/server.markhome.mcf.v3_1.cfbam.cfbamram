@@ -110,7 +110,7 @@ public class CFBamRamDelSubDep2Table
 		CFBamBuffDelSubDep2 Buff = (CFBamBuffDelSubDep2)(schema.getTableDelDep().createDelDep( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffDelSubDep2ByContDelDep1IdxKey keyContDelDep1Idx = (CFBamBuffDelSubDep2ByContDelDep1IdxKey)schema.getFactoryDelSubDep2().newByContDelDep1IdxKey();
 		keyContDelDep1Idx.setRequiredDelSubDep1Id( Buff.getRequiredDelSubDep1Id() );
 
@@ -531,7 +531,7 @@ public class CFBamRamDelSubDep2Table
 		ICFBamDelSubDep2 iBuff )
 	{
 		CFBamBuffDelSubDep2 Buff = (CFBamBuffDelSubDep2)(schema.getTableDelDep().updateDelDep( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffDelSubDep2 existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

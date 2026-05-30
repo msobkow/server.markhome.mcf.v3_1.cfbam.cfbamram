@@ -110,7 +110,7 @@ public class CFBamRamClearSubDep3Table
 		CFBamBuffClearSubDep3 Buff = (CFBamBuffClearSubDep3)(schema.getTableClearDep().createClearDep( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffClearSubDep3ByClearSubDep2IdxKey keyClearSubDep2Idx = (CFBamBuffClearSubDep3ByClearSubDep2IdxKey)schema.getFactoryClearSubDep3().newByClearSubDep2IdxKey();
 		keyClearSubDep2Idx.setRequiredClearSubDep2Id( Buff.getRequiredClearSubDep2Id() );
 
@@ -531,7 +531,7 @@ public class CFBamRamClearSubDep3Table
 		ICFBamClearSubDep3 iBuff )
 	{
 		CFBamBuffClearSubDep3 Buff = (CFBamBuffClearSubDep3)(schema.getTableClearDep().updateClearDep( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffClearSubDep3 existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

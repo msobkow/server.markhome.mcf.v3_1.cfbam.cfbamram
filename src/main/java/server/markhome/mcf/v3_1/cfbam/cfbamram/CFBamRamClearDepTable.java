@@ -112,7 +112,7 @@ public class CFBamRamClearDepTable
 		CFBamBuffClearDep Buff = (CFBamBuffClearDep)(schema.getTableScope().createScope( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffClearDepByClearDepIdxKey keyClearDepIdx = (CFBamBuffClearDepByClearDepIdxKey)schema.getFactoryClearDep().newByClearDepIdxKey();
 		keyClearDepIdx.setRequiredRelationId( Buff.getRequiredRelationId() );
 
@@ -479,7 +479,7 @@ public class CFBamRamClearDepTable
 		ICFBamClearDep iBuff )
 	{
 		CFBamBuffClearDep Buff = (CFBamBuffClearDep)(schema.getTableScope().updateScope( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffClearDep existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

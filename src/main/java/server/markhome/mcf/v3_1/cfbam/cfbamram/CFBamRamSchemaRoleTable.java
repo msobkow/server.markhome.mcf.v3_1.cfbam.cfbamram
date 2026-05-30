@@ -118,7 +118,7 @@ public class CFBamRamSchemaRoleTable
 		CFBamBuffSchemaRole Buff = (CFBamBuffSchemaRole)(schema.getTableRoleDef().createRoleDef( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffSchemaRoleBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getFactorySchemaRole().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
@@ -648,7 +648,7 @@ public class CFBamRamSchemaRoleTable
 		ICFBamSchemaRole iBuff )
 	{
 		CFBamBuffSchemaRole Buff = (CFBamBuffSchemaRole)(schema.getTableRoleDef().updateRoleDef( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffSchemaRole existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

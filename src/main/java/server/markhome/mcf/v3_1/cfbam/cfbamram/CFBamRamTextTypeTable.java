@@ -123,7 +123,7 @@ public class CFBamRamTextTypeTable
 			}
 		}
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffTextTypeBySchemaIdxKey keySchemaIdx = (CFBamBuffTextTypeBySchemaIdxKey)schema.getFactoryTextType().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
@@ -6651,7 +6651,7 @@ public class CFBamRamTextTypeTable
 		ICFBamTextType iBuff )
 	{
 		CFBamBuffTextType Buff = (CFBamBuffTextType)(schema.getTableTextDef().updateTextDef( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffTextType existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

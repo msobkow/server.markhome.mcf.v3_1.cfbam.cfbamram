@@ -920,7 +920,7 @@ public class CFBamRamEnumTagTable
 		ICFBamEnumTag iBuff )
 	{
 		CFBamBuffEnumTag Buff = (CFBamBuffEnumTag)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffEnumTag existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

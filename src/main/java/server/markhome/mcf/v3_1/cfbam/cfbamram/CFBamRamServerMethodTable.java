@@ -116,7 +116,7 @@ public class CFBamRamServerMethodTable
 		CFBamBuffServerMethod Buff = (CFBamBuffServerMethod)(schema.getTableScope().createScope( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffServerMethodByUNameIdxKey keyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getFactoryServerMethod().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -529,7 +529,7 @@ public class CFBamRamServerMethodTable
 		ICFBamServerMethod iBuff )
 	{
 		CFBamBuffServerMethod Buff = (CFBamBuffServerMethod)(schema.getTableScope().updateScope( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffServerMethod existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

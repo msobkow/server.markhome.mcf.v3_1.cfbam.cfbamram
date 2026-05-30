@@ -112,7 +112,7 @@ public class CFBamRamPopDepTable
 		CFBamBuffPopDep Buff = (CFBamBuffPopDep)(schema.getTableScope().createScope( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffPopDepByRelationIdxKey keyRelationIdx = (CFBamBuffPopDepByRelationIdxKey)schema.getFactoryPopDep().newByRelationIdxKey();
 		keyRelationIdx.setRequiredRelationId( Buff.getRequiredRelationId() );
 
@@ -479,7 +479,7 @@ public class CFBamRamPopDepTable
 		ICFBamPopDep iBuff )
 	{
 		CFBamBuffPopDep Buff = (CFBamBuffPopDep)(schema.getTableScope().updateScope( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffPopDep existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

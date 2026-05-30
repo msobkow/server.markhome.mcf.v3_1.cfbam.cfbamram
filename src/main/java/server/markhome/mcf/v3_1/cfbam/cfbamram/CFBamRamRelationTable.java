@@ -140,7 +140,7 @@ public class CFBamRamRelationTable
 		CFBamBuffRelation Buff = (CFBamBuffRelation)(schema.getTableScope().createScope( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffRelationByUNameIdxKey keyUNameIdx = (CFBamBuffRelationByUNameIdxKey)schema.getFactoryRelation().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -834,7 +834,7 @@ public class CFBamRamRelationTable
 		ICFBamRelation iBuff )
 	{
 		CFBamBuffRelation Buff = (CFBamBuffRelation)(schema.getTableScope().updateScope( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffRelation existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

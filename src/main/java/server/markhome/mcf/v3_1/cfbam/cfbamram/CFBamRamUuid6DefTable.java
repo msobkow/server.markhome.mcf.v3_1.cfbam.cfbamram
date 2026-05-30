@@ -100,7 +100,7 @@ public class CFBamRamUuid6DefTable
 		CFBamBuffUuid6Def Buff = (CFBamBuffUuid6Def)(schema.getTableAtom().createAtom( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
@@ -5922,7 +5922,7 @@ public class CFBamRamUuid6DefTable
 		ICFBamUuid6Def iBuff )
 	{
 		CFBamBuffUuid6Def Buff = (CFBamBuffUuid6Def)(schema.getTableAtom().updateAtom( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffUuid6Def existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

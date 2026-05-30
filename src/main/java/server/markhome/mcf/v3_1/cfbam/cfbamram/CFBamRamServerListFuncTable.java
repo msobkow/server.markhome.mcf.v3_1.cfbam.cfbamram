@@ -106,7 +106,7 @@ public class CFBamRamServerListFuncTable
 		CFBamBuffServerListFunc Buff = (CFBamBuffServerListFunc)(schema.getTableServerMethod().createServerMethod( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffServerListFuncByRetTblIdxKey keyRetTblIdx = (CFBamBuffServerListFuncByRetTblIdxKey)schema.getFactoryServerListFunc().newByRetTblIdxKey();
 		keyRetTblIdx.setOptionalRetTableId( Buff.getOptionalRetTableId() );
 
@@ -493,7 +493,7 @@ public class CFBamRamServerListFuncTable
 		ICFBamServerListFunc iBuff )
 	{
 		CFBamBuffServerListFunc Buff = (CFBamBuffServerListFunc)(schema.getTableServerMethod().updateServerMethod( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffServerListFunc existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

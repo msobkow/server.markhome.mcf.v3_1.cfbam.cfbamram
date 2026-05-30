@@ -116,7 +116,7 @@ public class CFBamRamIndexTable
 		CFBamBuffIndex Buff = (CFBamBuffIndex)(schema.getTableScope().createScope( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffIndexByUNameIdxKey keyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getFactoryIndex().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -514,7 +514,7 @@ public class CFBamRamIndexTable
 		ICFBamIndex iBuff )
 	{
 		CFBamBuffIndex Buff = (CFBamBuffIndex)(schema.getTableScope().updateScope( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffIndex existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

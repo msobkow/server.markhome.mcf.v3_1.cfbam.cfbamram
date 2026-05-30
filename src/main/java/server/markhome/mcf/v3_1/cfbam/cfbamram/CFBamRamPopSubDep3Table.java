@@ -110,7 +110,7 @@ public class CFBamRamPopSubDep3Table
 		CFBamBuffPopSubDep3 Buff = (CFBamBuffPopSubDep3)(schema.getTablePopDep().createPopDep( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffPopSubDep3ByPopSubDep2IdxKey keyPopSubDep2Idx = (CFBamBuffPopSubDep3ByPopSubDep2IdxKey)schema.getFactoryPopSubDep3().newByPopSubDep2IdxKey();
 		keyPopSubDep2Idx.setRequiredPopSubDep2Id( Buff.getRequiredPopSubDep2Id() );
 
@@ -531,7 +531,7 @@ public class CFBamRamPopSubDep3Table
 		ICFBamPopSubDep3 iBuff )
 	{
 		CFBamBuffPopSubDep3 Buff = (CFBamBuffPopSubDep3)(schema.getTablePopDep().updatePopDep( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffPopSubDep3 existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

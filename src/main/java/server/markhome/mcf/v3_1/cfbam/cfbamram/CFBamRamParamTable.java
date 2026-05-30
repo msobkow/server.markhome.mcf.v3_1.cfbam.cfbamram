@@ -1147,7 +1147,7 @@ public class CFBamRamParamTable
 		ICFBamParam iBuff )
 	{
 		CFBamBuffParam Buff = (CFBamBuffParam)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffParam existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

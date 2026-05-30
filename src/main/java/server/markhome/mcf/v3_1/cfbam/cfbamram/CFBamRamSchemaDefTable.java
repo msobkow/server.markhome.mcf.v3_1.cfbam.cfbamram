@@ -132,7 +132,7 @@ public class CFBamRamSchemaDefTable
 		CFBamBuffSchemaDef Buff = (CFBamBuffSchemaDef)(schema.getTableScope().createScope( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffSchemaDefByCTenantIdxKey keyCTenantIdx = (CFBamBuffSchemaDefByCTenantIdxKey)schema.getFactorySchemaDef().newByCTenantIdxKey();
 		keyCTenantIdx.setRequiredCTenantId( Buff.getRequiredCTenantId() );
 
@@ -729,7 +729,7 @@ public class CFBamRamSchemaDefTable
 		ICFBamSchemaDef iBuff )
 	{
 		CFBamBuffSchemaDef Buff = (CFBamBuffSchemaDef)(schema.getTableScope().updateScope( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffSchemaDef existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

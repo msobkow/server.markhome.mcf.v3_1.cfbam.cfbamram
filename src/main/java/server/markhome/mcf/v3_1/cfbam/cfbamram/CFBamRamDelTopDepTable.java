@@ -139,7 +139,7 @@ public class CFBamRamDelTopDepTable
 			}
 		}
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffDelTopDepByDelTopDepTblIdxKey keyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getFactoryDelTopDep().newByDelTopDepTblIdxKey();
 		keyDelTopDepTblIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
@@ -998,7 +998,7 @@ public class CFBamRamDelTopDepTable
 		ICFBamDelTopDep iBuff )
 	{
 		CFBamBuffDelTopDep Buff = (CFBamBuffDelTopDep)(schema.getTableDelDep().updateDelDep( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffDelTopDep existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

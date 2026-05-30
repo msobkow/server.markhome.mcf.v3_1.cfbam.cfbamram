@@ -117,7 +117,7 @@ public class CFBamRamDbKeyHash256GenTable
 			}
 		}
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
@@ -6607,7 +6607,7 @@ public class CFBamRamDbKeyHash256GenTable
 		ICFBamDbKeyHash256Gen iBuff )
 	{
 		CFBamBuffDbKeyHash256Gen Buff = (CFBamBuffDbKeyHash256Gen)(schema.getTableDbKeyHash256Type().updateDbKeyHash256Type( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffDbKeyHash256Gen existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

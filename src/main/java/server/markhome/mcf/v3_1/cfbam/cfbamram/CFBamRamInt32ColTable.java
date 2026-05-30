@@ -123,7 +123,7 @@ public class CFBamRamInt32ColTable
 			}
 		}
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffInt32ColByTableIdxKey keyTableIdx = (CFBamBuffInt32ColByTableIdxKey)schema.getFactoryInt32Col().newByTableIdxKey();
 		keyTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
@@ -6651,7 +6651,7 @@ public class CFBamRamInt32ColTable
 		ICFBamInt32Col iBuff )
 	{
 		CFBamBuffInt32Col Buff = (CFBamBuffInt32Col)(schema.getTableInt32Def().updateInt32Def( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffInt32Col existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

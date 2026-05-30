@@ -6917,7 +6917,7 @@ public class CFBamRamValueTable
 		ICFBamValue iBuff )
 	{
 		CFBamBuffValue Buff = (CFBamBuffValue)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffValue existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

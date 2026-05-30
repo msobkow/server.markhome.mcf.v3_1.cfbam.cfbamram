@@ -123,7 +123,7 @@ public class CFBamRamEnumTypeTable
 			}
 		}
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffEnumTypeBySchemaIdxKey keySchemaIdx = (CFBamBuffEnumTypeBySchemaIdxKey)schema.getFactoryEnumType().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
@@ -6651,7 +6651,7 @@ public class CFBamRamEnumTypeTable
 		ICFBamEnumType iBuff )
 	{
 		CFBamBuffEnumType Buff = (CFBamBuffEnumType)(schema.getTableEnumDef().updateEnumDef( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffEnumType existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

@@ -106,7 +106,7 @@ public class CFBamRamIndexTweakTable
 		CFBamBuffIndexTweak Buff = (CFBamBuffIndexTweak)(schema.getTableTweak().createTweak( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffIndexTweakByIndexIdxKey keyIndexIdx = (CFBamBuffIndexTweakByIndexIdxKey)schema.getFactoryIndexTweak().newByIndexIdxKey();
 		keyIndexIdx.setRequiredIndexId( Buff.getRequiredIndexId() );
 
@@ -562,7 +562,7 @@ public class CFBamRamIndexTweakTable
 		ICFBamIndexTweak iBuff )
 	{
 		CFBamBuffIndexTweak Buff = (CFBamBuffIndexTweak)(schema.getTableTweak().updateTweak( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffIndexTweak existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

@@ -100,7 +100,7 @@ public class CFBamRamServerProcTable
 		CFBamBuffServerProc Buff = (CFBamBuffServerProc)(schema.getTableServerMethod().createServerMethod( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
@@ -428,7 +428,7 @@ public class CFBamRamServerProcTable
 		ICFBamServerProc iBuff )
 	{
 		CFBamBuffServerProc Buff = (CFBamBuffServerProc)(schema.getTableServerMethod().updateServerMethod( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffServerProc existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

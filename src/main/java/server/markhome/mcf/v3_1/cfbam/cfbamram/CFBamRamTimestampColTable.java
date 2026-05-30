@@ -123,7 +123,7 @@ public class CFBamRamTimestampColTable
 			}
 		}
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffTimestampColByTableIdxKey keyTableIdx = (CFBamBuffTimestampColByTableIdxKey)schema.getFactoryTimestampCol().newByTableIdxKey();
 		keyTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
@@ -6651,7 +6651,7 @@ public class CFBamRamTimestampColTable
 		ICFBamTimestampCol iBuff )
 	{
 		CFBamBuffTimestampCol Buff = (CFBamBuffTimestampCol)(schema.getTableTimestampDef().updateTimestampDef( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffTimestampCol existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

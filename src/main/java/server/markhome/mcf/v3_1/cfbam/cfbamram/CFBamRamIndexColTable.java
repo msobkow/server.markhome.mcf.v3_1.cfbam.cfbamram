@@ -1145,7 +1145,7 @@ public class CFBamRamIndexColTable
 		ICFBamIndexCol iBuff )
 	{
 		CFBamBuffIndexCol Buff = (CFBamBuffIndexCol)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffIndexCol existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

@@ -106,7 +106,7 @@ public class CFBamRamTableTweakTable
 		CFBamBuffTableTweak Buff = (CFBamBuffTableTweak)(schema.getTableTweak().createTweak( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffTableTweakByTableIdxKey keyTableIdx = (CFBamBuffTableTweakByTableIdxKey)schema.getFactoryTableTweak().newByTableIdxKey();
 		keyTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
@@ -562,7 +562,7 @@ public class CFBamRamTableTweakTable
 		ICFBamTableTweak iBuff )
 	{
 		CFBamBuffTableTweak Buff = (CFBamBuffTableTweak)(schema.getTableTweak().updateTweak( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffTableTweak existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

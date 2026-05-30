@@ -100,7 +100,7 @@ public class CFBamRamTZDateDefTable
 		CFBamBuffTZDateDef Buff = (CFBamBuffTZDateDef)(schema.getTableAtom().createAtom( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
@@ -5917,7 +5917,7 @@ public class CFBamRamTZDateDefTable
 		ICFBamTZDateDef iBuff )
 	{
 		CFBamBuffTZDateDef Buff = (CFBamBuffTZDateDef)(schema.getTableAtom().updateAtom( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffTZDateDef existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

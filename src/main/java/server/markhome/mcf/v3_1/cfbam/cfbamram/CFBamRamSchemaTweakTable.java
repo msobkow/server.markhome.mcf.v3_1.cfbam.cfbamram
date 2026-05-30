@@ -106,7 +106,7 @@ public class CFBamRamSchemaTweakTable
 		CFBamBuffSchemaTweak Buff = (CFBamBuffSchemaTweak)(schema.getTableTweak().createTweak( Authorization,
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
-		pkey = Buff.getRequiredId();
+		pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffSchemaTweakBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getFactorySchemaTweak().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
@@ -562,7 +562,7 @@ public class CFBamRamSchemaTweakTable
 		ICFBamSchemaTweak iBuff )
 	{
 		CFBamBuffSchemaTweak Buff = (CFBamBuffSchemaTweak)(schema.getTableTweak().updateTweak( Authorization,	iBuff ));
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFBamBuffSchemaTweak existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),
