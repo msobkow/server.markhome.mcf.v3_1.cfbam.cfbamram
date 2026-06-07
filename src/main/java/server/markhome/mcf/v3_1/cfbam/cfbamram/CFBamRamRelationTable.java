@@ -87,6 +87,18 @@ public class CFBamRamRelationTable
 		= new HashMap< CFBamBuffRelationByRelTableIdxKey,
 				Map< CFLibDbKeyHash256,
 					CFBamBuffRelation >>();
+	private Map< CFBamBuffRelationByRelCodeVisIdxKey,
+				Map< CFLibDbKeyHash256,
+					CFBamBuffRelation >> dictByRelCodeVisIdx
+		= new HashMap< CFBamBuffRelationByRelCodeVisIdxKey,
+				Map< CFLibDbKeyHash256,
+					CFBamBuffRelation >>();
+	private Map< CFBamBuffRelationByRelTableCodeVisXKey,
+				Map< CFLibDbKeyHash256,
+					CFBamBuffRelation >> dictByRelTableCodeVisX
+		= new HashMap< CFBamBuffRelationByRelTableCodeVisXKey,
+				Map< CFLibDbKeyHash256,
+					CFBamBuffRelation >>();
 	private Map< CFBamBuffRelationByDefSchemaIdxKey,
 				Map< CFLibDbKeyHash256,
 					CFBamBuffRelation >> dictByDefSchemaIdx
@@ -147,6 +159,13 @@ public class CFBamRamRelationTable
 
 		CFBamBuffRelationByRelTableIdxKey keyRelTableIdx = (CFBamBuffRelationByRelTableIdxKey)schema.getFactoryRelation().newByRelTableIdxKey();
 		keyRelTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
+
+		CFBamBuffRelationByRelCodeVisIdxKey keyRelCodeVisIdx = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getFactoryRelation().newByRelCodeVisIdxKey();
+		keyRelCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
+
+		CFBamBuffRelationByRelTableCodeVisXKey keyRelTableCodeVisX = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getFactoryRelation().newByRelTableCodeVisXKey();
+		keyRelTableCodeVisX.setRequiredTableId( Buff.getRequiredTableId() );
+		keyRelTableCodeVisX.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
 		CFBamBuffRelationByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffRelationByDefSchemaIdxKey)schema.getFactoryRelation().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
@@ -294,6 +313,26 @@ public class CFBamRamRelationTable
 			dictByRelTableIdx.put( keyRelTableIdx, subdictRelTableIdx );
 		}
 		subdictRelTableIdx.put( pkey, Buff );
+
+		Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictRelCodeVisIdx;
+		if( dictByRelCodeVisIdx.containsKey( keyRelCodeVisIdx ) ) {
+			subdictRelCodeVisIdx = dictByRelCodeVisIdx.get( keyRelCodeVisIdx );
+		}
+		else {
+			subdictRelCodeVisIdx = new HashMap< CFLibDbKeyHash256, CFBamBuffRelation >();
+			dictByRelCodeVisIdx.put( keyRelCodeVisIdx, subdictRelCodeVisIdx );
+		}
+		subdictRelCodeVisIdx.put( pkey, Buff );
+
+		Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictRelTableCodeVisX;
+		if( dictByRelTableCodeVisX.containsKey( keyRelTableCodeVisX ) ) {
+			subdictRelTableCodeVisX = dictByRelTableCodeVisX.get( keyRelTableCodeVisX );
+		}
+		else {
+			subdictRelTableCodeVisX = new HashMap< CFLibDbKeyHash256, CFBamBuffRelation >();
+			dictByRelTableCodeVisX.put( keyRelTableCodeVisX, subdictRelTableCodeVisX );
+		}
+		subdictRelTableCodeVisX.put( pkey, Buff );
 
 		Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictDefSchemaIdx;
 		if( dictByDefSchemaIdx.containsKey( keyDefSchemaIdx ) ) {
@@ -472,6 +511,64 @@ public class CFBamRamRelationTable
 			Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictRelTableIdx
 				= new HashMap< CFLibDbKeyHash256, CFBamBuffRelation >();
 			dictByRelTableIdx.put( key, subdictRelTableIdx );
+			recArray = new ICFBamRelation[0];
+		}
+		return( recArray );
+	}
+
+	@Override
+	public ICFBamRelation[] readDerivedByRelCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamRelation.readDerivedByRelCodeVisIdx";
+		CFBamBuffRelationByRelCodeVisIdxKey key = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getFactoryRelation().newByRelCodeVisIdxKey();
+
+		key.setRequiredCodeVis( CodeVis );
+		ICFBamRelation[] recArray;
+		if( dictByRelCodeVisIdx.containsKey( key ) ) {
+			Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictRelCodeVisIdx
+				= dictByRelCodeVisIdx.get( key );
+			recArray = new ICFBamRelation[ subdictRelCodeVisIdx.size() ];
+			Iterator< CFBamBuffRelation > iter = subdictRelCodeVisIdx.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictRelCodeVisIdx
+				= new HashMap< CFLibDbKeyHash256, CFBamBuffRelation >();
+			dictByRelCodeVisIdx.put( key, subdictRelCodeVisIdx );
+			recArray = new ICFBamRelation[0];
+		}
+		return( recArray );
+	}
+
+	@Override
+	public ICFBamRelation[] readDerivedByRelTableCodeVisX( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamRelation.readDerivedByRelTableCodeVisX";
+		CFBamBuffRelationByRelTableCodeVisXKey key = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getFactoryRelation().newByRelTableCodeVisXKey();
+
+		key.setRequiredTableId( TableId );
+		key.setRequiredCodeVis( CodeVis );
+		ICFBamRelation[] recArray;
+		if( dictByRelTableCodeVisX.containsKey( key ) ) {
+			Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictRelTableCodeVisX
+				= dictByRelTableCodeVisX.get( key );
+			recArray = new ICFBamRelation[ subdictRelTableCodeVisX.size() ];
+			Iterator< CFBamBuffRelation > iter = subdictRelTableCodeVisX.values().iterator();
+			int idx = 0;
+			while( iter.hasNext() ) {
+				recArray[ idx++ ] = iter.next();
+			}
+		}
+		else {
+			Map< CFLibDbKeyHash256, CFBamBuffRelation > subdictRelTableCodeVisX
+				= new HashMap< CFLibDbKeyHash256, CFBamBuffRelation >();
+			dictByRelTableCodeVisX.put( key, subdictRelTableCodeVisX );
 			recArray = new ICFBamRelation[0];
 		}
 		return( recArray );
@@ -741,6 +838,44 @@ public class CFBamRamRelationTable
 	}
 
 	@Override
+	public ICFBamRelation[] readRecByRelCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamRelation.readRecByRelCodeVisIdx() ";
+		ICFBamRelation buff;
+		ArrayList<ICFBamRelation> filteredList = new ArrayList<ICFBamRelation>();
+		ICFBamRelation[] buffList = readDerivedByRelCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && ( buff.getClassCode() == ICFBamRelation.CLASS_CODE ) ) {
+				filteredList.add( (ICFBamRelation)buff );
+			}
+		}
+		return( filteredList.toArray( new ICFBamRelation[0] ) );
+	}
+
+	@Override
+	public ICFBamRelation[] readRecByRelTableCodeVisX( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamRelation.readRecByRelTableCodeVisX() ";
+		ICFBamRelation buff;
+		ArrayList<ICFBamRelation> filteredList = new ArrayList<ICFBamRelation>();
+		ICFBamRelation[] buffList = readDerivedByRelTableCodeVisX( Authorization,
+			TableId,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && ( buff.getClassCode() == ICFBamRelation.CLASS_CODE ) ) {
+				filteredList.add( (ICFBamRelation)buff );
+			}
+		}
+		return( filteredList.toArray( new ICFBamRelation[0] ) );
+	}
+
+	@Override
 	public ICFBamRelation[] readRecByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 DefSchemaId )
 	{
@@ -858,6 +993,20 @@ public class CFBamRamRelationTable
 
 		CFBamBuffRelationByRelTableIdxKey newKeyRelTableIdx = (CFBamBuffRelationByRelTableIdxKey)schema.getFactoryRelation().newByRelTableIdxKey();
 		newKeyRelTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
+
+		CFBamBuffRelationByRelCodeVisIdxKey existingKeyRelCodeVisIdx = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getFactoryRelation().newByRelCodeVisIdxKey();
+		existingKeyRelCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
+		CFBamBuffRelationByRelCodeVisIdxKey newKeyRelCodeVisIdx = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getFactoryRelation().newByRelCodeVisIdxKey();
+		newKeyRelCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
+
+		CFBamBuffRelationByRelTableCodeVisXKey existingKeyRelTableCodeVisX = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getFactoryRelation().newByRelTableCodeVisXKey();
+		existingKeyRelTableCodeVisX.setRequiredTableId( existing.getRequiredTableId() );
+		existingKeyRelTableCodeVisX.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
+		CFBamBuffRelationByRelTableCodeVisXKey newKeyRelTableCodeVisX = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getFactoryRelation().newByRelTableCodeVisXKey();
+		newKeyRelTableCodeVisX.setRequiredTableId( Buff.getRequiredTableId() );
+		newKeyRelTableCodeVisX.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
 		CFBamBuffRelationByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffRelationByDefSchemaIdxKey)schema.getFactoryRelation().newByDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
@@ -1026,6 +1175,32 @@ public class CFBamRamRelationTable
 		}
 		subdict.put( pkey, Buff );
 
+		subdict = dictByRelCodeVisIdx.get( existingKeyRelCodeVisIdx );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictByRelCodeVisIdx.containsKey( newKeyRelCodeVisIdx ) ) {
+			subdict = dictByRelCodeVisIdx.get( newKeyRelCodeVisIdx );
+		}
+		else {
+			subdict = new HashMap< CFLibDbKeyHash256, CFBamBuffRelation >();
+			dictByRelCodeVisIdx.put( newKeyRelCodeVisIdx, subdict );
+		}
+		subdict.put( pkey, Buff );
+
+		subdict = dictByRelTableCodeVisX.get( existingKeyRelTableCodeVisX );
+		if( subdict != null ) {
+			subdict.remove( pkey );
+		}
+		if( dictByRelTableCodeVisX.containsKey( newKeyRelTableCodeVisX ) ) {
+			subdict = dictByRelTableCodeVisX.get( newKeyRelTableCodeVisX );
+		}
+		else {
+			subdict = new HashMap< CFLibDbKeyHash256, CFBamBuffRelation >();
+			dictByRelTableCodeVisX.put( newKeyRelTableCodeVisX, subdict );
+		}
+		subdict.put( pkey, Buff );
+
 		subdict = dictByDefSchemaIdx.get( existingKeyDefSchemaIdx );
 		if( subdict != null ) {
 			subdict.remove( pkey );
@@ -1122,6 +1297,13 @@ public class CFBamRamRelationTable
 
 		CFBamBuffRelationByRelTableIdxKey keyRelTableIdx = (CFBamBuffRelationByRelTableIdxKey)schema.getFactoryRelation().newByRelTableIdxKey();
 		keyRelTableIdx.setRequiredTableId( existing.getRequiredTableId() );
+
+		CFBamBuffRelationByRelCodeVisIdxKey keyRelCodeVisIdx = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getFactoryRelation().newByRelCodeVisIdxKey();
+		keyRelCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
+		CFBamBuffRelationByRelTableCodeVisXKey keyRelTableCodeVisX = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getFactoryRelation().newByRelTableCodeVisXKey();
+		keyRelTableCodeVisX.setRequiredTableId( existing.getRequiredTableId() );
+		keyRelTableCodeVisX.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
 		CFBamBuffRelationByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffRelationByDefSchemaIdxKey)schema.getFactoryRelation().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
@@ -1220,6 +1402,12 @@ public class CFBamRamRelationTable
 		subdict = dictByRelTableIdx.get( keyRelTableIdx );
 		subdict.remove( pkey );
 
+		subdict = dictByRelCodeVisIdx.get( keyRelCodeVisIdx );
+		subdict.remove( pkey );
+
+		subdict = dictByRelTableCodeVisX.get( keyRelTableCodeVisX );
+		subdict.remove( pkey );
+
 		subdict = dictByDefSchemaIdx.get( keyDefSchemaIdx );
 		subdict.remove( pkey );
 
@@ -1292,6 +1480,81 @@ public class CFBamRamRelationTable
 	{
 		CFBamBuffRelation cur;
 		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamBuffRelation> matchSet = new LinkedList<CFBamBuffRelation>();
+		Iterator<CFBamBuffRelation> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamBuffRelation> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = (CFBamBuffRelation)(schema.getTableRelation().readDerivedByIdIdx( Authorization,
+				cur.getRequiredId() ));
+			deleteRelation( Authorization, cur );
+		}
+	}
+
+	@Override
+	public void deleteRelationByRelCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamBuffRelationByRelCodeVisIdxKey key = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getFactoryRelation().newByRelCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteRelationByRelCodeVisIdx( Authorization, key );
+	}
+
+	@Override
+	public void deleteRelationByRelCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamRelationByRelCodeVisIdxKey argKey )
+	{
+		CFBamBuffRelation cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamBuffRelation> matchSet = new LinkedList<CFBamBuffRelation>();
+		Iterator<CFBamBuffRelation> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamBuffRelation> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = (CFBamBuffRelation)(schema.getTableRelation().readDerivedByIdIdx( Authorization,
+				cur.getRequiredId() ));
+			deleteRelation( Authorization, cur );
+		}
+	}
+
+	@Override
+	public void deleteRelationByRelTableCodeVisX( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 argTableId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamBuffRelationByRelTableCodeVisXKey key = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getFactoryRelation().newByRelTableCodeVisXKey();
+		key.setRequiredTableId( argTableId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteRelationByRelTableCodeVisX( Authorization, key );
+	}
+
+	@Override
+	public void deleteRelationByRelTableCodeVisX( ICFSecAuthorization Authorization,
+		ICFBamRelationByRelTableCodeVisXKey argKey )
+	{
+		CFBamBuffRelation cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;

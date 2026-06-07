@@ -280,6 +280,54 @@ public class CFBamRamServerObjFuncTable
 	}
 
 	@Override
+	public ICFBamServerObjFunc[] readDerivedByMethCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethCodeVisIdx";
+		ICFBamServerMethod buffList[] = schema.getTableServerMethod().readDerivedByMethCodeVisIdx( Authorization,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			ICFBamServerMethod buff;
+			ArrayList<ICFBamServerObjFunc> filteredList = new ArrayList<ICFBamServerObjFunc>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof ICFBamServerObjFunc ) ) {
+					filteredList.add( (ICFBamServerObjFunc)buff );
+				}
+			}
+			return( filteredList.toArray( new ICFBamServerObjFunc[0] ) );
+		}
+	}
+
+	@Override
+	public ICFBamServerObjFunc[] readDerivedByMethTableVisIdx( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethTableVisIdx";
+		ICFBamServerMethod buffList[] = schema.getTableServerMethod().readDerivedByMethTableVisIdx( Authorization,
+			TableId,
+			CodeVis );
+		if( buffList == null ) {
+			return( null );
+		}
+		else {
+			ICFBamServerMethod buff;
+			ArrayList<ICFBamServerObjFunc> filteredList = new ArrayList<ICFBamServerObjFunc>();
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[idx];
+				if( ( buff != null ) && ( buff instanceof ICFBamServerObjFunc ) ) {
+					filteredList.add( (ICFBamServerObjFunc)buff );
+				}
+			}
+			return( filteredList.toArray( new ICFBamServerObjFunc[0] ) );
+		}
+	}
+
+	@Override
 	public ICFBamServerObjFunc[] readDerivedByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 DefSchemaId )
 	{
@@ -444,6 +492,44 @@ public class CFBamRamServerObjFuncTable
 		ArrayList<ICFBamServerObjFunc> filteredList = new ArrayList<ICFBamServerObjFunc>();
 		ICFBamServerObjFunc[] buffList = readDerivedByMethTableIdx( Authorization,
 			TableId );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && ( buff.getClassCode() == ICFBamServerMethod.CLASS_CODE ) ) {
+				filteredList.add( (ICFBamServerObjFunc)buff );
+			}
+		}
+		return( filteredList.toArray( new ICFBamServerObjFunc[0] ) );
+	}
+
+	@Override
+	public ICFBamServerObjFunc[] readRecByMethCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readRecByMethCodeVisIdx() ";
+		ICFBamServerObjFunc buff;
+		ArrayList<ICFBamServerObjFunc> filteredList = new ArrayList<ICFBamServerObjFunc>();
+		ICFBamServerObjFunc[] buffList = readDerivedByMethCodeVisIdx( Authorization,
+			CodeVis );
+		for( int idx = 0; idx < buffList.length; idx ++ ) {
+			buff = buffList[idx];
+			if( ( buff != null ) && ( buff.getClassCode() == ICFBamServerMethod.CLASS_CODE ) ) {
+				filteredList.add( (ICFBamServerObjFunc)buff );
+			}
+		}
+		return( filteredList.toArray( new ICFBamServerObjFunc[0] ) );
+	}
+
+	@Override
+	public ICFBamServerObjFunc[] readRecByMethTableVisIdx( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "CFBamRamServerMethod.readRecByMethTableVisIdx() ";
+		ICFBamServerObjFunc buff;
+		ArrayList<ICFBamServerObjFunc> filteredList = new ArrayList<ICFBamServerObjFunc>();
+		ICFBamServerObjFunc[] buffList = readDerivedByMethTableVisIdx( Authorization,
+			TableId,
+			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && ( buff.getClassCode() == ICFBamServerMethod.CLASS_CODE ) ) {
@@ -690,6 +776,81 @@ public class CFBamRamServerObjFuncTable
 	{
 		CFBamBuffServerObjFunc cur;
 		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamBuffServerObjFunc> matchSet = new LinkedList<CFBamBuffServerObjFunc>();
+		Iterator<CFBamBuffServerObjFunc> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamBuffServerObjFunc> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = (CFBamBuffServerObjFunc)(schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
+				cur.getRequiredId() ));
+			deleteServerObjFunc( Authorization, cur );
+		}
+	}
+
+	@Override
+	public void deleteServerObjFuncByMethCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamBuffServerMethodByMethCodeVisIdxKey key = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getFactoryServerMethod().newByMethCodeVisIdxKey();
+		key.setRequiredCodeVis( argCodeVis );
+		deleteServerObjFuncByMethCodeVisIdx( Authorization, key );
+	}
+
+	@Override
+	public void deleteServerObjFuncByMethCodeVisIdx( ICFSecAuthorization Authorization,
+		ICFBamServerMethodByMethCodeVisIdxKey argKey )
+	{
+		CFBamBuffServerObjFunc cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
+		if( ! anyNotNull ) {
+			return;
+		}
+		LinkedList<CFBamBuffServerObjFunc> matchSet = new LinkedList<CFBamBuffServerObjFunc>();
+		Iterator<CFBamBuffServerObjFunc> values = dictByPKey.values().iterator();
+		while( values.hasNext() ) {
+			cur = values.next();
+			if( argKey.equals( cur ) ) {
+				matchSet.add( cur );
+			}
+		}
+		Iterator<CFBamBuffServerObjFunc> iterMatch = matchSet.iterator();
+		while( iterMatch.hasNext() ) {
+			cur = iterMatch.next();
+			cur = (CFBamBuffServerObjFunc)(schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
+				cur.getRequiredId() ));
+			deleteServerObjFunc( Authorization, cur );
+		}
+	}
+
+	@Override
+	public void deleteServerObjFuncByMethTableVisIdx( ICFSecAuthorization Authorization,
+		CFLibDbKeyHash256 argTableId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	{
+		CFBamBuffServerMethodByMethTableVisIdxKey key = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getFactoryServerMethod().newByMethTableVisIdxKey();
+		key.setRequiredTableId( argTableId );
+		key.setRequiredCodeVis( argCodeVis );
+		deleteServerObjFuncByMethTableVisIdx( Authorization, key );
+	}
+
+	@Override
+	public void deleteServerObjFuncByMethTableVisIdx( ICFSecAuthorization Authorization,
+		ICFBamServerMethodByMethTableVisIdxKey argKey )
+	{
+		CFBamBuffServerObjFunc cur;
+		boolean anyNotNull = false;
+		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
