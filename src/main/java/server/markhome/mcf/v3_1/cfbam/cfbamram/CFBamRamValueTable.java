@@ -128,326 +128,221 @@ public class CFBamRamValueTable
 		}
 		else {
 			int classCode = rec.getClassCode();
-			if (classCode == ICFBamValue.CLASS_CODE) {
-				return( ((CFBamBuffValueDefaultFactory)(schema.getFactoryValue())).ensureRec((ICFBamValue)rec) );
-			}
-			else if (classCode == ICFBamAtom.CLASS_CODE) {
-				return( ((CFBamBuffAtomDefaultFactory)(schema.getFactoryAtom())).ensureRec((ICFBamAtom)rec) );
-			}
-			else if (classCode == ICFBamBlobDef.CLASS_CODE) {
-				return( ((CFBamBuffBlobDefDefaultFactory)(schema.getFactoryBlobDef())).ensureRec((ICFBamBlobDef)rec) );
-			}
-			else if (classCode == ICFBamBlobType.CLASS_CODE) {
-				return( ((CFBamBuffBlobTypeDefaultFactory)(schema.getFactoryBlobType())).ensureRec((ICFBamBlobType)rec) );
-			}
-			else if (classCode == ICFBamBlobCol.CLASS_CODE) {
-				return( ((CFBamBuffBlobColDefaultFactory)(schema.getFactoryBlobCol())).ensureRec((ICFBamBlobCol)rec) );
-			}
-			else if (classCode == ICFBamBoolDef.CLASS_CODE) {
-				return( ((CFBamBuffBoolDefDefaultFactory)(schema.getFactoryBoolDef())).ensureRec((ICFBamBoolDef)rec) );
-			}
-			else if (classCode == ICFBamBoolType.CLASS_CODE) {
-				return( ((CFBamBuffBoolTypeDefaultFactory)(schema.getFactoryBoolType())).ensureRec((ICFBamBoolType)rec) );
-			}
-			else if (classCode == ICFBamBoolCol.CLASS_CODE) {
-				return( ((CFBamBuffBoolColDefaultFactory)(schema.getFactoryBoolCol())).ensureRec((ICFBamBoolCol)rec) );
-			}
-			else if (classCode == ICFBamDateDef.CLASS_CODE) {
-				return( ((CFBamBuffDateDefDefaultFactory)(schema.getFactoryDateDef())).ensureRec((ICFBamDateDef)rec) );
-			}
-			else if (classCode == ICFBamDateType.CLASS_CODE) {
-				return( ((CFBamBuffDateTypeDefaultFactory)(schema.getFactoryDateType())).ensureRec((ICFBamDateType)rec) );
-			}
-			else if (classCode == ICFBamDateCol.CLASS_CODE) {
-				return( ((CFBamBuffDateColDefaultFactory)(schema.getFactoryDateCol())).ensureRec((ICFBamDateCol)rec) );
-			}
-			else if (classCode == ICFBamDoubleDef.CLASS_CODE) {
-				return( ((CFBamBuffDoubleDefDefaultFactory)(schema.getFactoryDoubleDef())).ensureRec((ICFBamDoubleDef)rec) );
-			}
-			else if (classCode == ICFBamDoubleType.CLASS_CODE) {
-				return( ((CFBamBuffDoubleTypeDefaultFactory)(schema.getFactoryDoubleType())).ensureRec((ICFBamDoubleType)rec) );
-			}
-			else if (classCode == ICFBamDoubleCol.CLASS_CODE) {
-				return( ((CFBamBuffDoubleColDefaultFactory)(schema.getFactoryDoubleCol())).ensureRec((ICFBamDoubleCol)rec) );
-			}
-			else if (classCode == ICFBamFloatDef.CLASS_CODE) {
-				return( ((CFBamBuffFloatDefDefaultFactory)(schema.getFactoryFloatDef())).ensureRec((ICFBamFloatDef)rec) );
-			}
-			else if (classCode == ICFBamFloatType.CLASS_CODE) {
-				return( ((CFBamBuffFloatTypeDefaultFactory)(schema.getFactoryFloatType())).ensureRec((ICFBamFloatType)rec) );
-			}
-			else if (classCode == ICFBamFloatCol.CLASS_CODE) {
-				return( ((CFBamBuffFloatColDefaultFactory)(schema.getFactoryFloatCol())).ensureRec((ICFBamFloatCol)rec) );
-			}
-			else if (classCode == ICFBamInt16Def.CLASS_CODE) {
-				return( ((CFBamBuffInt16DefDefaultFactory)(schema.getFactoryInt16Def())).ensureRec((ICFBamInt16Def)rec) );
-			}
-			else if (classCode == ICFBamInt16Type.CLASS_CODE) {
-				return( ((CFBamBuffInt16TypeDefaultFactory)(schema.getFactoryInt16Type())).ensureRec((ICFBamInt16Type)rec) );
-			}
-			else if (classCode == ICFBamId16Gen.CLASS_CODE) {
-				return( ((CFBamBuffId16GenDefaultFactory)(schema.getFactoryId16Gen())).ensureRec((ICFBamId16Gen)rec) );
-			}
-			else if (classCode == ICFBamEnumDef.CLASS_CODE) {
-				return( ((CFBamBuffEnumDefDefaultFactory)(schema.getFactoryEnumDef())).ensureRec((ICFBamEnumDef)rec) );
-			}
-			else if (classCode == ICFBamEnumType.CLASS_CODE) {
-				return( ((CFBamBuffEnumTypeDefaultFactory)(schema.getFactoryEnumType())).ensureRec((ICFBamEnumType)rec) );
-			}
-			else if (classCode == ICFBamInt16Col.CLASS_CODE) {
-				return( ((CFBamBuffInt16ColDefaultFactory)(schema.getFactoryInt16Col())).ensureRec((ICFBamInt16Col)rec) );
-			}
-			else if (classCode == ICFBamInt32Def.CLASS_CODE) {
-				return( ((CFBamBuffInt32DefDefaultFactory)(schema.getFactoryInt32Def())).ensureRec((ICFBamInt32Def)rec) );
-			}
-			else if (classCode == ICFBamInt32Type.CLASS_CODE) {
-				return( ((CFBamBuffInt32TypeDefaultFactory)(schema.getFactoryInt32Type())).ensureRec((ICFBamInt32Type)rec) );
-			}
-			else if (classCode == ICFBamId32Gen.CLASS_CODE) {
-				return( ((CFBamBuffId32GenDefaultFactory)(schema.getFactoryId32Gen())).ensureRec((ICFBamId32Gen)rec) );
-			}
-			else if (classCode == ICFBamInt32Col.CLASS_CODE) {
-				return( ((CFBamBuffInt32ColDefaultFactory)(schema.getFactoryInt32Col())).ensureRec((ICFBamInt32Col)rec) );
-			}
-			else if (classCode == ICFBamInt64Def.CLASS_CODE) {
-				return( ((CFBamBuffInt64DefDefaultFactory)(schema.getFactoryInt64Def())).ensureRec((ICFBamInt64Def)rec) );
-			}
-			else if (classCode == ICFBamInt64Type.CLASS_CODE) {
-				return( ((CFBamBuffInt64TypeDefaultFactory)(schema.getFactoryInt64Type())).ensureRec((ICFBamInt64Type)rec) );
-			}
-			else if (classCode == ICFBamId64Gen.CLASS_CODE) {
-				return( ((CFBamBuffId64GenDefaultFactory)(schema.getFactoryId64Gen())).ensureRec((ICFBamId64Gen)rec) );
-			}
-			else if (classCode == ICFBamInt64Col.CLASS_CODE) {
-				return( ((CFBamBuffInt64ColDefaultFactory)(schema.getFactoryInt64Col())).ensureRec((ICFBamInt64Col)rec) );
-			}
-			else if (classCode == ICFBamNmTokenDef.CLASS_CODE) {
-				return( ((CFBamBuffNmTokenDefDefaultFactory)(schema.getFactoryNmTokenDef())).ensureRec((ICFBamNmTokenDef)rec) );
-			}
-			else if (classCode == ICFBamNmTokenType.CLASS_CODE) {
-				return( ((CFBamBuffNmTokenTypeDefaultFactory)(schema.getFactoryNmTokenType())).ensureRec((ICFBamNmTokenType)rec) );
-			}
-			else if (classCode == ICFBamNmTokenCol.CLASS_CODE) {
-				return( ((CFBamBuffNmTokenColDefaultFactory)(schema.getFactoryNmTokenCol())).ensureRec((ICFBamNmTokenCol)rec) );
-			}
-			else if (classCode == ICFBamNmTokensDef.CLASS_CODE) {
-				return( ((CFBamBuffNmTokensDefDefaultFactory)(schema.getFactoryNmTokensDef())).ensureRec((ICFBamNmTokensDef)rec) );
-			}
-			else if (classCode == ICFBamNmTokensType.CLASS_CODE) {
-				return( ((CFBamBuffNmTokensTypeDefaultFactory)(schema.getFactoryNmTokensType())).ensureRec((ICFBamNmTokensType)rec) );
-			}
-			else if (classCode == ICFBamNmTokensCol.CLASS_CODE) {
-				return( ((CFBamBuffNmTokensColDefaultFactory)(schema.getFactoryNmTokensCol())).ensureRec((ICFBamNmTokensCol)rec) );
-			}
-			else if (classCode == ICFBamNumberDef.CLASS_CODE) {
-				return( ((CFBamBuffNumberDefDefaultFactory)(schema.getFactoryNumberDef())).ensureRec((ICFBamNumberDef)rec) );
-			}
-			else if (classCode == ICFBamNumberType.CLASS_CODE) {
-				return( ((CFBamBuffNumberTypeDefaultFactory)(schema.getFactoryNumberType())).ensureRec((ICFBamNumberType)rec) );
-			}
-			else if (classCode == ICFBamNumberCol.CLASS_CODE) {
-				return( ((CFBamBuffNumberColDefaultFactory)(schema.getFactoryNumberCol())).ensureRec((ICFBamNumberCol)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash128Def.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash128DefDefaultFactory)(schema.getFactoryDbKeyHash128Def())).ensureRec((ICFBamDbKeyHash128Def)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash128Col.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash128ColDefaultFactory)(schema.getFactoryDbKeyHash128Col())).ensureRec((ICFBamDbKeyHash128Col)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash128Type.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash128TypeDefaultFactory)(schema.getFactoryDbKeyHash128Type())).ensureRec((ICFBamDbKeyHash128Type)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash128Gen.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash128GenDefaultFactory)(schema.getFactoryDbKeyHash128Gen())).ensureRec((ICFBamDbKeyHash128Gen)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash160Def.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash160DefDefaultFactory)(schema.getFactoryDbKeyHash160Def())).ensureRec((ICFBamDbKeyHash160Def)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash160Col.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash160ColDefaultFactory)(schema.getFactoryDbKeyHash160Col())).ensureRec((ICFBamDbKeyHash160Col)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash160Type.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash160TypeDefaultFactory)(schema.getFactoryDbKeyHash160Type())).ensureRec((ICFBamDbKeyHash160Type)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash160Gen.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash160GenDefaultFactory)(schema.getFactoryDbKeyHash160Gen())).ensureRec((ICFBamDbKeyHash160Gen)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash224Def.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash224DefDefaultFactory)(schema.getFactoryDbKeyHash224Def())).ensureRec((ICFBamDbKeyHash224Def)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash224Col.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash224ColDefaultFactory)(schema.getFactoryDbKeyHash224Col())).ensureRec((ICFBamDbKeyHash224Col)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash224Type.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash224TypeDefaultFactory)(schema.getFactoryDbKeyHash224Type())).ensureRec((ICFBamDbKeyHash224Type)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash224Gen.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash224GenDefaultFactory)(schema.getFactoryDbKeyHash224Gen())).ensureRec((ICFBamDbKeyHash224Gen)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash256Def.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash256DefDefaultFactory)(schema.getFactoryDbKeyHash256Def())).ensureRec((ICFBamDbKeyHash256Def)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash256Col.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash256ColDefaultFactory)(schema.getFactoryDbKeyHash256Col())).ensureRec((ICFBamDbKeyHash256Col)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash256Type.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash256TypeDefaultFactory)(schema.getFactoryDbKeyHash256Type())).ensureRec((ICFBamDbKeyHash256Type)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash256Gen.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash256GenDefaultFactory)(schema.getFactoryDbKeyHash256Gen())).ensureRec((ICFBamDbKeyHash256Gen)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash384Def.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash384DefDefaultFactory)(schema.getFactoryDbKeyHash384Def())).ensureRec((ICFBamDbKeyHash384Def)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash384Col.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash384ColDefaultFactory)(schema.getFactoryDbKeyHash384Col())).ensureRec((ICFBamDbKeyHash384Col)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash384Type.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash384TypeDefaultFactory)(schema.getFactoryDbKeyHash384Type())).ensureRec((ICFBamDbKeyHash384Type)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash384Gen.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash384GenDefaultFactory)(schema.getFactoryDbKeyHash384Gen())).ensureRec((ICFBamDbKeyHash384Gen)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash512Def.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash512DefDefaultFactory)(schema.getFactoryDbKeyHash512Def())).ensureRec((ICFBamDbKeyHash512Def)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash512Col.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash512ColDefaultFactory)(schema.getFactoryDbKeyHash512Col())).ensureRec((ICFBamDbKeyHash512Col)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash512Type.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash512TypeDefaultFactory)(schema.getFactoryDbKeyHash512Type())).ensureRec((ICFBamDbKeyHash512Type)rec) );
-			}
-			else if (classCode == ICFBamDbKeyHash512Gen.CLASS_CODE) {
-				return( ((CFBamBuffDbKeyHash512GenDefaultFactory)(schema.getFactoryDbKeyHash512Gen())).ensureRec((ICFBamDbKeyHash512Gen)rec) );
-			}
-			else if (classCode == ICFBamStringDef.CLASS_CODE) {
-				return( ((CFBamBuffStringDefDefaultFactory)(schema.getFactoryStringDef())).ensureRec((ICFBamStringDef)rec) );
-			}
-			else if (classCode == ICFBamStringType.CLASS_CODE) {
-				return( ((CFBamBuffStringTypeDefaultFactory)(schema.getFactoryStringType())).ensureRec((ICFBamStringType)rec) );
-			}
-			else if (classCode == ICFBamStringCol.CLASS_CODE) {
-				return( ((CFBamBuffStringColDefaultFactory)(schema.getFactoryStringCol())).ensureRec((ICFBamStringCol)rec) );
-			}
-			else if (classCode == ICFBamTZDateDef.CLASS_CODE) {
-				return( ((CFBamBuffTZDateDefDefaultFactory)(schema.getFactoryTZDateDef())).ensureRec((ICFBamTZDateDef)rec) );
-			}
-			else if (classCode == ICFBamTZDateType.CLASS_CODE) {
-				return( ((CFBamBuffTZDateTypeDefaultFactory)(schema.getFactoryTZDateType())).ensureRec((ICFBamTZDateType)rec) );
-			}
-			else if (classCode == ICFBamTZDateCol.CLASS_CODE) {
-				return( ((CFBamBuffTZDateColDefaultFactory)(schema.getFactoryTZDateCol())).ensureRec((ICFBamTZDateCol)rec) );
-			}
-			else if (classCode == ICFBamTZTimeDef.CLASS_CODE) {
-				return( ((CFBamBuffTZTimeDefDefaultFactory)(schema.getFactoryTZTimeDef())).ensureRec((ICFBamTZTimeDef)rec) );
-			}
-			else if (classCode == ICFBamTZTimeType.CLASS_CODE) {
-				return( ((CFBamBuffTZTimeTypeDefaultFactory)(schema.getFactoryTZTimeType())).ensureRec((ICFBamTZTimeType)rec) );
-			}
-			else if (classCode == ICFBamTZTimeCol.CLASS_CODE) {
-				return( ((CFBamBuffTZTimeColDefaultFactory)(schema.getFactoryTZTimeCol())).ensureRec((ICFBamTZTimeCol)rec) );
-			}
-			else if (classCode == ICFBamTZTimestampDef.CLASS_CODE) {
-				return( ((CFBamBuffTZTimestampDefDefaultFactory)(schema.getFactoryTZTimestampDef())).ensureRec((ICFBamTZTimestampDef)rec) );
-			}
-			else if (classCode == ICFBamTZTimestampType.CLASS_CODE) {
-				return( ((CFBamBuffTZTimestampTypeDefaultFactory)(schema.getFactoryTZTimestampType())).ensureRec((ICFBamTZTimestampType)rec) );
-			}
-			else if (classCode == ICFBamTZTimestampCol.CLASS_CODE) {
-				return( ((CFBamBuffTZTimestampColDefaultFactory)(schema.getFactoryTZTimestampCol())).ensureRec((ICFBamTZTimestampCol)rec) );
-			}
-			else if (classCode == ICFBamTextDef.CLASS_CODE) {
-				return( ((CFBamBuffTextDefDefaultFactory)(schema.getFactoryTextDef())).ensureRec((ICFBamTextDef)rec) );
-			}
-			else if (classCode == ICFBamTextType.CLASS_CODE) {
-				return( ((CFBamBuffTextTypeDefaultFactory)(schema.getFactoryTextType())).ensureRec((ICFBamTextType)rec) );
-			}
-			else if (classCode == ICFBamTextCol.CLASS_CODE) {
-				return( ((CFBamBuffTextColDefaultFactory)(schema.getFactoryTextCol())).ensureRec((ICFBamTextCol)rec) );
-			}
-			else if (classCode == ICFBamTimeDef.CLASS_CODE) {
-				return( ((CFBamBuffTimeDefDefaultFactory)(schema.getFactoryTimeDef())).ensureRec((ICFBamTimeDef)rec) );
-			}
-			else if (classCode == ICFBamTimeType.CLASS_CODE) {
-				return( ((CFBamBuffTimeTypeDefaultFactory)(schema.getFactoryTimeType())).ensureRec((ICFBamTimeType)rec) );
-			}
-			else if (classCode == ICFBamTimeCol.CLASS_CODE) {
-				return( ((CFBamBuffTimeColDefaultFactory)(schema.getFactoryTimeCol())).ensureRec((ICFBamTimeCol)rec) );
-			}
-			else if (classCode == ICFBamTimestampDef.CLASS_CODE) {
-				return( ((CFBamBuffTimestampDefDefaultFactory)(schema.getFactoryTimestampDef())).ensureRec((ICFBamTimestampDef)rec) );
-			}
-			else if (classCode == ICFBamTimestampType.CLASS_CODE) {
-				return( ((CFBamBuffTimestampTypeDefaultFactory)(schema.getFactoryTimestampType())).ensureRec((ICFBamTimestampType)rec) );
-			}
-			else if (classCode == ICFBamTimestampCol.CLASS_CODE) {
-				return( ((CFBamBuffTimestampColDefaultFactory)(schema.getFactoryTimestampCol())).ensureRec((ICFBamTimestampCol)rec) );
-			}
-			else if (classCode == ICFBamTokenDef.CLASS_CODE) {
-				return( ((CFBamBuffTokenDefDefaultFactory)(schema.getFactoryTokenDef())).ensureRec((ICFBamTokenDef)rec) );
-			}
-			else if (classCode == ICFBamTokenType.CLASS_CODE) {
-				return( ((CFBamBuffTokenTypeDefaultFactory)(schema.getFactoryTokenType())).ensureRec((ICFBamTokenType)rec) );
-			}
-			else if (classCode == ICFBamTokenCol.CLASS_CODE) {
-				return( ((CFBamBuffTokenColDefaultFactory)(schema.getFactoryTokenCol())).ensureRec((ICFBamTokenCol)rec) );
-			}
-			else if (classCode == ICFBamUInt16Def.CLASS_CODE) {
-				return( ((CFBamBuffUInt16DefDefaultFactory)(schema.getFactoryUInt16Def())).ensureRec((ICFBamUInt16Def)rec) );
-			}
-			else if (classCode == ICFBamUInt16Type.CLASS_CODE) {
-				return( ((CFBamBuffUInt16TypeDefaultFactory)(schema.getFactoryUInt16Type())).ensureRec((ICFBamUInt16Type)rec) );
-			}
-			else if (classCode == ICFBamUInt16Col.CLASS_CODE) {
-				return( ((CFBamBuffUInt16ColDefaultFactory)(schema.getFactoryUInt16Col())).ensureRec((ICFBamUInt16Col)rec) );
-			}
-			else if (classCode == ICFBamUInt32Def.CLASS_CODE) {
-				return( ((CFBamBuffUInt32DefDefaultFactory)(schema.getFactoryUInt32Def())).ensureRec((ICFBamUInt32Def)rec) );
-			}
-			else if (classCode == ICFBamUInt32Type.CLASS_CODE) {
-				return( ((CFBamBuffUInt32TypeDefaultFactory)(schema.getFactoryUInt32Type())).ensureRec((ICFBamUInt32Type)rec) );
-			}
-			else if (classCode == ICFBamUInt32Col.CLASS_CODE) {
-				return( ((CFBamBuffUInt32ColDefaultFactory)(schema.getFactoryUInt32Col())).ensureRec((ICFBamUInt32Col)rec) );
-			}
-			else if (classCode == ICFBamUInt64Def.CLASS_CODE) {
-				return( ((CFBamBuffUInt64DefDefaultFactory)(schema.getFactoryUInt64Def())).ensureRec((ICFBamUInt64Def)rec) );
-			}
-			else if (classCode == ICFBamUInt64Type.CLASS_CODE) {
-				return( ((CFBamBuffUInt64TypeDefaultFactory)(schema.getFactoryUInt64Type())).ensureRec((ICFBamUInt64Type)rec) );
-			}
-			else if (classCode == ICFBamUInt64Col.CLASS_CODE) {
-				return( ((CFBamBuffUInt64ColDefaultFactory)(schema.getFactoryUInt64Col())).ensureRec((ICFBamUInt64Col)rec) );
-			}
-			else if (classCode == ICFBamUuidDef.CLASS_CODE) {
-				return( ((CFBamBuffUuidDefDefaultFactory)(schema.getFactoryUuidDef())).ensureRec((ICFBamUuidDef)rec) );
-			}
-			else if (classCode == ICFBamUuidType.CLASS_CODE) {
-				return( ((CFBamBuffUuidTypeDefaultFactory)(schema.getFactoryUuidType())).ensureRec((ICFBamUuidType)rec) );
-			}
-			else if (classCode == ICFBamUuidGen.CLASS_CODE) {
-				return( ((CFBamBuffUuidGenDefaultFactory)(schema.getFactoryUuidGen())).ensureRec((ICFBamUuidGen)rec) );
-			}
-			else if (classCode == ICFBamUuidCol.CLASS_CODE) {
-				return( ((CFBamBuffUuidColDefaultFactory)(schema.getFactoryUuidCol())).ensureRec((ICFBamUuidCol)rec) );
-			}
-			else if (classCode == ICFBamUuid6Def.CLASS_CODE) {
-				return( ((CFBamBuffUuid6DefDefaultFactory)(schema.getFactoryUuid6Def())).ensureRec((ICFBamUuid6Def)rec) );
-			}
-			else if (classCode == ICFBamUuid6Type.CLASS_CODE) {
-				return( ((CFBamBuffUuid6TypeDefaultFactory)(schema.getFactoryUuid6Type())).ensureRec((ICFBamUuid6Type)rec) );
-			}
-			else if (classCode == ICFBamUuid6Gen.CLASS_CODE) {
-				return( ((CFBamBuffUuid6GenDefaultFactory)(schema.getFactoryUuid6Gen())).ensureRec((ICFBamUuid6Gen)rec) );
-			}
-			else if (classCode == ICFBamUuid6Col.CLASS_CODE) {
-				return( ((CFBamBuffUuid6ColDefaultFactory)(schema.getFactoryUuid6Col())).ensureRec((ICFBamUuid6Col)rec) );
-			}
-			else if (classCode == ICFBamTableCol.CLASS_CODE) {
-				return( ((CFBamBuffTableColDefaultFactory)(schema.getFactoryTableCol())).ensureRec((ICFBamTableCol)rec) );
-			}
-			else {
-				throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
+			switch (classCode) {
+				case ICFBamValue.CLASS_CODE:
+					return(((CFBamBuffValueFactoryService)(schema.getCFBamFactory().getFactoryValue())).ensureRec((ICFBamValue)rec) );
+				case ICFBamAtom.CLASS_CODE:
+					return(((CFBamBuffAtomFactoryService)(schema.getCFBamFactory().getFactoryAtom())).ensureRec((ICFBamAtom)rec) );
+				case ICFBamBlobDef.CLASS_CODE:
+					return(((CFBamBuffBlobDefFactoryService)(schema.getCFBamFactory().getFactoryBlobDef())).ensureRec((ICFBamBlobDef)rec) );
+				case ICFBamBlobType.CLASS_CODE:
+					return(((CFBamBuffBlobTypeFactoryService)(schema.getCFBamFactory().getFactoryBlobType())).ensureRec((ICFBamBlobType)rec) );
+				case ICFBamBlobCol.CLASS_CODE:
+					return(((CFBamBuffBlobColFactoryService)(schema.getCFBamFactory().getFactoryBlobCol())).ensureRec((ICFBamBlobCol)rec) );
+				case ICFBamBoolDef.CLASS_CODE:
+					return(((CFBamBuffBoolDefFactoryService)(schema.getCFBamFactory().getFactoryBoolDef())).ensureRec((ICFBamBoolDef)rec) );
+				case ICFBamBoolType.CLASS_CODE:
+					return(((CFBamBuffBoolTypeFactoryService)(schema.getCFBamFactory().getFactoryBoolType())).ensureRec((ICFBamBoolType)rec) );
+				case ICFBamBoolCol.CLASS_CODE:
+					return(((CFBamBuffBoolColFactoryService)(schema.getCFBamFactory().getFactoryBoolCol())).ensureRec((ICFBamBoolCol)rec) );
+				case ICFBamDateDef.CLASS_CODE:
+					return(((CFBamBuffDateDefFactoryService)(schema.getCFBamFactory().getFactoryDateDef())).ensureRec((ICFBamDateDef)rec) );
+				case ICFBamDateType.CLASS_CODE:
+					return(((CFBamBuffDateTypeFactoryService)(schema.getCFBamFactory().getFactoryDateType())).ensureRec((ICFBamDateType)rec) );
+				case ICFBamDateCol.CLASS_CODE:
+					return(((CFBamBuffDateColFactoryService)(schema.getCFBamFactory().getFactoryDateCol())).ensureRec((ICFBamDateCol)rec) );
+				case ICFBamDoubleDef.CLASS_CODE:
+					return(((CFBamBuffDoubleDefFactoryService)(schema.getCFBamFactory().getFactoryDoubleDef())).ensureRec((ICFBamDoubleDef)rec) );
+				case ICFBamDoubleType.CLASS_CODE:
+					return(((CFBamBuffDoubleTypeFactoryService)(schema.getCFBamFactory().getFactoryDoubleType())).ensureRec((ICFBamDoubleType)rec) );
+				case ICFBamDoubleCol.CLASS_CODE:
+					return(((CFBamBuffDoubleColFactoryService)(schema.getCFBamFactory().getFactoryDoubleCol())).ensureRec((ICFBamDoubleCol)rec) );
+				case ICFBamFloatDef.CLASS_CODE:
+					return(((CFBamBuffFloatDefFactoryService)(schema.getCFBamFactory().getFactoryFloatDef())).ensureRec((ICFBamFloatDef)rec) );
+				case ICFBamFloatType.CLASS_CODE:
+					return(((CFBamBuffFloatTypeFactoryService)(schema.getCFBamFactory().getFactoryFloatType())).ensureRec((ICFBamFloatType)rec) );
+				case ICFBamFloatCol.CLASS_CODE:
+					return(((CFBamBuffFloatColFactoryService)(schema.getCFBamFactory().getFactoryFloatCol())).ensureRec((ICFBamFloatCol)rec) );
+				case ICFBamInt16Def.CLASS_CODE:
+					return(((CFBamBuffInt16DefFactoryService)(schema.getCFBamFactory().getFactoryInt16Def())).ensureRec((ICFBamInt16Def)rec) );
+				case ICFBamInt16Type.CLASS_CODE:
+					return(((CFBamBuffInt16TypeFactoryService)(schema.getCFBamFactory().getFactoryInt16Type())).ensureRec((ICFBamInt16Type)rec) );
+				case ICFBamId16Gen.CLASS_CODE:
+					return(((CFBamBuffId16GenFactoryService)(schema.getCFBamFactory().getFactoryId16Gen())).ensureRec((ICFBamId16Gen)rec) );
+				case ICFBamEnumDef.CLASS_CODE:
+					return(((CFBamBuffEnumDefFactoryService)(schema.getCFBamFactory().getFactoryEnumDef())).ensureRec((ICFBamEnumDef)rec) );
+				case ICFBamEnumType.CLASS_CODE:
+					return(((CFBamBuffEnumTypeFactoryService)(schema.getCFBamFactory().getFactoryEnumType())).ensureRec((ICFBamEnumType)rec) );
+				case ICFBamInt16Col.CLASS_CODE:
+					return(((CFBamBuffInt16ColFactoryService)(schema.getCFBamFactory().getFactoryInt16Col())).ensureRec((ICFBamInt16Col)rec) );
+				case ICFBamInt32Def.CLASS_CODE:
+					return(((CFBamBuffInt32DefFactoryService)(schema.getCFBamFactory().getFactoryInt32Def())).ensureRec((ICFBamInt32Def)rec) );
+				case ICFBamInt32Type.CLASS_CODE:
+					return(((CFBamBuffInt32TypeFactoryService)(schema.getCFBamFactory().getFactoryInt32Type())).ensureRec((ICFBamInt32Type)rec) );
+				case ICFBamId32Gen.CLASS_CODE:
+					return(((CFBamBuffId32GenFactoryService)(schema.getCFBamFactory().getFactoryId32Gen())).ensureRec((ICFBamId32Gen)rec) );
+				case ICFBamInt32Col.CLASS_CODE:
+					return(((CFBamBuffInt32ColFactoryService)(schema.getCFBamFactory().getFactoryInt32Col())).ensureRec((ICFBamInt32Col)rec) );
+				case ICFBamInt64Def.CLASS_CODE:
+					return(((CFBamBuffInt64DefFactoryService)(schema.getCFBamFactory().getFactoryInt64Def())).ensureRec((ICFBamInt64Def)rec) );
+				case ICFBamInt64Type.CLASS_CODE:
+					return(((CFBamBuffInt64TypeFactoryService)(schema.getCFBamFactory().getFactoryInt64Type())).ensureRec((ICFBamInt64Type)rec) );
+				case ICFBamId64Gen.CLASS_CODE:
+					return(((CFBamBuffId64GenFactoryService)(schema.getCFBamFactory().getFactoryId64Gen())).ensureRec((ICFBamId64Gen)rec) );
+				case ICFBamInt64Col.CLASS_CODE:
+					return(((CFBamBuffInt64ColFactoryService)(schema.getCFBamFactory().getFactoryInt64Col())).ensureRec((ICFBamInt64Col)rec) );
+				case ICFBamNmTokenDef.CLASS_CODE:
+					return(((CFBamBuffNmTokenDefFactoryService)(schema.getCFBamFactory().getFactoryNmTokenDef())).ensureRec((ICFBamNmTokenDef)rec) );
+				case ICFBamNmTokenType.CLASS_CODE:
+					return(((CFBamBuffNmTokenTypeFactoryService)(schema.getCFBamFactory().getFactoryNmTokenType())).ensureRec((ICFBamNmTokenType)rec) );
+				case ICFBamNmTokenCol.CLASS_CODE:
+					return(((CFBamBuffNmTokenColFactoryService)(schema.getCFBamFactory().getFactoryNmTokenCol())).ensureRec((ICFBamNmTokenCol)rec) );
+				case ICFBamNmTokensDef.CLASS_CODE:
+					return(((CFBamBuffNmTokensDefFactoryService)(schema.getCFBamFactory().getFactoryNmTokensDef())).ensureRec((ICFBamNmTokensDef)rec) );
+				case ICFBamNmTokensType.CLASS_CODE:
+					return(((CFBamBuffNmTokensTypeFactoryService)(schema.getCFBamFactory().getFactoryNmTokensType())).ensureRec((ICFBamNmTokensType)rec) );
+				case ICFBamNmTokensCol.CLASS_CODE:
+					return(((CFBamBuffNmTokensColFactoryService)(schema.getCFBamFactory().getFactoryNmTokensCol())).ensureRec((ICFBamNmTokensCol)rec) );
+				case ICFBamNumberDef.CLASS_CODE:
+					return(((CFBamBuffNumberDefFactoryService)(schema.getCFBamFactory().getFactoryNumberDef())).ensureRec((ICFBamNumberDef)rec) );
+				case ICFBamNumberType.CLASS_CODE:
+					return(((CFBamBuffNumberTypeFactoryService)(schema.getCFBamFactory().getFactoryNumberType())).ensureRec((ICFBamNumberType)rec) );
+				case ICFBamNumberCol.CLASS_CODE:
+					return(((CFBamBuffNumberColFactoryService)(schema.getCFBamFactory().getFactoryNumberCol())).ensureRec((ICFBamNumberCol)rec) );
+				case ICFBamDbKeyHash128Def.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash128DefFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash128Def())).ensureRec((ICFBamDbKeyHash128Def)rec) );
+				case ICFBamDbKeyHash128Col.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash128ColFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash128Col())).ensureRec((ICFBamDbKeyHash128Col)rec) );
+				case ICFBamDbKeyHash128Type.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash128TypeFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash128Type())).ensureRec((ICFBamDbKeyHash128Type)rec) );
+				case ICFBamDbKeyHash128Gen.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash128GenFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash128Gen())).ensureRec((ICFBamDbKeyHash128Gen)rec) );
+				case ICFBamDbKeyHash160Def.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash160DefFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash160Def())).ensureRec((ICFBamDbKeyHash160Def)rec) );
+				case ICFBamDbKeyHash160Col.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash160ColFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash160Col())).ensureRec((ICFBamDbKeyHash160Col)rec) );
+				case ICFBamDbKeyHash160Type.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash160TypeFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash160Type())).ensureRec((ICFBamDbKeyHash160Type)rec) );
+				case ICFBamDbKeyHash160Gen.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash160GenFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash160Gen())).ensureRec((ICFBamDbKeyHash160Gen)rec) );
+				case ICFBamDbKeyHash224Def.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash224DefFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash224Def())).ensureRec((ICFBamDbKeyHash224Def)rec) );
+				case ICFBamDbKeyHash224Col.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash224ColFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash224Col())).ensureRec((ICFBamDbKeyHash224Col)rec) );
+				case ICFBamDbKeyHash224Type.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash224TypeFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash224Type())).ensureRec((ICFBamDbKeyHash224Type)rec) );
+				case ICFBamDbKeyHash224Gen.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash224GenFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash224Gen())).ensureRec((ICFBamDbKeyHash224Gen)rec) );
+				case ICFBamDbKeyHash256Def.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash256DefFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash256Def())).ensureRec((ICFBamDbKeyHash256Def)rec) );
+				case ICFBamDbKeyHash256Col.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash256ColFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash256Col())).ensureRec((ICFBamDbKeyHash256Col)rec) );
+				case ICFBamDbKeyHash256Type.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash256TypeFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash256Type())).ensureRec((ICFBamDbKeyHash256Type)rec) );
+				case ICFBamDbKeyHash256Gen.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash256GenFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash256Gen())).ensureRec((ICFBamDbKeyHash256Gen)rec) );
+				case ICFBamDbKeyHash384Def.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash384DefFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash384Def())).ensureRec((ICFBamDbKeyHash384Def)rec) );
+				case ICFBamDbKeyHash384Col.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash384ColFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash384Col())).ensureRec((ICFBamDbKeyHash384Col)rec) );
+				case ICFBamDbKeyHash384Type.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash384TypeFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash384Type())).ensureRec((ICFBamDbKeyHash384Type)rec) );
+				case ICFBamDbKeyHash384Gen.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash384GenFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash384Gen())).ensureRec((ICFBamDbKeyHash384Gen)rec) );
+				case ICFBamDbKeyHash512Def.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash512DefFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash512Def())).ensureRec((ICFBamDbKeyHash512Def)rec) );
+				case ICFBamDbKeyHash512Col.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash512ColFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash512Col())).ensureRec((ICFBamDbKeyHash512Col)rec) );
+				case ICFBamDbKeyHash512Type.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash512TypeFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash512Type())).ensureRec((ICFBamDbKeyHash512Type)rec) );
+				case ICFBamDbKeyHash512Gen.CLASS_CODE:
+					return(((CFBamBuffDbKeyHash512GenFactoryService)(schema.getCFBamFactory().getFactoryDbKeyHash512Gen())).ensureRec((ICFBamDbKeyHash512Gen)rec) );
+				case ICFBamStringDef.CLASS_CODE:
+					return(((CFBamBuffStringDefFactoryService)(schema.getCFBamFactory().getFactoryStringDef())).ensureRec((ICFBamStringDef)rec) );
+				case ICFBamStringType.CLASS_CODE:
+					return(((CFBamBuffStringTypeFactoryService)(schema.getCFBamFactory().getFactoryStringType())).ensureRec((ICFBamStringType)rec) );
+				case ICFBamStringCol.CLASS_CODE:
+					return(((CFBamBuffStringColFactoryService)(schema.getCFBamFactory().getFactoryStringCol())).ensureRec((ICFBamStringCol)rec) );
+				case ICFBamTZDateDef.CLASS_CODE:
+					return(((CFBamBuffTZDateDefFactoryService)(schema.getCFBamFactory().getFactoryTZDateDef())).ensureRec((ICFBamTZDateDef)rec) );
+				case ICFBamTZDateType.CLASS_CODE:
+					return(((CFBamBuffTZDateTypeFactoryService)(schema.getCFBamFactory().getFactoryTZDateType())).ensureRec((ICFBamTZDateType)rec) );
+				case ICFBamTZDateCol.CLASS_CODE:
+					return(((CFBamBuffTZDateColFactoryService)(schema.getCFBamFactory().getFactoryTZDateCol())).ensureRec((ICFBamTZDateCol)rec) );
+				case ICFBamTZTimeDef.CLASS_CODE:
+					return(((CFBamBuffTZTimeDefFactoryService)(schema.getCFBamFactory().getFactoryTZTimeDef())).ensureRec((ICFBamTZTimeDef)rec) );
+				case ICFBamTZTimeType.CLASS_CODE:
+					return(((CFBamBuffTZTimeTypeFactoryService)(schema.getCFBamFactory().getFactoryTZTimeType())).ensureRec((ICFBamTZTimeType)rec) );
+				case ICFBamTZTimeCol.CLASS_CODE:
+					return(((CFBamBuffTZTimeColFactoryService)(schema.getCFBamFactory().getFactoryTZTimeCol())).ensureRec((ICFBamTZTimeCol)rec) );
+				case ICFBamTZTimestampDef.CLASS_CODE:
+					return(((CFBamBuffTZTimestampDefFactoryService)(schema.getCFBamFactory().getFactoryTZTimestampDef())).ensureRec((ICFBamTZTimestampDef)rec) );
+				case ICFBamTZTimestampType.CLASS_CODE:
+					return(((CFBamBuffTZTimestampTypeFactoryService)(schema.getCFBamFactory().getFactoryTZTimestampType())).ensureRec((ICFBamTZTimestampType)rec) );
+				case ICFBamTZTimestampCol.CLASS_CODE:
+					return(((CFBamBuffTZTimestampColFactoryService)(schema.getCFBamFactory().getFactoryTZTimestampCol())).ensureRec((ICFBamTZTimestampCol)rec) );
+				case ICFBamTextDef.CLASS_CODE:
+					return(((CFBamBuffTextDefFactoryService)(schema.getCFBamFactory().getFactoryTextDef())).ensureRec((ICFBamTextDef)rec) );
+				case ICFBamTextType.CLASS_CODE:
+					return(((CFBamBuffTextTypeFactoryService)(schema.getCFBamFactory().getFactoryTextType())).ensureRec((ICFBamTextType)rec) );
+				case ICFBamTextCol.CLASS_CODE:
+					return(((CFBamBuffTextColFactoryService)(schema.getCFBamFactory().getFactoryTextCol())).ensureRec((ICFBamTextCol)rec) );
+				case ICFBamTimeDef.CLASS_CODE:
+					return(((CFBamBuffTimeDefFactoryService)(schema.getCFBamFactory().getFactoryTimeDef())).ensureRec((ICFBamTimeDef)rec) );
+				case ICFBamTimeType.CLASS_CODE:
+					return(((CFBamBuffTimeTypeFactoryService)(schema.getCFBamFactory().getFactoryTimeType())).ensureRec((ICFBamTimeType)rec) );
+				case ICFBamTimeCol.CLASS_CODE:
+					return(((CFBamBuffTimeColFactoryService)(schema.getCFBamFactory().getFactoryTimeCol())).ensureRec((ICFBamTimeCol)rec) );
+				case ICFBamTimestampDef.CLASS_CODE:
+					return(((CFBamBuffTimestampDefFactoryService)(schema.getCFBamFactory().getFactoryTimestampDef())).ensureRec((ICFBamTimestampDef)rec) );
+				case ICFBamTimestampType.CLASS_CODE:
+					return(((CFBamBuffTimestampTypeFactoryService)(schema.getCFBamFactory().getFactoryTimestampType())).ensureRec((ICFBamTimestampType)rec) );
+				case ICFBamTimestampCol.CLASS_CODE:
+					return(((CFBamBuffTimestampColFactoryService)(schema.getCFBamFactory().getFactoryTimestampCol())).ensureRec((ICFBamTimestampCol)rec) );
+				case ICFBamTokenDef.CLASS_CODE:
+					return(((CFBamBuffTokenDefFactoryService)(schema.getCFBamFactory().getFactoryTokenDef())).ensureRec((ICFBamTokenDef)rec) );
+				case ICFBamTokenType.CLASS_CODE:
+					return(((CFBamBuffTokenTypeFactoryService)(schema.getCFBamFactory().getFactoryTokenType())).ensureRec((ICFBamTokenType)rec) );
+				case ICFBamTokenCol.CLASS_CODE:
+					return(((CFBamBuffTokenColFactoryService)(schema.getCFBamFactory().getFactoryTokenCol())).ensureRec((ICFBamTokenCol)rec) );
+				case ICFBamUInt16Def.CLASS_CODE:
+					return(((CFBamBuffUInt16DefFactoryService)(schema.getCFBamFactory().getFactoryUInt16Def())).ensureRec((ICFBamUInt16Def)rec) );
+				case ICFBamUInt16Type.CLASS_CODE:
+					return(((CFBamBuffUInt16TypeFactoryService)(schema.getCFBamFactory().getFactoryUInt16Type())).ensureRec((ICFBamUInt16Type)rec) );
+				case ICFBamUInt16Col.CLASS_CODE:
+					return(((CFBamBuffUInt16ColFactoryService)(schema.getCFBamFactory().getFactoryUInt16Col())).ensureRec((ICFBamUInt16Col)rec) );
+				case ICFBamUInt32Def.CLASS_CODE:
+					return(((CFBamBuffUInt32DefFactoryService)(schema.getCFBamFactory().getFactoryUInt32Def())).ensureRec((ICFBamUInt32Def)rec) );
+				case ICFBamUInt32Type.CLASS_CODE:
+					return(((CFBamBuffUInt32TypeFactoryService)(schema.getCFBamFactory().getFactoryUInt32Type())).ensureRec((ICFBamUInt32Type)rec) );
+				case ICFBamUInt32Col.CLASS_CODE:
+					return(((CFBamBuffUInt32ColFactoryService)(schema.getCFBamFactory().getFactoryUInt32Col())).ensureRec((ICFBamUInt32Col)rec) );
+				case ICFBamUInt64Def.CLASS_CODE:
+					return(((CFBamBuffUInt64DefFactoryService)(schema.getCFBamFactory().getFactoryUInt64Def())).ensureRec((ICFBamUInt64Def)rec) );
+				case ICFBamUInt64Type.CLASS_CODE:
+					return(((CFBamBuffUInt64TypeFactoryService)(schema.getCFBamFactory().getFactoryUInt64Type())).ensureRec((ICFBamUInt64Type)rec) );
+				case ICFBamUInt64Col.CLASS_CODE:
+					return(((CFBamBuffUInt64ColFactoryService)(schema.getCFBamFactory().getFactoryUInt64Col())).ensureRec((ICFBamUInt64Col)rec) );
+				case ICFBamUuidDef.CLASS_CODE:
+					return(((CFBamBuffUuidDefFactoryService)(schema.getCFBamFactory().getFactoryUuidDef())).ensureRec((ICFBamUuidDef)rec) );
+				case ICFBamUuidType.CLASS_CODE:
+					return(((CFBamBuffUuidTypeFactoryService)(schema.getCFBamFactory().getFactoryUuidType())).ensureRec((ICFBamUuidType)rec) );
+				case ICFBamUuidGen.CLASS_CODE:
+					return(((CFBamBuffUuidGenFactoryService)(schema.getCFBamFactory().getFactoryUuidGen())).ensureRec((ICFBamUuidGen)rec) );
+				case ICFBamUuidCol.CLASS_CODE:
+					return(((CFBamBuffUuidColFactoryService)(schema.getCFBamFactory().getFactoryUuidCol())).ensureRec((ICFBamUuidCol)rec) );
+				case ICFBamUuid6Def.CLASS_CODE:
+					return(((CFBamBuffUuid6DefFactoryService)(schema.getCFBamFactory().getFactoryUuid6Def())).ensureRec((ICFBamUuid6Def)rec) );
+				case ICFBamUuid6Type.CLASS_CODE:
+					return(((CFBamBuffUuid6TypeFactoryService)(schema.getCFBamFactory().getFactoryUuid6Type())).ensureRec((ICFBamUuid6Type)rec) );
+				case ICFBamUuid6Gen.CLASS_CODE:
+					return(((CFBamBuffUuid6GenFactoryService)(schema.getCFBamFactory().getFactoryUuid6Gen())).ensureRec((ICFBamUuid6Gen)rec) );
+				case ICFBamUuid6Col.CLASS_CODE:
+					return(((CFBamBuffUuid6ColFactoryService)(schema.getCFBamFactory().getFactoryUuid6Col())).ensureRec((ICFBamUuid6Col)rec) );
+				case ICFBamTableCol.CLASS_CODE:
+					return(((CFBamBuffTableColFactoryService)(schema.getCFBamFactory().getFactoryTableCol())).ensureRec((ICFBamTableCol)rec) );
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
 			}
 		}
 	}
@@ -462,27 +357,27 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 pkey;
 		pkey = schema.nextValueIdGen();
 		Buff.setRequiredId( pkey );
-		CFBamBuffValueByUNameIdxKey keyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getFactoryValue().newByUNameIdxKey();
+		CFBamBuffValueByUNameIdxKey keyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getCFBamFactory().getFactoryValue().newByUNameIdxKey();
 		keyUNameIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffValueByScopeIdxKey keyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getFactoryValue().newByScopeIdxKey();
+		CFBamBuffValueByScopeIdxKey keyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getCFBamFactory().getFactoryValue().newByScopeIdxKey();
 		keyScopeIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 
-		CFBamBuffValueByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getFactoryValue().newByDefSchemaIdxKey();
+		CFBamBuffValueByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryValue().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffValueByPrevIdxKey keyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getFactoryValue().newByPrevIdxKey();
+		CFBamBuffValueByPrevIdxKey keyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffValueByNextIdxKey keyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getFactoryValue().newByNextIdxKey();
+		CFBamBuffValueByNextIdxKey keyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
-		CFBamBuffValueByContPrevIdxKey keyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getFactoryValue().newByContPrevIdxKey();
+		CFBamBuffValueByContPrevIdxKey keyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByContPrevIdxKey();
 		keyContPrevIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		keyContPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffValueByContNextIdxKey keyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getFactoryValue().newByContNextIdxKey();
+		CFBamBuffValueByContNextIdxKey keyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByContNextIdxKey();
 		keyContNextIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		keyContNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
@@ -594,532 +489,532 @@ public class CFBamRamValueTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamValue.CLASS_CODE) {
-				CFBamBuffValue retbuff = ((CFBamBuffValue)(schema.getFactoryValue().newRec()));
+				CFBamBuffValue retbuff = ((CFBamBuffValue)(schema.getCFBamFactory().getFactoryValue().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamAtom.CLASS_CODE) {
-				CFBamBuffAtom retbuff = ((CFBamBuffAtom)(schema.getFactoryAtom().newRec()));
+				CFBamBuffAtom retbuff = ((CFBamBuffAtom)(schema.getCFBamFactory().getFactoryAtom().newRec()));
 				retbuff.set((ICFBamAtom)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamBlobDef.CLASS_CODE) {
-				CFBamBuffBlobDef retbuff = ((CFBamBuffBlobDef)(schema.getFactoryBlobDef().newRec()));
+				CFBamBuffBlobDef retbuff = ((CFBamBuffBlobDef)(schema.getCFBamFactory().getFactoryBlobDef().newRec()));
 				retbuff.set((ICFBamBlobDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamBlobType.CLASS_CODE) {
-				CFBamBuffBlobType retbuff = ((CFBamBuffBlobType)(schema.getFactoryBlobType().newRec()));
+				CFBamBuffBlobType retbuff = ((CFBamBuffBlobType)(schema.getCFBamFactory().getFactoryBlobType().newRec()));
 				retbuff.set((ICFBamBlobType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamBlobCol.CLASS_CODE) {
-				CFBamBuffBlobCol retbuff = ((CFBamBuffBlobCol)(schema.getFactoryBlobCol().newRec()));
+				CFBamBuffBlobCol retbuff = ((CFBamBuffBlobCol)(schema.getCFBamFactory().getFactoryBlobCol().newRec()));
 				retbuff.set((ICFBamBlobCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamBoolDef.CLASS_CODE) {
-				CFBamBuffBoolDef retbuff = ((CFBamBuffBoolDef)(schema.getFactoryBoolDef().newRec()));
+				CFBamBuffBoolDef retbuff = ((CFBamBuffBoolDef)(schema.getCFBamFactory().getFactoryBoolDef().newRec()));
 				retbuff.set((ICFBamBoolDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamBoolType.CLASS_CODE) {
-				CFBamBuffBoolType retbuff = ((CFBamBuffBoolType)(schema.getFactoryBoolType().newRec()));
+				CFBamBuffBoolType retbuff = ((CFBamBuffBoolType)(schema.getCFBamFactory().getFactoryBoolType().newRec()));
 				retbuff.set((ICFBamBoolType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamBoolCol.CLASS_CODE) {
-				CFBamBuffBoolCol retbuff = ((CFBamBuffBoolCol)(schema.getFactoryBoolCol().newRec()));
+				CFBamBuffBoolCol retbuff = ((CFBamBuffBoolCol)(schema.getCFBamFactory().getFactoryBoolCol().newRec()));
 				retbuff.set((ICFBamBoolCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDateDef.CLASS_CODE) {
-				CFBamBuffDateDef retbuff = ((CFBamBuffDateDef)(schema.getFactoryDateDef().newRec()));
+				CFBamBuffDateDef retbuff = ((CFBamBuffDateDef)(schema.getCFBamFactory().getFactoryDateDef().newRec()));
 				retbuff.set((ICFBamDateDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDateType.CLASS_CODE) {
-				CFBamBuffDateType retbuff = ((CFBamBuffDateType)(schema.getFactoryDateType().newRec()));
+				CFBamBuffDateType retbuff = ((CFBamBuffDateType)(schema.getCFBamFactory().getFactoryDateType().newRec()));
 				retbuff.set((ICFBamDateType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDateCol.CLASS_CODE) {
-				CFBamBuffDateCol retbuff = ((CFBamBuffDateCol)(schema.getFactoryDateCol().newRec()));
+				CFBamBuffDateCol retbuff = ((CFBamBuffDateCol)(schema.getCFBamFactory().getFactoryDateCol().newRec()));
 				retbuff.set((ICFBamDateCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDoubleDef.CLASS_CODE) {
-				CFBamBuffDoubleDef retbuff = ((CFBamBuffDoubleDef)(schema.getFactoryDoubleDef().newRec()));
+				CFBamBuffDoubleDef retbuff = ((CFBamBuffDoubleDef)(schema.getCFBamFactory().getFactoryDoubleDef().newRec()));
 				retbuff.set((ICFBamDoubleDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDoubleType.CLASS_CODE) {
-				CFBamBuffDoubleType retbuff = ((CFBamBuffDoubleType)(schema.getFactoryDoubleType().newRec()));
+				CFBamBuffDoubleType retbuff = ((CFBamBuffDoubleType)(schema.getCFBamFactory().getFactoryDoubleType().newRec()));
 				retbuff.set((ICFBamDoubleType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDoubleCol.CLASS_CODE) {
-				CFBamBuffDoubleCol retbuff = ((CFBamBuffDoubleCol)(schema.getFactoryDoubleCol().newRec()));
+				CFBamBuffDoubleCol retbuff = ((CFBamBuffDoubleCol)(schema.getCFBamFactory().getFactoryDoubleCol().newRec()));
 				retbuff.set((ICFBamDoubleCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamFloatDef.CLASS_CODE) {
-				CFBamBuffFloatDef retbuff = ((CFBamBuffFloatDef)(schema.getFactoryFloatDef().newRec()));
+				CFBamBuffFloatDef retbuff = ((CFBamBuffFloatDef)(schema.getCFBamFactory().getFactoryFloatDef().newRec()));
 				retbuff.set((ICFBamFloatDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamFloatType.CLASS_CODE) {
-				CFBamBuffFloatType retbuff = ((CFBamBuffFloatType)(schema.getFactoryFloatType().newRec()));
+				CFBamBuffFloatType retbuff = ((CFBamBuffFloatType)(schema.getCFBamFactory().getFactoryFloatType().newRec()));
 				retbuff.set((ICFBamFloatType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamFloatCol.CLASS_CODE) {
-				CFBamBuffFloatCol retbuff = ((CFBamBuffFloatCol)(schema.getFactoryFloatCol().newRec()));
+				CFBamBuffFloatCol retbuff = ((CFBamBuffFloatCol)(schema.getCFBamFactory().getFactoryFloatCol().newRec()));
 				retbuff.set((ICFBamFloatCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt16Def.CLASS_CODE) {
-				CFBamBuffInt16Def retbuff = ((CFBamBuffInt16Def)(schema.getFactoryInt16Def().newRec()));
+				CFBamBuffInt16Def retbuff = ((CFBamBuffInt16Def)(schema.getCFBamFactory().getFactoryInt16Def().newRec()));
 				retbuff.set((ICFBamInt16Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt16Type.CLASS_CODE) {
-				CFBamBuffInt16Type retbuff = ((CFBamBuffInt16Type)(schema.getFactoryInt16Type().newRec()));
+				CFBamBuffInt16Type retbuff = ((CFBamBuffInt16Type)(schema.getCFBamFactory().getFactoryInt16Type().newRec()));
 				retbuff.set((ICFBamInt16Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamId16Gen.CLASS_CODE) {
-				CFBamBuffId16Gen retbuff = ((CFBamBuffId16Gen)(schema.getFactoryId16Gen().newRec()));
+				CFBamBuffId16Gen retbuff = ((CFBamBuffId16Gen)(schema.getCFBamFactory().getFactoryId16Gen().newRec()));
 				retbuff.set((ICFBamId16Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamEnumDef.CLASS_CODE) {
-				CFBamBuffEnumDef retbuff = ((CFBamBuffEnumDef)(schema.getFactoryEnumDef().newRec()));
+				CFBamBuffEnumDef retbuff = ((CFBamBuffEnumDef)(schema.getCFBamFactory().getFactoryEnumDef().newRec()));
 				retbuff.set((ICFBamEnumDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamEnumType.CLASS_CODE) {
-				CFBamBuffEnumType retbuff = ((CFBamBuffEnumType)(schema.getFactoryEnumType().newRec()));
+				CFBamBuffEnumType retbuff = ((CFBamBuffEnumType)(schema.getCFBamFactory().getFactoryEnumType().newRec()));
 				retbuff.set((ICFBamEnumType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt16Col.CLASS_CODE) {
-				CFBamBuffInt16Col retbuff = ((CFBamBuffInt16Col)(schema.getFactoryInt16Col().newRec()));
+				CFBamBuffInt16Col retbuff = ((CFBamBuffInt16Col)(schema.getCFBamFactory().getFactoryInt16Col().newRec()));
 				retbuff.set((ICFBamInt16Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt32Def.CLASS_CODE) {
-				CFBamBuffInt32Def retbuff = ((CFBamBuffInt32Def)(schema.getFactoryInt32Def().newRec()));
+				CFBamBuffInt32Def retbuff = ((CFBamBuffInt32Def)(schema.getCFBamFactory().getFactoryInt32Def().newRec()));
 				retbuff.set((ICFBamInt32Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt32Type.CLASS_CODE) {
-				CFBamBuffInt32Type retbuff = ((CFBamBuffInt32Type)(schema.getFactoryInt32Type().newRec()));
+				CFBamBuffInt32Type retbuff = ((CFBamBuffInt32Type)(schema.getCFBamFactory().getFactoryInt32Type().newRec()));
 				retbuff.set((ICFBamInt32Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamId32Gen.CLASS_CODE) {
-				CFBamBuffId32Gen retbuff = ((CFBamBuffId32Gen)(schema.getFactoryId32Gen().newRec()));
+				CFBamBuffId32Gen retbuff = ((CFBamBuffId32Gen)(schema.getCFBamFactory().getFactoryId32Gen().newRec()));
 				retbuff.set((ICFBamId32Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt32Col.CLASS_CODE) {
-				CFBamBuffInt32Col retbuff = ((CFBamBuffInt32Col)(schema.getFactoryInt32Col().newRec()));
+				CFBamBuffInt32Col retbuff = ((CFBamBuffInt32Col)(schema.getCFBamFactory().getFactoryInt32Col().newRec()));
 				retbuff.set((ICFBamInt32Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt64Def.CLASS_CODE) {
-				CFBamBuffInt64Def retbuff = ((CFBamBuffInt64Def)(schema.getFactoryInt64Def().newRec()));
+				CFBamBuffInt64Def retbuff = ((CFBamBuffInt64Def)(schema.getCFBamFactory().getFactoryInt64Def().newRec()));
 				retbuff.set((ICFBamInt64Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt64Type.CLASS_CODE) {
-				CFBamBuffInt64Type retbuff = ((CFBamBuffInt64Type)(schema.getFactoryInt64Type().newRec()));
+				CFBamBuffInt64Type retbuff = ((CFBamBuffInt64Type)(schema.getCFBamFactory().getFactoryInt64Type().newRec()));
 				retbuff.set((ICFBamInt64Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamId64Gen.CLASS_CODE) {
-				CFBamBuffId64Gen retbuff = ((CFBamBuffId64Gen)(schema.getFactoryId64Gen().newRec()));
+				CFBamBuffId64Gen retbuff = ((CFBamBuffId64Gen)(schema.getCFBamFactory().getFactoryId64Gen().newRec()));
 				retbuff.set((ICFBamId64Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamInt64Col.CLASS_CODE) {
-				CFBamBuffInt64Col retbuff = ((CFBamBuffInt64Col)(schema.getFactoryInt64Col().newRec()));
+				CFBamBuffInt64Col retbuff = ((CFBamBuffInt64Col)(schema.getCFBamFactory().getFactoryInt64Col().newRec()));
 				retbuff.set((ICFBamInt64Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNmTokenDef.CLASS_CODE) {
-				CFBamBuffNmTokenDef retbuff = ((CFBamBuffNmTokenDef)(schema.getFactoryNmTokenDef().newRec()));
+				CFBamBuffNmTokenDef retbuff = ((CFBamBuffNmTokenDef)(schema.getCFBamFactory().getFactoryNmTokenDef().newRec()));
 				retbuff.set((ICFBamNmTokenDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNmTokenType.CLASS_CODE) {
-				CFBamBuffNmTokenType retbuff = ((CFBamBuffNmTokenType)(schema.getFactoryNmTokenType().newRec()));
+				CFBamBuffNmTokenType retbuff = ((CFBamBuffNmTokenType)(schema.getCFBamFactory().getFactoryNmTokenType().newRec()));
 				retbuff.set((ICFBamNmTokenType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNmTokenCol.CLASS_CODE) {
-				CFBamBuffNmTokenCol retbuff = ((CFBamBuffNmTokenCol)(schema.getFactoryNmTokenCol().newRec()));
+				CFBamBuffNmTokenCol retbuff = ((CFBamBuffNmTokenCol)(schema.getCFBamFactory().getFactoryNmTokenCol().newRec()));
 				retbuff.set((ICFBamNmTokenCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNmTokensDef.CLASS_CODE) {
-				CFBamBuffNmTokensDef retbuff = ((CFBamBuffNmTokensDef)(schema.getFactoryNmTokensDef().newRec()));
+				CFBamBuffNmTokensDef retbuff = ((CFBamBuffNmTokensDef)(schema.getCFBamFactory().getFactoryNmTokensDef().newRec()));
 				retbuff.set((ICFBamNmTokensDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNmTokensType.CLASS_CODE) {
-				CFBamBuffNmTokensType retbuff = ((CFBamBuffNmTokensType)(schema.getFactoryNmTokensType().newRec()));
+				CFBamBuffNmTokensType retbuff = ((CFBamBuffNmTokensType)(schema.getCFBamFactory().getFactoryNmTokensType().newRec()));
 				retbuff.set((ICFBamNmTokensType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNmTokensCol.CLASS_CODE) {
-				CFBamBuffNmTokensCol retbuff = ((CFBamBuffNmTokensCol)(schema.getFactoryNmTokensCol().newRec()));
+				CFBamBuffNmTokensCol retbuff = ((CFBamBuffNmTokensCol)(schema.getCFBamFactory().getFactoryNmTokensCol().newRec()));
 				retbuff.set((ICFBamNmTokensCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNumberDef.CLASS_CODE) {
-				CFBamBuffNumberDef retbuff = ((CFBamBuffNumberDef)(schema.getFactoryNumberDef().newRec()));
+				CFBamBuffNumberDef retbuff = ((CFBamBuffNumberDef)(schema.getCFBamFactory().getFactoryNumberDef().newRec()));
 				retbuff.set((ICFBamNumberDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNumberType.CLASS_CODE) {
-				CFBamBuffNumberType retbuff = ((CFBamBuffNumberType)(schema.getFactoryNumberType().newRec()));
+				CFBamBuffNumberType retbuff = ((CFBamBuffNumberType)(schema.getCFBamFactory().getFactoryNumberType().newRec()));
 				retbuff.set((ICFBamNumberType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamNumberCol.CLASS_CODE) {
-				CFBamBuffNumberCol retbuff = ((CFBamBuffNumberCol)(schema.getFactoryNumberCol().newRec()));
+				CFBamBuffNumberCol retbuff = ((CFBamBuffNumberCol)(schema.getCFBamFactory().getFactoryNumberCol().newRec()));
 				retbuff.set((ICFBamNumberCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash128Def.CLASS_CODE) {
-				CFBamBuffDbKeyHash128Def retbuff = ((CFBamBuffDbKeyHash128Def)(schema.getFactoryDbKeyHash128Def().newRec()));
+				CFBamBuffDbKeyHash128Def retbuff = ((CFBamBuffDbKeyHash128Def)(schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec()));
 				retbuff.set((ICFBamDbKeyHash128Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash128Col.CLASS_CODE) {
-				CFBamBuffDbKeyHash128Col retbuff = ((CFBamBuffDbKeyHash128Col)(schema.getFactoryDbKeyHash128Col().newRec()));
+				CFBamBuffDbKeyHash128Col retbuff = ((CFBamBuffDbKeyHash128Col)(schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec()));
 				retbuff.set((ICFBamDbKeyHash128Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash128Type.CLASS_CODE) {
-				CFBamBuffDbKeyHash128Type retbuff = ((CFBamBuffDbKeyHash128Type)(schema.getFactoryDbKeyHash128Type().newRec()));
+				CFBamBuffDbKeyHash128Type retbuff = ((CFBamBuffDbKeyHash128Type)(schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec()));
 				retbuff.set((ICFBamDbKeyHash128Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash128Gen.CLASS_CODE) {
-				CFBamBuffDbKeyHash128Gen retbuff = ((CFBamBuffDbKeyHash128Gen)(schema.getFactoryDbKeyHash128Gen().newRec()));
+				CFBamBuffDbKeyHash128Gen retbuff = ((CFBamBuffDbKeyHash128Gen)(schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec()));
 				retbuff.set((ICFBamDbKeyHash128Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash160Def.CLASS_CODE) {
-				CFBamBuffDbKeyHash160Def retbuff = ((CFBamBuffDbKeyHash160Def)(schema.getFactoryDbKeyHash160Def().newRec()));
+				CFBamBuffDbKeyHash160Def retbuff = ((CFBamBuffDbKeyHash160Def)(schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec()));
 				retbuff.set((ICFBamDbKeyHash160Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash160Col.CLASS_CODE) {
-				CFBamBuffDbKeyHash160Col retbuff = ((CFBamBuffDbKeyHash160Col)(schema.getFactoryDbKeyHash160Col().newRec()));
+				CFBamBuffDbKeyHash160Col retbuff = ((CFBamBuffDbKeyHash160Col)(schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec()));
 				retbuff.set((ICFBamDbKeyHash160Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash160Type.CLASS_CODE) {
-				CFBamBuffDbKeyHash160Type retbuff = ((CFBamBuffDbKeyHash160Type)(schema.getFactoryDbKeyHash160Type().newRec()));
+				CFBamBuffDbKeyHash160Type retbuff = ((CFBamBuffDbKeyHash160Type)(schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec()));
 				retbuff.set((ICFBamDbKeyHash160Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash160Gen.CLASS_CODE) {
-				CFBamBuffDbKeyHash160Gen retbuff = ((CFBamBuffDbKeyHash160Gen)(schema.getFactoryDbKeyHash160Gen().newRec()));
+				CFBamBuffDbKeyHash160Gen retbuff = ((CFBamBuffDbKeyHash160Gen)(schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec()));
 				retbuff.set((ICFBamDbKeyHash160Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash224Def.CLASS_CODE) {
-				CFBamBuffDbKeyHash224Def retbuff = ((CFBamBuffDbKeyHash224Def)(schema.getFactoryDbKeyHash224Def().newRec()));
+				CFBamBuffDbKeyHash224Def retbuff = ((CFBamBuffDbKeyHash224Def)(schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec()));
 				retbuff.set((ICFBamDbKeyHash224Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash224Col.CLASS_CODE) {
-				CFBamBuffDbKeyHash224Col retbuff = ((CFBamBuffDbKeyHash224Col)(schema.getFactoryDbKeyHash224Col().newRec()));
+				CFBamBuffDbKeyHash224Col retbuff = ((CFBamBuffDbKeyHash224Col)(schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec()));
 				retbuff.set((ICFBamDbKeyHash224Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash224Type.CLASS_CODE) {
-				CFBamBuffDbKeyHash224Type retbuff = ((CFBamBuffDbKeyHash224Type)(schema.getFactoryDbKeyHash224Type().newRec()));
+				CFBamBuffDbKeyHash224Type retbuff = ((CFBamBuffDbKeyHash224Type)(schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec()));
 				retbuff.set((ICFBamDbKeyHash224Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash224Gen.CLASS_CODE) {
-				CFBamBuffDbKeyHash224Gen retbuff = ((CFBamBuffDbKeyHash224Gen)(schema.getFactoryDbKeyHash224Gen().newRec()));
+				CFBamBuffDbKeyHash224Gen retbuff = ((CFBamBuffDbKeyHash224Gen)(schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec()));
 				retbuff.set((ICFBamDbKeyHash224Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash256Def.CLASS_CODE) {
-				CFBamBuffDbKeyHash256Def retbuff = ((CFBamBuffDbKeyHash256Def)(schema.getFactoryDbKeyHash256Def().newRec()));
+				CFBamBuffDbKeyHash256Def retbuff = ((CFBamBuffDbKeyHash256Def)(schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec()));
 				retbuff.set((ICFBamDbKeyHash256Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash256Col.CLASS_CODE) {
-				CFBamBuffDbKeyHash256Col retbuff = ((CFBamBuffDbKeyHash256Col)(schema.getFactoryDbKeyHash256Col().newRec()));
+				CFBamBuffDbKeyHash256Col retbuff = ((CFBamBuffDbKeyHash256Col)(schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec()));
 				retbuff.set((ICFBamDbKeyHash256Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash256Type.CLASS_CODE) {
-				CFBamBuffDbKeyHash256Type retbuff = ((CFBamBuffDbKeyHash256Type)(schema.getFactoryDbKeyHash256Type().newRec()));
+				CFBamBuffDbKeyHash256Type retbuff = ((CFBamBuffDbKeyHash256Type)(schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec()));
 				retbuff.set((ICFBamDbKeyHash256Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash256Gen.CLASS_CODE) {
-				CFBamBuffDbKeyHash256Gen retbuff = ((CFBamBuffDbKeyHash256Gen)(schema.getFactoryDbKeyHash256Gen().newRec()));
+				CFBamBuffDbKeyHash256Gen retbuff = ((CFBamBuffDbKeyHash256Gen)(schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec()));
 				retbuff.set((ICFBamDbKeyHash256Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash384Def.CLASS_CODE) {
-				CFBamBuffDbKeyHash384Def retbuff = ((CFBamBuffDbKeyHash384Def)(schema.getFactoryDbKeyHash384Def().newRec()));
+				CFBamBuffDbKeyHash384Def retbuff = ((CFBamBuffDbKeyHash384Def)(schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec()));
 				retbuff.set((ICFBamDbKeyHash384Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash384Col.CLASS_CODE) {
-				CFBamBuffDbKeyHash384Col retbuff = ((CFBamBuffDbKeyHash384Col)(schema.getFactoryDbKeyHash384Col().newRec()));
+				CFBamBuffDbKeyHash384Col retbuff = ((CFBamBuffDbKeyHash384Col)(schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec()));
 				retbuff.set((ICFBamDbKeyHash384Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash384Type.CLASS_CODE) {
-				CFBamBuffDbKeyHash384Type retbuff = ((CFBamBuffDbKeyHash384Type)(schema.getFactoryDbKeyHash384Type().newRec()));
+				CFBamBuffDbKeyHash384Type retbuff = ((CFBamBuffDbKeyHash384Type)(schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec()));
 				retbuff.set((ICFBamDbKeyHash384Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash384Gen.CLASS_CODE) {
-				CFBamBuffDbKeyHash384Gen retbuff = ((CFBamBuffDbKeyHash384Gen)(schema.getFactoryDbKeyHash384Gen().newRec()));
+				CFBamBuffDbKeyHash384Gen retbuff = ((CFBamBuffDbKeyHash384Gen)(schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec()));
 				retbuff.set((ICFBamDbKeyHash384Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash512Def.CLASS_CODE) {
-				CFBamBuffDbKeyHash512Def retbuff = ((CFBamBuffDbKeyHash512Def)(schema.getFactoryDbKeyHash512Def().newRec()));
+				CFBamBuffDbKeyHash512Def retbuff = ((CFBamBuffDbKeyHash512Def)(schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec()));
 				retbuff.set((ICFBamDbKeyHash512Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash512Col.CLASS_CODE) {
-				CFBamBuffDbKeyHash512Col retbuff = ((CFBamBuffDbKeyHash512Col)(schema.getFactoryDbKeyHash512Col().newRec()));
+				CFBamBuffDbKeyHash512Col retbuff = ((CFBamBuffDbKeyHash512Col)(schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec()));
 				retbuff.set((ICFBamDbKeyHash512Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash512Type.CLASS_CODE) {
-				CFBamBuffDbKeyHash512Type retbuff = ((CFBamBuffDbKeyHash512Type)(schema.getFactoryDbKeyHash512Type().newRec()));
+				CFBamBuffDbKeyHash512Type retbuff = ((CFBamBuffDbKeyHash512Type)(schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec()));
 				retbuff.set((ICFBamDbKeyHash512Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamDbKeyHash512Gen.CLASS_CODE) {
-				CFBamBuffDbKeyHash512Gen retbuff = ((CFBamBuffDbKeyHash512Gen)(schema.getFactoryDbKeyHash512Gen().newRec()));
+				CFBamBuffDbKeyHash512Gen retbuff = ((CFBamBuffDbKeyHash512Gen)(schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec()));
 				retbuff.set((ICFBamDbKeyHash512Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamStringDef.CLASS_CODE) {
-				CFBamBuffStringDef retbuff = ((CFBamBuffStringDef)(schema.getFactoryStringDef().newRec()));
+				CFBamBuffStringDef retbuff = ((CFBamBuffStringDef)(schema.getCFBamFactory().getFactoryStringDef().newRec()));
 				retbuff.set((ICFBamStringDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamStringType.CLASS_CODE) {
-				CFBamBuffStringType retbuff = ((CFBamBuffStringType)(schema.getFactoryStringType().newRec()));
+				CFBamBuffStringType retbuff = ((CFBamBuffStringType)(schema.getCFBamFactory().getFactoryStringType().newRec()));
 				retbuff.set((ICFBamStringType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamStringCol.CLASS_CODE) {
-				CFBamBuffStringCol retbuff = ((CFBamBuffStringCol)(schema.getFactoryStringCol().newRec()));
+				CFBamBuffStringCol retbuff = ((CFBamBuffStringCol)(schema.getCFBamFactory().getFactoryStringCol().newRec()));
 				retbuff.set((ICFBamStringCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZDateDef.CLASS_CODE) {
-				CFBamBuffTZDateDef retbuff = ((CFBamBuffTZDateDef)(schema.getFactoryTZDateDef().newRec()));
+				CFBamBuffTZDateDef retbuff = ((CFBamBuffTZDateDef)(schema.getCFBamFactory().getFactoryTZDateDef().newRec()));
 				retbuff.set((ICFBamTZDateDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZDateType.CLASS_CODE) {
-				CFBamBuffTZDateType retbuff = ((CFBamBuffTZDateType)(schema.getFactoryTZDateType().newRec()));
+				CFBamBuffTZDateType retbuff = ((CFBamBuffTZDateType)(schema.getCFBamFactory().getFactoryTZDateType().newRec()));
 				retbuff.set((ICFBamTZDateType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZDateCol.CLASS_CODE) {
-				CFBamBuffTZDateCol retbuff = ((CFBamBuffTZDateCol)(schema.getFactoryTZDateCol().newRec()));
+				CFBamBuffTZDateCol retbuff = ((CFBamBuffTZDateCol)(schema.getCFBamFactory().getFactoryTZDateCol().newRec()));
 				retbuff.set((ICFBamTZDateCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZTimeDef.CLASS_CODE) {
-				CFBamBuffTZTimeDef retbuff = ((CFBamBuffTZTimeDef)(schema.getFactoryTZTimeDef().newRec()));
+				CFBamBuffTZTimeDef retbuff = ((CFBamBuffTZTimeDef)(schema.getCFBamFactory().getFactoryTZTimeDef().newRec()));
 				retbuff.set((ICFBamTZTimeDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZTimeType.CLASS_CODE) {
-				CFBamBuffTZTimeType retbuff = ((CFBamBuffTZTimeType)(schema.getFactoryTZTimeType().newRec()));
+				CFBamBuffTZTimeType retbuff = ((CFBamBuffTZTimeType)(schema.getCFBamFactory().getFactoryTZTimeType().newRec()));
 				retbuff.set((ICFBamTZTimeType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZTimeCol.CLASS_CODE) {
-				CFBamBuffTZTimeCol retbuff = ((CFBamBuffTZTimeCol)(schema.getFactoryTZTimeCol().newRec()));
+				CFBamBuffTZTimeCol retbuff = ((CFBamBuffTZTimeCol)(schema.getCFBamFactory().getFactoryTZTimeCol().newRec()));
 				retbuff.set((ICFBamTZTimeCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZTimestampDef.CLASS_CODE) {
-				CFBamBuffTZTimestampDef retbuff = ((CFBamBuffTZTimestampDef)(schema.getFactoryTZTimestampDef().newRec()));
+				CFBamBuffTZTimestampDef retbuff = ((CFBamBuffTZTimestampDef)(schema.getCFBamFactory().getFactoryTZTimestampDef().newRec()));
 				retbuff.set((ICFBamTZTimestampDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZTimestampType.CLASS_CODE) {
-				CFBamBuffTZTimestampType retbuff = ((CFBamBuffTZTimestampType)(schema.getFactoryTZTimestampType().newRec()));
+				CFBamBuffTZTimestampType retbuff = ((CFBamBuffTZTimestampType)(schema.getCFBamFactory().getFactoryTZTimestampType().newRec()));
 				retbuff.set((ICFBamTZTimestampType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTZTimestampCol.CLASS_CODE) {
-				CFBamBuffTZTimestampCol retbuff = ((CFBamBuffTZTimestampCol)(schema.getFactoryTZTimestampCol().newRec()));
+				CFBamBuffTZTimestampCol retbuff = ((CFBamBuffTZTimestampCol)(schema.getCFBamFactory().getFactoryTZTimestampCol().newRec()));
 				retbuff.set((ICFBamTZTimestampCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTextDef.CLASS_CODE) {
-				CFBamBuffTextDef retbuff = ((CFBamBuffTextDef)(schema.getFactoryTextDef().newRec()));
+				CFBamBuffTextDef retbuff = ((CFBamBuffTextDef)(schema.getCFBamFactory().getFactoryTextDef().newRec()));
 				retbuff.set((ICFBamTextDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTextType.CLASS_CODE) {
-				CFBamBuffTextType retbuff = ((CFBamBuffTextType)(schema.getFactoryTextType().newRec()));
+				CFBamBuffTextType retbuff = ((CFBamBuffTextType)(schema.getCFBamFactory().getFactoryTextType().newRec()));
 				retbuff.set((ICFBamTextType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTextCol.CLASS_CODE) {
-				CFBamBuffTextCol retbuff = ((CFBamBuffTextCol)(schema.getFactoryTextCol().newRec()));
+				CFBamBuffTextCol retbuff = ((CFBamBuffTextCol)(schema.getCFBamFactory().getFactoryTextCol().newRec()));
 				retbuff.set((ICFBamTextCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTimeDef.CLASS_CODE) {
-				CFBamBuffTimeDef retbuff = ((CFBamBuffTimeDef)(schema.getFactoryTimeDef().newRec()));
+				CFBamBuffTimeDef retbuff = ((CFBamBuffTimeDef)(schema.getCFBamFactory().getFactoryTimeDef().newRec()));
 				retbuff.set((ICFBamTimeDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTimeType.CLASS_CODE) {
-				CFBamBuffTimeType retbuff = ((CFBamBuffTimeType)(schema.getFactoryTimeType().newRec()));
+				CFBamBuffTimeType retbuff = ((CFBamBuffTimeType)(schema.getCFBamFactory().getFactoryTimeType().newRec()));
 				retbuff.set((ICFBamTimeType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTimeCol.CLASS_CODE) {
-				CFBamBuffTimeCol retbuff = ((CFBamBuffTimeCol)(schema.getFactoryTimeCol().newRec()));
+				CFBamBuffTimeCol retbuff = ((CFBamBuffTimeCol)(schema.getCFBamFactory().getFactoryTimeCol().newRec()));
 				retbuff.set((ICFBamTimeCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTimestampDef.CLASS_CODE) {
-				CFBamBuffTimestampDef retbuff = ((CFBamBuffTimestampDef)(schema.getFactoryTimestampDef().newRec()));
+				CFBamBuffTimestampDef retbuff = ((CFBamBuffTimestampDef)(schema.getCFBamFactory().getFactoryTimestampDef().newRec()));
 				retbuff.set((ICFBamTimestampDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTimestampType.CLASS_CODE) {
-				CFBamBuffTimestampType retbuff = ((CFBamBuffTimestampType)(schema.getFactoryTimestampType().newRec()));
+				CFBamBuffTimestampType retbuff = ((CFBamBuffTimestampType)(schema.getCFBamFactory().getFactoryTimestampType().newRec()));
 				retbuff.set((ICFBamTimestampType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTimestampCol.CLASS_CODE) {
-				CFBamBuffTimestampCol retbuff = ((CFBamBuffTimestampCol)(schema.getFactoryTimestampCol().newRec()));
+				CFBamBuffTimestampCol retbuff = ((CFBamBuffTimestampCol)(schema.getCFBamFactory().getFactoryTimestampCol().newRec()));
 				retbuff.set((ICFBamTimestampCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTokenDef.CLASS_CODE) {
-				CFBamBuffTokenDef retbuff = ((CFBamBuffTokenDef)(schema.getFactoryTokenDef().newRec()));
+				CFBamBuffTokenDef retbuff = ((CFBamBuffTokenDef)(schema.getCFBamFactory().getFactoryTokenDef().newRec()));
 				retbuff.set((ICFBamTokenDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTokenType.CLASS_CODE) {
-				CFBamBuffTokenType retbuff = ((CFBamBuffTokenType)(schema.getFactoryTokenType().newRec()));
+				CFBamBuffTokenType retbuff = ((CFBamBuffTokenType)(schema.getCFBamFactory().getFactoryTokenType().newRec()));
 				retbuff.set((ICFBamTokenType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTokenCol.CLASS_CODE) {
-				CFBamBuffTokenCol retbuff = ((CFBamBuffTokenCol)(schema.getFactoryTokenCol().newRec()));
+				CFBamBuffTokenCol retbuff = ((CFBamBuffTokenCol)(schema.getCFBamFactory().getFactoryTokenCol().newRec()));
 				retbuff.set((ICFBamTokenCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt16Def.CLASS_CODE) {
-				CFBamBuffUInt16Def retbuff = ((CFBamBuffUInt16Def)(schema.getFactoryUInt16Def().newRec()));
+				CFBamBuffUInt16Def retbuff = ((CFBamBuffUInt16Def)(schema.getCFBamFactory().getFactoryUInt16Def().newRec()));
 				retbuff.set((ICFBamUInt16Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt16Type.CLASS_CODE) {
-				CFBamBuffUInt16Type retbuff = ((CFBamBuffUInt16Type)(schema.getFactoryUInt16Type().newRec()));
+				CFBamBuffUInt16Type retbuff = ((CFBamBuffUInt16Type)(schema.getCFBamFactory().getFactoryUInt16Type().newRec()));
 				retbuff.set((ICFBamUInt16Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt16Col.CLASS_CODE) {
-				CFBamBuffUInt16Col retbuff = ((CFBamBuffUInt16Col)(schema.getFactoryUInt16Col().newRec()));
+				CFBamBuffUInt16Col retbuff = ((CFBamBuffUInt16Col)(schema.getCFBamFactory().getFactoryUInt16Col().newRec()));
 				retbuff.set((ICFBamUInt16Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt32Def.CLASS_CODE) {
-				CFBamBuffUInt32Def retbuff = ((CFBamBuffUInt32Def)(schema.getFactoryUInt32Def().newRec()));
+				CFBamBuffUInt32Def retbuff = ((CFBamBuffUInt32Def)(schema.getCFBamFactory().getFactoryUInt32Def().newRec()));
 				retbuff.set((ICFBamUInt32Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt32Type.CLASS_CODE) {
-				CFBamBuffUInt32Type retbuff = ((CFBamBuffUInt32Type)(schema.getFactoryUInt32Type().newRec()));
+				CFBamBuffUInt32Type retbuff = ((CFBamBuffUInt32Type)(schema.getCFBamFactory().getFactoryUInt32Type().newRec()));
 				retbuff.set((ICFBamUInt32Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt32Col.CLASS_CODE) {
-				CFBamBuffUInt32Col retbuff = ((CFBamBuffUInt32Col)(schema.getFactoryUInt32Col().newRec()));
+				CFBamBuffUInt32Col retbuff = ((CFBamBuffUInt32Col)(schema.getCFBamFactory().getFactoryUInt32Col().newRec()));
 				retbuff.set((ICFBamUInt32Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt64Def.CLASS_CODE) {
-				CFBamBuffUInt64Def retbuff = ((CFBamBuffUInt64Def)(schema.getFactoryUInt64Def().newRec()));
+				CFBamBuffUInt64Def retbuff = ((CFBamBuffUInt64Def)(schema.getCFBamFactory().getFactoryUInt64Def().newRec()));
 				retbuff.set((ICFBamUInt64Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt64Type.CLASS_CODE) {
-				CFBamBuffUInt64Type retbuff = ((CFBamBuffUInt64Type)(schema.getFactoryUInt64Type().newRec()));
+				CFBamBuffUInt64Type retbuff = ((CFBamBuffUInt64Type)(schema.getCFBamFactory().getFactoryUInt64Type().newRec()));
 				retbuff.set((ICFBamUInt64Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUInt64Col.CLASS_CODE) {
-				CFBamBuffUInt64Col retbuff = ((CFBamBuffUInt64Col)(schema.getFactoryUInt64Col().newRec()));
+				CFBamBuffUInt64Col retbuff = ((CFBamBuffUInt64Col)(schema.getCFBamFactory().getFactoryUInt64Col().newRec()));
 				retbuff.set((ICFBamUInt64Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuidDef.CLASS_CODE) {
-				CFBamBuffUuidDef retbuff = ((CFBamBuffUuidDef)(schema.getFactoryUuidDef().newRec()));
+				CFBamBuffUuidDef retbuff = ((CFBamBuffUuidDef)(schema.getCFBamFactory().getFactoryUuidDef().newRec()));
 				retbuff.set((ICFBamUuidDef)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuidType.CLASS_CODE) {
-				CFBamBuffUuidType retbuff = ((CFBamBuffUuidType)(schema.getFactoryUuidType().newRec()));
+				CFBamBuffUuidType retbuff = ((CFBamBuffUuidType)(schema.getCFBamFactory().getFactoryUuidType().newRec()));
 				retbuff.set((ICFBamUuidType)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuidGen.CLASS_CODE) {
-				CFBamBuffUuidGen retbuff = ((CFBamBuffUuidGen)(schema.getFactoryUuidGen().newRec()));
+				CFBamBuffUuidGen retbuff = ((CFBamBuffUuidGen)(schema.getCFBamFactory().getFactoryUuidGen().newRec()));
 				retbuff.set((ICFBamUuidGen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuidCol.CLASS_CODE) {
-				CFBamBuffUuidCol retbuff = ((CFBamBuffUuidCol)(schema.getFactoryUuidCol().newRec()));
+				CFBamBuffUuidCol retbuff = ((CFBamBuffUuidCol)(schema.getCFBamFactory().getFactoryUuidCol().newRec()));
 				retbuff.set((ICFBamUuidCol)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuid6Def.CLASS_CODE) {
-				CFBamBuffUuid6Def retbuff = ((CFBamBuffUuid6Def)(schema.getFactoryUuid6Def().newRec()));
+				CFBamBuffUuid6Def retbuff = ((CFBamBuffUuid6Def)(schema.getCFBamFactory().getFactoryUuid6Def().newRec()));
 				retbuff.set((ICFBamUuid6Def)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuid6Type.CLASS_CODE) {
-				CFBamBuffUuid6Type retbuff = ((CFBamBuffUuid6Type)(schema.getFactoryUuid6Type().newRec()));
+				CFBamBuffUuid6Type retbuff = ((CFBamBuffUuid6Type)(schema.getCFBamFactory().getFactoryUuid6Type().newRec()));
 				retbuff.set((ICFBamUuid6Type)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuid6Gen.CLASS_CODE) {
-				CFBamBuffUuid6Gen retbuff = ((CFBamBuffUuid6Gen)(schema.getFactoryUuid6Gen().newRec()));
+				CFBamBuffUuid6Gen retbuff = ((CFBamBuffUuid6Gen)(schema.getCFBamFactory().getFactoryUuid6Gen().newRec()));
 				retbuff.set((ICFBamUuid6Gen)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamUuid6Col.CLASS_CODE) {
-				CFBamBuffUuid6Col retbuff = ((CFBamBuffUuid6Col)(schema.getFactoryUuid6Col().newRec()));
+				CFBamBuffUuid6Col retbuff = ((CFBamBuffUuid6Col)(schema.getCFBamFactory().getFactoryUuid6Col().newRec()));
 				retbuff.set((ICFBamUuid6Col)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTableCol.CLASS_CODE) {
-				CFBamBuffTableCol retbuff = ((CFBamBuffTableCol)(schema.getFactoryTableCol().newRec()));
+				CFBamBuffTableCol retbuff = ((CFBamBuffTableCol)(schema.getCFBamFactory().getFactoryTableCol().newRec()));
 				retbuff.set((ICFBamTableCol)Buff);
 				return( retbuff );
 			}
@@ -1180,7 +1075,7 @@ public class CFBamRamValueTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamValue.readDerivedByUNameIdx";
-		CFBamBuffValueByUNameIdxKey key = (CFBamBuffValueByUNameIdxKey)schema.getFactoryValue().newByUNameIdxKey();
+		CFBamBuffValueByUNameIdxKey key = (CFBamBuffValueByUNameIdxKey)schema.getCFBamFactory().getFactoryValue().newByUNameIdxKey();
 
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
@@ -1199,7 +1094,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 ScopeId )
 	{
 		final String S_ProcName = "CFBamRamValue.readDerivedByScopeIdx";
-		CFBamBuffValueByScopeIdxKey key = (CFBamBuffValueByScopeIdxKey)schema.getFactoryValue().newByScopeIdxKey();
+		CFBamBuffValueByScopeIdxKey key = (CFBamBuffValueByScopeIdxKey)schema.getCFBamFactory().getFactoryValue().newByScopeIdxKey();
 
 		key.setRequiredScopeId( ScopeId );
 		ICFBamValue[] recArray;
@@ -1227,7 +1122,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 DefSchemaId )
 	{
 		final String S_ProcName = "CFBamRamValue.readDerivedByDefSchemaIdx";
-		CFBamBuffValueByDefSchemaIdxKey key = (CFBamBuffValueByDefSchemaIdxKey)schema.getFactoryValue().newByDefSchemaIdxKey();
+		CFBamBuffValueByDefSchemaIdxKey key = (CFBamBuffValueByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryValue().newByDefSchemaIdxKey();
 
 		key.setOptionalDefSchemaId( DefSchemaId );
 		ICFBamValue[] recArray;
@@ -1255,7 +1150,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamValue.readDerivedByPrevIdx";
-		CFBamBuffValueByPrevIdxKey key = (CFBamBuffValueByPrevIdxKey)schema.getFactoryValue().newByPrevIdxKey();
+		CFBamBuffValueByPrevIdxKey key = (CFBamBuffValueByPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByPrevIdxKey();
 
 		key.setOptionalPrevId( PrevId );
 		ICFBamValue[] recArray;
@@ -1283,7 +1178,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamValue.readDerivedByNextIdx";
-		CFBamBuffValueByNextIdxKey key = (CFBamBuffValueByNextIdxKey)schema.getFactoryValue().newByNextIdxKey();
+		CFBamBuffValueByNextIdxKey key = (CFBamBuffValueByNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByNextIdxKey();
 
 		key.setOptionalNextId( NextId );
 		ICFBamValue[] recArray;
@@ -1312,7 +1207,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamValue.readDerivedByContPrevIdx";
-		CFBamBuffValueByContPrevIdxKey key = (CFBamBuffValueByContPrevIdxKey)schema.getFactoryValue().newByContPrevIdxKey();
+		CFBamBuffValueByContPrevIdxKey key = (CFBamBuffValueByContPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByContPrevIdxKey();
 
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
@@ -1342,7 +1237,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamValue.readDerivedByContNextIdx";
-		CFBamBuffValueByContNextIdxKey key = (CFBamBuffValueByContNextIdxKey)schema.getFactoryValue().newByContNextIdxKey();
+		CFBamBuffValueByContNextIdxKey key = (CFBamBuffValueByContNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByContNextIdxKey();
 
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
@@ -1616,322 +1511,322 @@ public class CFBamRamValueTable
 		int classCode = prev.getClassCode();
 		ICFBamValue newInstance;
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1941,322 +1836,322 @@ public class CFBamRamValueTable
 
 		classCode = cur.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -2268,322 +2163,322 @@ public class CFBamRamValueTable
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -2596,322 +2491,322 @@ public class CFBamRamValueTable
 		if( next != null ) {
 			classCode = next.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -4290,322 +4185,322 @@ public class CFBamRamValueTable
 		int classCode = cur.getClassCode();
 		ICFBamValue newInstance;
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -4615,322 +4510,322 @@ public class CFBamRamValueTable
 
 		classCode = next.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -4942,322 +4837,322 @@ public class CFBamRamValueTable
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -5270,322 +5165,322 @@ public class CFBamRamValueTable
 		if( prev != null ) {
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				newInstance = schema.getFactoryValue().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryValue().newRec();
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				newInstance = schema.getFactoryAtom().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryAtom().newRec();
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobDef().newRec();
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobType().newRec();
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBlobCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBlobCol().newRec();
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolDef().newRec();
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolType().newRec();
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryBoolCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryBoolCol().newRec();
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateDef().newRec();
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateType().newRec();
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDateCol().newRec();
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleDef().newRec();
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleType().newRec();
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryDoubleCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDoubleCol().newRec();
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatDef().newRec();
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatType().newRec();
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryFloatCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryFloatCol().newRec();
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Def().newRec();
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Type().newRec();
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId16Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId16Gen().newRec();
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumDef().newRec();
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				newInstance = schema.getFactoryEnumType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryEnumType().newRec();
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt16Col().newRec();
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Def().newRec();
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Type().newRec();
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId32Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId32Gen().newRec();
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt32Col().newRec();
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Def().newRec();
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Type().newRec();
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryId64Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryId64Gen().newRec();
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryInt64Col().newRec();
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenType().newRec();
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokenCol().newRec();
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensDef().newRec();
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensType().newRec();
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNmTokensCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNmTokensCol().newRec();
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberDef().newRec();
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberType().newRec();
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryNumberCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryNumberCol().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash128Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash160Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash224Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash256Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash384Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec();
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryDbKeyHash512Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec();
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringDef().newRec();
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringType().newRec();
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryStringCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryStringCol().newRec();
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateDef().newRec();
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateType().newRec();
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZDateCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZDateCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeType().newRec();
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTZTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTZTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextDef().newRec();
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextType().newRec();
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTextCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTextCol().newRec();
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeDef().newRec();
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeType().newRec();
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimeCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimeCol().newRec();
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampDef().newRec();
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampType().newRec();
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTimestampCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTimestampCol().newRec();
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenDef().newRec();
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenType().newRec();
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTokenCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTokenCol().newRec();
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Def().newRec();
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Type().newRec();
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt16Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt16Col().newRec();
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Def().newRec();
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Type().newRec();
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt32Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt32Col().newRec();
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Def().newRec();
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Type().newRec();
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUInt64Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUInt64Col().newRec();
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidDef().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidDef().newRec();
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidType().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidType().newRec();
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidGen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidGen().newRec();
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuidCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuidCol().newRec();
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Def().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Def().newRec();
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Type().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Type().newRec();
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Gen().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Gen().newRec();
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				newInstance = schema.getFactoryUuid6Col().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryUuid6Col().newRec();
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				newInstance = schema.getFactoryTableCol().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryTableCol().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -6934,51 +6829,51 @@ public class CFBamRamValueTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFBamBuffValueByUNameIdxKey existingKeyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getFactoryValue().newByUNameIdxKey();
+		CFBamBuffValueByUNameIdxKey existingKeyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getCFBamFactory().getFactoryValue().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffValueByUNameIdxKey newKeyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getFactoryValue().newByUNameIdxKey();
+		CFBamBuffValueByUNameIdxKey newKeyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getCFBamFactory().getFactoryValue().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffValueByScopeIdxKey existingKeyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getFactoryValue().newByScopeIdxKey();
+		CFBamBuffValueByScopeIdxKey existingKeyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getCFBamFactory().getFactoryValue().newByScopeIdxKey();
 		existingKeyScopeIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 
-		CFBamBuffValueByScopeIdxKey newKeyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getFactoryValue().newByScopeIdxKey();
+		CFBamBuffValueByScopeIdxKey newKeyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getCFBamFactory().getFactoryValue().newByScopeIdxKey();
 		newKeyScopeIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 
-		CFBamBuffValueByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getFactoryValue().newByDefSchemaIdxKey();
+		CFBamBuffValueByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryValue().newByDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffValueByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getFactoryValue().newByDefSchemaIdxKey();
+		CFBamBuffValueByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryValue().newByDefSchemaIdxKey();
 		newKeyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffValueByPrevIdxKey existingKeyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getFactoryValue().newByPrevIdxKey();
+		CFBamBuffValueByPrevIdxKey existingKeyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByPrevIdxKey();
 		existingKeyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffValueByPrevIdxKey newKeyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getFactoryValue().newByPrevIdxKey();
+		CFBamBuffValueByPrevIdxKey newKeyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByPrevIdxKey();
 		newKeyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffValueByNextIdxKey existingKeyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getFactoryValue().newByNextIdxKey();
+		CFBamBuffValueByNextIdxKey existingKeyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByNextIdxKey();
 		existingKeyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffValueByNextIdxKey newKeyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getFactoryValue().newByNextIdxKey();
+		CFBamBuffValueByNextIdxKey newKeyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByNextIdxKey();
 		newKeyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
-		CFBamBuffValueByContPrevIdxKey existingKeyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getFactoryValue().newByContPrevIdxKey();
+		CFBamBuffValueByContPrevIdxKey existingKeyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByContPrevIdxKey();
 		existingKeyContPrevIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		existingKeyContPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffValueByContPrevIdxKey newKeyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getFactoryValue().newByContPrevIdxKey();
+		CFBamBuffValueByContPrevIdxKey newKeyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByContPrevIdxKey();
 		newKeyContPrevIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		newKeyContPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffValueByContNextIdxKey existingKeyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getFactoryValue().newByContNextIdxKey();
+		CFBamBuffValueByContNextIdxKey existingKeyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByContNextIdxKey();
 		existingKeyContNextIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		existingKeyContNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffValueByContNextIdxKey newKeyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getFactoryValue().newByContNextIdxKey();
+		CFBamBuffValueByContNextIdxKey newKeyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByContNextIdxKey();
 		newKeyContNextIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		newKeyContNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
@@ -7152,322 +7047,322 @@ public class CFBamRamValueTable
 			CFBamBuffValue editPrev;
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryValue().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryValue().newRec());
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryAtom().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryAtom().newRec());
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryBlobDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBlobDef().newRec());
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryBlobType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBlobType().newRec());
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryBlobCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBlobCol().newRec());
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryBoolDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBoolDef().newRec());
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryBoolType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBoolType().newRec());
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryBoolCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBoolCol().newRec());
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDateDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDateDef().newRec());
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDateType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDateType().newRec());
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDateCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDateCol().newRec());
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDoubleDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDoubleDef().newRec());
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDoubleType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDoubleType().newRec());
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDoubleCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDoubleCol().newRec());
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryFloatDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryFloatDef().newRec());
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryFloatType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryFloatType().newRec());
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryFloatCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryFloatCol().newRec());
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt16Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt16Def().newRec());
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt16Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt16Type().newRec());
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryId16Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryId16Gen().newRec());
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryEnumDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryEnumDef().newRec());
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryEnumType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryEnumType().newRec());
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt16Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt16Col().newRec());
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt32Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt32Def().newRec());
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt32Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt32Type().newRec());
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryId32Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryId32Gen().newRec());
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt32Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt32Col().newRec());
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt64Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt64Def().newRec());
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt64Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt64Type().newRec());
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryId64Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryId64Gen().newRec());
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryInt64Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt64Col().newRec());
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNmTokenDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokenDef().newRec());
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNmTokenType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokenType().newRec());
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNmTokenCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokenCol().newRec());
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNmTokensDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokensDef().newRec());
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNmTokensType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokensType().newRec());
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNmTokensCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokensCol().newRec());
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNumberDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNumberDef().newRec());
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNumberType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNumberType().newRec());
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryNumberCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNumberCol().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec());
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryStringDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryStringDef().newRec());
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryStringType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryStringType().newRec());
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryStringCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryStringCol().newRec());
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZDateDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZDateDef().newRec());
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZDateType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZDateType().newRec());
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZDateCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZDateCol().newRec());
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZTimeDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimeDef().newRec());
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZTimeType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimeType().newRec());
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZTimeCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimeCol().newRec());
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZTimestampDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimestampDef().newRec());
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZTimestampType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimestampType().newRec());
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTZTimestampCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimestampCol().newRec());
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTextDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTextDef().newRec());
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTextType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTextType().newRec());
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTextCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTextCol().newRec());
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTimeDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimeDef().newRec());
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTimeType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimeType().newRec());
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTimeCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimeCol().newRec());
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTimestampDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimestampDef().newRec());
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTimestampType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimestampType().newRec());
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTimestampCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimestampCol().newRec());
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTokenDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTokenDef().newRec());
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTokenType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTokenType().newRec());
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTokenCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTokenCol().newRec());
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt16Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt16Def().newRec());
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt16Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt16Type().newRec());
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt16Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt16Col().newRec());
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt32Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt32Def().newRec());
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt32Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt32Type().newRec());
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt32Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt32Col().newRec());
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt64Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt64Def().newRec());
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt64Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt64Type().newRec());
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUInt64Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt64Col().newRec());
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuidDef().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidDef().newRec());
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuidType().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidType().newRec());
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuidGen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidGen().newRec());
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuidCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidCol().newRec());
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuid6Def().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Def().newRec());
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuid6Type().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Type().newRec());
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuid6Gen().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Gen().newRec());
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryUuid6Col().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Col().newRec());
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				editPrev = (CFBamBuffValue)(schema.getFactoryTableCol().newRec());
+				editPrev = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTableCol().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-prev-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -7811,322 +7706,322 @@ public class CFBamRamValueTable
 			CFBamBuffValue editNext;
 			classCode = next.getClassCode();
 			if( classCode == ICFBamValue.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryValue().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryValue().newRec());
 			}
 			else if( classCode == ICFBamAtom.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryAtom().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryAtom().newRec());
 			}
 			else if( classCode == ICFBamBlobDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryBlobDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBlobDef().newRec());
 			}
 			else if( classCode == ICFBamBlobType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryBlobType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBlobType().newRec());
 			}
 			else if( classCode == ICFBamBlobCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryBlobCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBlobCol().newRec());
 			}
 			else if( classCode == ICFBamBoolDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryBoolDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBoolDef().newRec());
 			}
 			else if( classCode == ICFBamBoolType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryBoolType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBoolType().newRec());
 			}
 			else if( classCode == ICFBamBoolCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryBoolCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryBoolCol().newRec());
 			}
 			else if( classCode == ICFBamDateDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDateDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDateDef().newRec());
 			}
 			else if( classCode == ICFBamDateType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDateType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDateType().newRec());
 			}
 			else if( classCode == ICFBamDateCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDateCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDateCol().newRec());
 			}
 			else if( classCode == ICFBamDoubleDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDoubleDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDoubleDef().newRec());
 			}
 			else if( classCode == ICFBamDoubleType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDoubleType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDoubleType().newRec());
 			}
 			else if( classCode == ICFBamDoubleCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDoubleCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDoubleCol().newRec());
 			}
 			else if( classCode == ICFBamFloatDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryFloatDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryFloatDef().newRec());
 			}
 			else if( classCode == ICFBamFloatType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryFloatType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryFloatType().newRec());
 			}
 			else if( classCode == ICFBamFloatCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryFloatCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryFloatCol().newRec());
 			}
 			else if( classCode == ICFBamInt16Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt16Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt16Def().newRec());
 			}
 			else if( classCode == ICFBamInt16Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt16Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt16Type().newRec());
 			}
 			else if( classCode == ICFBamId16Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryId16Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryId16Gen().newRec());
 			}
 			else if( classCode == ICFBamEnumDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryEnumDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryEnumDef().newRec());
 			}
 			else if( classCode == ICFBamEnumType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryEnumType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryEnumType().newRec());
 			}
 			else if( classCode == ICFBamInt16Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt16Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt16Col().newRec());
 			}
 			else if( classCode == ICFBamInt32Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt32Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt32Def().newRec());
 			}
 			else if( classCode == ICFBamInt32Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt32Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt32Type().newRec());
 			}
 			else if( classCode == ICFBamId32Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryId32Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryId32Gen().newRec());
 			}
 			else if( classCode == ICFBamInt32Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt32Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt32Col().newRec());
 			}
 			else if( classCode == ICFBamInt64Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt64Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt64Def().newRec());
 			}
 			else if( classCode == ICFBamInt64Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt64Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt64Type().newRec());
 			}
 			else if( classCode == ICFBamId64Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryId64Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryId64Gen().newRec());
 			}
 			else if( classCode == ICFBamInt64Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryInt64Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryInt64Col().newRec());
 			}
 			else if( classCode == ICFBamNmTokenDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNmTokenDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokenDef().newRec());
 			}
 			else if( classCode == ICFBamNmTokenType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNmTokenType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokenType().newRec());
 			}
 			else if( classCode == ICFBamNmTokenCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNmTokenCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokenCol().newRec());
 			}
 			else if( classCode == ICFBamNmTokensDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNmTokensDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokensDef().newRec());
 			}
 			else if( classCode == ICFBamNmTokensType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNmTokensType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokensType().newRec());
 			}
 			else if( classCode == ICFBamNmTokensCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNmTokensCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNmTokensCol().newRec());
 			}
 			else if( classCode == ICFBamNumberDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNumberDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNumberDef().newRec());
 			}
 			else if( classCode == ICFBamNumberType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNumberType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNumberType().newRec());
 			}
 			else if( classCode == ICFBamNumberCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryNumberCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryNumberCol().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash128Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash128Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash128Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash160Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash160Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash160Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash224Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash224Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash224Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash256Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash256Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash256Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash384Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash384Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash384Gen().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Def().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Col().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Type().newRec());
 			}
 			else if( classCode == ICFBamDbKeyHash512Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryDbKeyHash512Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryDbKeyHash512Gen().newRec());
 			}
 			else if( classCode == ICFBamStringDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryStringDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryStringDef().newRec());
 			}
 			else if( classCode == ICFBamStringType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryStringType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryStringType().newRec());
 			}
 			else if( classCode == ICFBamStringCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryStringCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryStringCol().newRec());
 			}
 			else if( classCode == ICFBamTZDateDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZDateDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZDateDef().newRec());
 			}
 			else if( classCode == ICFBamTZDateType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZDateType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZDateType().newRec());
 			}
 			else if( classCode == ICFBamTZDateCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZDateCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZDateCol().newRec());
 			}
 			else if( classCode == ICFBamTZTimeDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZTimeDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimeDef().newRec());
 			}
 			else if( classCode == ICFBamTZTimeType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZTimeType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimeType().newRec());
 			}
 			else if( classCode == ICFBamTZTimeCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZTimeCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimeCol().newRec());
 			}
 			else if( classCode == ICFBamTZTimestampDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZTimestampDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimestampDef().newRec());
 			}
 			else if( classCode == ICFBamTZTimestampType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZTimestampType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimestampType().newRec());
 			}
 			else if( classCode == ICFBamTZTimestampCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTZTimestampCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTZTimestampCol().newRec());
 			}
 			else if( classCode == ICFBamTextDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTextDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTextDef().newRec());
 			}
 			else if( classCode == ICFBamTextType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTextType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTextType().newRec());
 			}
 			else if( classCode == ICFBamTextCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTextCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTextCol().newRec());
 			}
 			else if( classCode == ICFBamTimeDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTimeDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimeDef().newRec());
 			}
 			else if( classCode == ICFBamTimeType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTimeType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimeType().newRec());
 			}
 			else if( classCode == ICFBamTimeCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTimeCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimeCol().newRec());
 			}
 			else if( classCode == ICFBamTimestampDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTimestampDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimestampDef().newRec());
 			}
 			else if( classCode == ICFBamTimestampType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTimestampType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimestampType().newRec());
 			}
 			else if( classCode == ICFBamTimestampCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTimestampCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTimestampCol().newRec());
 			}
 			else if( classCode == ICFBamTokenDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTokenDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTokenDef().newRec());
 			}
 			else if( classCode == ICFBamTokenType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTokenType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTokenType().newRec());
 			}
 			else if( classCode == ICFBamTokenCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTokenCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTokenCol().newRec());
 			}
 			else if( classCode == ICFBamUInt16Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt16Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt16Def().newRec());
 			}
 			else if( classCode == ICFBamUInt16Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt16Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt16Type().newRec());
 			}
 			else if( classCode == ICFBamUInt16Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt16Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt16Col().newRec());
 			}
 			else if( classCode == ICFBamUInt32Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt32Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt32Def().newRec());
 			}
 			else if( classCode == ICFBamUInt32Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt32Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt32Type().newRec());
 			}
 			else if( classCode == ICFBamUInt32Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt32Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt32Col().newRec());
 			}
 			else if( classCode == ICFBamUInt64Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt64Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt64Def().newRec());
 			}
 			else if( classCode == ICFBamUInt64Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt64Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt64Type().newRec());
 			}
 			else if( classCode == ICFBamUInt64Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUInt64Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUInt64Col().newRec());
 			}
 			else if( classCode == ICFBamUuidDef.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuidDef().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidDef().newRec());
 			}
 			else if( classCode == ICFBamUuidType.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuidType().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidType().newRec());
 			}
 			else if( classCode == ICFBamUuidGen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuidGen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidGen().newRec());
 			}
 			else if( classCode == ICFBamUuidCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuidCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuidCol().newRec());
 			}
 			else if( classCode == ICFBamUuid6Def.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuid6Def().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Def().newRec());
 			}
 			else if( classCode == ICFBamUuid6Type.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuid6Type().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Type().newRec());
 			}
 			else if( classCode == ICFBamUuid6Gen.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuid6Gen().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Gen().newRec());
 			}
 			else if( classCode == ICFBamUuid6Col.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryUuid6Col().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryUuid6Col().newRec());
 			}
 			else if( classCode == ICFBamTableCol.CLASS_CODE ) {
-				editNext = (CFBamBuffValue)(schema.getFactoryTableCol().newRec());
+				editNext = (CFBamBuffValue)(schema.getCFBamFactory().getFactoryTableCol().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-next-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -8470,27 +8365,27 @@ public class CFBamRamValueTable
 			schema.getTableIndexCol().deleteIndexColByColIdx( Authorization,
 						existing.getRequiredId() );
 		}
-		CFBamBuffValueByUNameIdxKey keyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getFactoryValue().newByUNameIdxKey();
+		CFBamBuffValueByUNameIdxKey keyUNameIdx = (CFBamBuffValueByUNameIdxKey)schema.getCFBamFactory().getFactoryValue().newByUNameIdxKey();
 		keyUNameIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffValueByScopeIdxKey keyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getFactoryValue().newByScopeIdxKey();
+		CFBamBuffValueByScopeIdxKey keyScopeIdx = (CFBamBuffValueByScopeIdxKey)schema.getCFBamFactory().getFactoryValue().newByScopeIdxKey();
 		keyScopeIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 
-		CFBamBuffValueByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getFactoryValue().newByDefSchemaIdxKey();
+		CFBamBuffValueByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffValueByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryValue().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffValueByPrevIdxKey keyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getFactoryValue().newByPrevIdxKey();
+		CFBamBuffValueByPrevIdxKey keyPrevIdx = (CFBamBuffValueByPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffValueByNextIdxKey keyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getFactoryValue().newByNextIdxKey();
+		CFBamBuffValueByNextIdxKey keyNextIdx = (CFBamBuffValueByNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffValueByContPrevIdxKey keyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getFactoryValue().newByContPrevIdxKey();
+		CFBamBuffValueByContPrevIdxKey keyContPrevIdx = (CFBamBuffValueByContPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByContPrevIdxKey();
 		keyContPrevIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyContPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffValueByContNextIdxKey keyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getFactoryValue().newByContNextIdxKey();
+		CFBamBuffValueByContNextIdxKey keyContNextIdx = (CFBamBuffValueByContNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByContNextIdxKey();
 		keyContNextIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyContNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
@@ -8932,7 +8827,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 argScopeId,
 		String argName )
 	{
-		CFBamBuffValueByUNameIdxKey key = (CFBamBuffValueByUNameIdxKey)schema.getFactoryValue().newByUNameIdxKey();
+		CFBamBuffValueByUNameIdxKey key = (CFBamBuffValueByUNameIdxKey)schema.getCFBamFactory().getFactoryValue().newByUNameIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		key.setRequiredName( argName );
 		deleteValueByUNameIdx( Authorization, key );
@@ -9292,7 +9187,7 @@ public class CFBamRamValueTable
 	public void deleteValueByScopeIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argScopeId )
 	{
-		CFBamBuffValueByScopeIdxKey key = (CFBamBuffValueByScopeIdxKey)schema.getFactoryValue().newByScopeIdxKey();
+		CFBamBuffValueByScopeIdxKey key = (CFBamBuffValueByScopeIdxKey)schema.getCFBamFactory().getFactoryValue().newByScopeIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		deleteValueByScopeIdx( Authorization, key );
 	}
@@ -9650,7 +9545,7 @@ public class CFBamRamValueTable
 	public void deleteValueByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffValueByDefSchemaIdxKey key = (CFBamBuffValueByDefSchemaIdxKey)schema.getFactoryValue().newByDefSchemaIdxKey();
+		CFBamBuffValueByDefSchemaIdxKey key = (CFBamBuffValueByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryValue().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteValueByDefSchemaIdx( Authorization, key );
 	}
@@ -10010,7 +9905,7 @@ public class CFBamRamValueTable
 	public void deleteValueByPrevIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffValueByPrevIdxKey key = (CFBamBuffValueByPrevIdxKey)schema.getFactoryValue().newByPrevIdxKey();
+		CFBamBuffValueByPrevIdxKey key = (CFBamBuffValueByPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByPrevIdxKey();
 		key.setOptionalPrevId( argPrevId );
 		deleteValueByPrevIdx( Authorization, key );
 	}
@@ -10370,7 +10265,7 @@ public class CFBamRamValueTable
 	public void deleteValueByNextIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffValueByNextIdxKey key = (CFBamBuffValueByNextIdxKey)schema.getFactoryValue().newByNextIdxKey();
+		CFBamBuffValueByNextIdxKey key = (CFBamBuffValueByNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByNextIdxKey();
 		key.setOptionalNextId( argNextId );
 		deleteValueByNextIdx( Authorization, key );
 	}
@@ -10731,7 +10626,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 argScopeId,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffValueByContPrevIdxKey key = (CFBamBuffValueByContPrevIdxKey)schema.getFactoryValue().newByContPrevIdxKey();
+		CFBamBuffValueByContPrevIdxKey key = (CFBamBuffValueByContPrevIdxKey)schema.getCFBamFactory().getFactoryValue().newByContPrevIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		key.setOptionalPrevId( argPrevId );
 		deleteValueByContPrevIdx( Authorization, key );
@@ -11094,7 +10989,7 @@ public class CFBamRamValueTable
 		CFLibDbKeyHash256 argScopeId,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffValueByContNextIdxKey key = (CFBamBuffValueByContNextIdxKey)schema.getFactoryValue().newByContNextIdxKey();
+		CFBamBuffValueByContNextIdxKey key = (CFBamBuffValueByContNextIdxKey)schema.getCFBamFactory().getFactoryValue().newByContNextIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		key.setOptionalNextId( argNextId );
 		deleteValueByContNextIdx( Authorization, key );

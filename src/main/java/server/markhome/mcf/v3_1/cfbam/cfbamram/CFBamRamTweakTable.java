@@ -114,20 +114,17 @@ public class CFBamRamTweakTable
 		}
 		else {
 			int classCode = rec.getClassCode();
-			if (classCode == ICFBamTweak.CLASS_CODE) {
-				return( ((CFBamBuffTweakDefaultFactory)(schema.getFactoryTweak())).ensureRec((ICFBamTweak)rec) );
-			}
-			else if (classCode == ICFBamTableTweak.CLASS_CODE) {
-				return( ((CFBamBuffTableTweakDefaultFactory)(schema.getFactoryTableTweak())).ensureRec((ICFBamTableTweak)rec) );
-			}
-			else if (classCode == ICFBamSchemaTweak.CLASS_CODE) {
-				return( ((CFBamBuffSchemaTweakDefaultFactory)(schema.getFactorySchemaTweak())).ensureRec((ICFBamSchemaTweak)rec) );
-			}
-			else if (classCode == ICFBamIndexTweak.CLASS_CODE) {
-				return( ((CFBamBuffIndexTweakDefaultFactory)(schema.getFactoryIndexTweak())).ensureRec((ICFBamIndexTweak)rec) );
-			}
-			else {
-				throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
+			switch (classCode) {
+				case ICFBamTweak.CLASS_CODE:
+					return(((CFBamBuffTweakFactoryService)(schema.getCFBamFactory().getFactoryTweak())).ensureRec((ICFBamTweak)rec) );
+				case ICFBamTableTweak.CLASS_CODE:
+					return(((CFBamBuffTableTweakFactoryService)(schema.getCFBamFactory().getFactoryTableTweak())).ensureRec((ICFBamTableTweak)rec) );
+				case ICFBamSchemaTweak.CLASS_CODE:
+					return(((CFBamBuffSchemaTweakFactoryService)(schema.getCFBamFactory().getFactorySchemaTweak())).ensureRec((ICFBamSchemaTweak)rec) );
+				case ICFBamIndexTweak.CLASS_CODE:
+					return(((CFBamBuffIndexTweakFactoryService)(schema.getCFBamFactory().getFactoryIndexTweak())).ensureRec((ICFBamIndexTweak)rec) );
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
 			}
 		}
 	}
@@ -142,20 +139,20 @@ public class CFBamRamTweakTable
 		CFLibDbKeyHash256 pkey;
 		pkey = schema.nextTweakIdGen();
 		Buff.setRequiredId( pkey );
-		CFBamBuffTweakByUNameIdxKey keyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getFactoryTweak().newByUNameIdxKey();
+		CFBamBuffTweakByUNameIdxKey keyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUNameIdxKey();
 		keyUNameIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffTweakByValTentIdxKey keyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getFactoryTweak().newByValTentIdxKey();
+		CFBamBuffTweakByValTentIdxKey keyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamFactory().getFactoryTweak().newByValTentIdxKey();
 		keyValTentIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFBamBuffTweakByScopeIdxKey keyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getFactoryTweak().newByScopeIdxKey();
+		CFBamBuffTweakByScopeIdxKey keyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamFactory().getFactoryTweak().newByScopeIdxKey();
 		keyScopeIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 
-		CFBamBuffTweakByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getFactoryTweak().newByDefSchemaIdxKey();
+		CFBamBuffTweakByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryTweak().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffTweakByUDefIdxKey keyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getFactoryTweak().newByUDefIdxKey();
+		CFBamBuffTweakByUDefIdxKey keyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUDefIdxKey();
 		keyUDefIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyUDefIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		keyUDefIdx.setOptionalDefSchemaTenantId( Buff.getOptionalDefSchemaTenantId() );
@@ -250,22 +247,22 @@ public class CFBamRamTweakTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamTweak.CLASS_CODE) {
-				CFBamBuffTweak retbuff = ((CFBamBuffTweak)(schema.getFactoryTweak().newRec()));
+				CFBamBuffTweak retbuff = ((CFBamBuffTweak)(schema.getCFBamFactory().getFactoryTweak().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamTableTweak.CLASS_CODE) {
-				CFBamBuffTableTweak retbuff = ((CFBamBuffTableTweak)(schema.getFactoryTableTweak().newRec()));
+				CFBamBuffTableTweak retbuff = ((CFBamBuffTableTweak)(schema.getCFBamFactory().getFactoryTableTweak().newRec()));
 				retbuff.set((ICFBamTableTweak)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamSchemaTweak.CLASS_CODE) {
-				CFBamBuffSchemaTweak retbuff = ((CFBamBuffSchemaTweak)(schema.getFactorySchemaTweak().newRec()));
+				CFBamBuffSchemaTweak retbuff = ((CFBamBuffSchemaTweak)(schema.getCFBamFactory().getFactorySchemaTweak().newRec()));
 				retbuff.set((ICFBamSchemaTweak)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamIndexTweak.CLASS_CODE) {
-				CFBamBuffIndexTweak retbuff = ((CFBamBuffIndexTweak)(schema.getFactoryIndexTweak().newRec()));
+				CFBamBuffIndexTweak retbuff = ((CFBamBuffIndexTweak)(schema.getCFBamFactory().getFactoryIndexTweak().newRec()));
 				retbuff.set((ICFBamIndexTweak)Buff);
 				return( retbuff );
 			}
@@ -326,7 +323,7 @@ public class CFBamRamTweakTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamTweak.readDerivedByUNameIdx";
-		CFBamBuffTweakByUNameIdxKey key = (CFBamBuffTweakByUNameIdxKey)schema.getFactoryTweak().newByUNameIdxKey();
+		CFBamBuffTweakByUNameIdxKey key = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUNameIdxKey();
 
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
@@ -345,7 +342,7 @@ public class CFBamRamTweakTable
 		CFLibDbKeyHash256 TenantId )
 	{
 		final String S_ProcName = "CFBamRamTweak.readDerivedByValTentIdx";
-		CFBamBuffTweakByValTentIdxKey key = (CFBamBuffTweakByValTentIdxKey)schema.getFactoryTweak().newByValTentIdxKey();
+		CFBamBuffTweakByValTentIdxKey key = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamFactory().getFactoryTweak().newByValTentIdxKey();
 
 		key.setRequiredTenantId( TenantId );
 		ICFBamTweak[] recArray;
@@ -373,7 +370,7 @@ public class CFBamRamTweakTable
 		CFLibDbKeyHash256 ScopeId )
 	{
 		final String S_ProcName = "CFBamRamTweak.readDerivedByScopeIdx";
-		CFBamBuffTweakByScopeIdxKey key = (CFBamBuffTweakByScopeIdxKey)schema.getFactoryTweak().newByScopeIdxKey();
+		CFBamBuffTweakByScopeIdxKey key = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamFactory().getFactoryTweak().newByScopeIdxKey();
 
 		key.setRequiredScopeId( ScopeId );
 		ICFBamTweak[] recArray;
@@ -401,7 +398,7 @@ public class CFBamRamTweakTable
 		CFLibDbKeyHash256 DefSchemaId )
 	{
 		final String S_ProcName = "CFBamRamTweak.readDerivedByDefSchemaIdx";
-		CFBamBuffTweakByDefSchemaIdxKey key = (CFBamBuffTweakByDefSchemaIdxKey)schema.getFactoryTweak().newByDefSchemaIdxKey();
+		CFBamBuffTweakByDefSchemaIdxKey key = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryTweak().newByDefSchemaIdxKey();
 
 		key.setOptionalDefSchemaId( DefSchemaId );
 		ICFBamTweak[] recArray;
@@ -433,7 +430,7 @@ public class CFBamRamTweakTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamTweak.readDerivedByUDefIdx";
-		CFBamBuffTweakByUDefIdxKey key = (CFBamBuffTweakByUDefIdxKey)schema.getFactoryTweak().newByUDefIdxKey();
+		CFBamBuffTweakByUDefIdxKey key = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUDefIdxKey();
 
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
@@ -635,40 +632,40 @@ public class CFBamRamTweakTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFBamBuffTweakByUNameIdxKey existingKeyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getFactoryTweak().newByUNameIdxKey();
+		CFBamBuffTweakByUNameIdxKey existingKeyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffTweakByUNameIdxKey newKeyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getFactoryTweak().newByUNameIdxKey();
+		CFBamBuffTweakByUNameIdxKey newKeyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffTweakByValTentIdxKey existingKeyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getFactoryTweak().newByValTentIdxKey();
+		CFBamBuffTweakByValTentIdxKey existingKeyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamFactory().getFactoryTweak().newByValTentIdxKey();
 		existingKeyValTentIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamBuffTweakByValTentIdxKey newKeyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getFactoryTweak().newByValTentIdxKey();
+		CFBamBuffTweakByValTentIdxKey newKeyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamFactory().getFactoryTweak().newByValTentIdxKey();
 		newKeyValTentIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFBamBuffTweakByScopeIdxKey existingKeyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getFactoryTweak().newByScopeIdxKey();
+		CFBamBuffTweakByScopeIdxKey existingKeyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamFactory().getFactoryTweak().newByScopeIdxKey();
 		existingKeyScopeIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 
-		CFBamBuffTweakByScopeIdxKey newKeyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getFactoryTweak().newByScopeIdxKey();
+		CFBamBuffTweakByScopeIdxKey newKeyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamFactory().getFactoryTweak().newByScopeIdxKey();
 		newKeyScopeIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 
-		CFBamBuffTweakByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getFactoryTweak().newByDefSchemaIdxKey();
+		CFBamBuffTweakByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryTweak().newByDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffTweakByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getFactoryTweak().newByDefSchemaIdxKey();
+		CFBamBuffTweakByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryTweak().newByDefSchemaIdxKey();
 		newKeyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffTweakByUDefIdxKey existingKeyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getFactoryTweak().newByUDefIdxKey();
+		CFBamBuffTweakByUDefIdxKey existingKeyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUDefIdxKey();
 		existingKeyUDefIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyUDefIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		existingKeyUDefIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		existingKeyUDefIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 		existingKeyUDefIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffTweakByUDefIdxKey newKeyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getFactoryTweak().newByUDefIdxKey();
+		CFBamBuffTweakByUDefIdxKey newKeyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUDefIdxKey();
 		newKeyUDefIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyUDefIdx.setRequiredScopeId( Buff.getRequiredScopeId() );
 		newKeyUDefIdx.setOptionalDefSchemaTenantId( Buff.getOptionalDefSchemaTenantId() );
@@ -792,20 +789,20 @@ public class CFBamRamTweakTable
 				"deleteTweak",
 				pkey );
 		}
-		CFBamBuffTweakByUNameIdxKey keyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getFactoryTweak().newByUNameIdxKey();
+		CFBamBuffTweakByUNameIdxKey keyUNameIdx = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUNameIdxKey();
 		keyUNameIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffTweakByValTentIdxKey keyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getFactoryTweak().newByValTentIdxKey();
+		CFBamBuffTweakByValTentIdxKey keyValTentIdx = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamFactory().getFactoryTweak().newByValTentIdxKey();
 		keyValTentIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamBuffTweakByScopeIdxKey keyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getFactoryTweak().newByScopeIdxKey();
+		CFBamBuffTweakByScopeIdxKey keyScopeIdx = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamFactory().getFactoryTweak().newByScopeIdxKey();
 		keyScopeIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 
-		CFBamBuffTweakByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getFactoryTweak().newByDefSchemaIdxKey();
+		CFBamBuffTweakByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryTweak().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffTweakByUDefIdxKey keyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getFactoryTweak().newByUDefIdxKey();
+		CFBamBuffTweakByUDefIdxKey keyUDefIdx = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUDefIdxKey();
 		keyUDefIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUDefIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyUDefIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
@@ -923,7 +920,7 @@ public class CFBamRamTweakTable
 		CFLibDbKeyHash256 argScopeId,
 		String argName )
 	{
-		CFBamBuffTweakByUNameIdxKey key = (CFBamBuffTweakByUNameIdxKey)schema.getFactoryTweak().newByUNameIdxKey();
+		CFBamBuffTweakByUNameIdxKey key = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUNameIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		key.setRequiredName( argName );
 		deleteTweakByUNameIdx( Authorization, key );
@@ -977,7 +974,7 @@ public class CFBamRamTweakTable
 	public void deleteTweakByValTentIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffTweakByValTentIdxKey key = (CFBamBuffTweakByValTentIdxKey)schema.getFactoryTweak().newByValTentIdxKey();
+		CFBamBuffTweakByValTentIdxKey key = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamFactory().getFactoryTweak().newByValTentIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteTweakByValTentIdx( Authorization, key );
 	}
@@ -1029,7 +1026,7 @@ public class CFBamRamTweakTable
 	public void deleteTweakByScopeIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argScopeId )
 	{
-		CFBamBuffTweakByScopeIdxKey key = (CFBamBuffTweakByScopeIdxKey)schema.getFactoryTweak().newByScopeIdxKey();
+		CFBamBuffTweakByScopeIdxKey key = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamFactory().getFactoryTweak().newByScopeIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		deleteTweakByScopeIdx( Authorization, key );
 	}
@@ -1081,7 +1078,7 @@ public class CFBamRamTweakTable
 	public void deleteTweakByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffTweakByDefSchemaIdxKey key = (CFBamBuffTweakByDefSchemaIdxKey)schema.getFactoryTweak().newByDefSchemaIdxKey();
+		CFBamBuffTweakByDefSchemaIdxKey key = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryTweak().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteTweakByDefSchemaIdx( Authorization, key );
 	}
@@ -1139,7 +1136,7 @@ public class CFBamRamTweakTable
 		CFLibDbKeyHash256 argDefSchemaId,
 		String argName )
 	{
-		CFBamBuffTweakByUDefIdxKey key = (CFBamBuffTweakByUDefIdxKey)schema.getFactoryTweak().newByUDefIdxKey();
+		CFBamBuffTweakByUDefIdxKey key = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUDefIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );

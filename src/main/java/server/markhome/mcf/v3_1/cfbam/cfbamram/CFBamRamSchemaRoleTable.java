@@ -119,13 +119,13 @@ public class CFBamRamSchemaRoleTable
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffSchemaRoleBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getFactorySchemaRole().newBySchemaIdxKey();
+		CFBamBuffSchemaRoleBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
-		CFBamBuffSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getFactorySchemaRole().newByRoleScopeIdxKey();
+		CFBamBuffSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
 		keyRoleScopeIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
-		CFBamBuffSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getFactorySchemaRole().newBySchRoleScpIdxKey();
+		CFBamBuffSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
 		keySchRoleScpIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 		keySchRoleScpIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
@@ -217,7 +217,7 @@ public class CFBamRamSchemaRoleTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamSchemaRole.CLASS_CODE) {
-				CFBamBuffSchemaRole retbuff = ((CFBamBuffSchemaRole)(schema.getFactorySchemaRole().newRec()));
+				CFBamBuffSchemaRole retbuff = ((CFBamBuffSchemaRole)(schema.getCFBamFactory().getFactorySchemaRole().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -365,7 +365,7 @@ public class CFBamRamSchemaRoleTable
 		CFLibDbKeyHash256 SchemaDefId )
 	{
 		final String S_ProcName = "CFBamRamSchemaRole.readDerivedBySchemaIdx";
-		CFBamBuffSchemaRoleBySchemaIdxKey key = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getFactorySchemaRole().newBySchemaIdxKey();
+		CFBamBuffSchemaRoleBySchemaIdxKey key = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchemaIdxKey();
 
 		key.setRequiredSchemaDefId( SchemaDefId );
 		ICFBamSchemaRole[] recArray;
@@ -393,7 +393,7 @@ public class CFBamRamSchemaRoleTable
 		ICFBamSchema.RoleScopeEnum RoleScope )
 	{
 		final String S_ProcName = "CFBamRamSchemaRole.readDerivedByRoleScopeIdx";
-		CFBamBuffSchemaRoleByRoleScopeIdxKey key = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getFactorySchemaRole().newByRoleScopeIdxKey();
+		CFBamBuffSchemaRoleByRoleScopeIdxKey key = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
 
 		key.setRequiredRoleScope( RoleScope );
 		ICFBamSchemaRole[] recArray;
@@ -422,7 +422,7 @@ public class CFBamRamSchemaRoleTable
 		ICFBamSchema.RoleScopeEnum RoleScope )
 	{
 		final String S_ProcName = "CFBamRamSchemaRole.readDerivedBySchRoleScpIdx";
-		CFBamBuffSchemaRoleBySchRoleScpIdxKey key = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getFactorySchemaRole().newBySchRoleScpIdxKey();
+		CFBamBuffSchemaRoleBySchRoleScpIdxKey key = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
 
 		key.setRequiredSchemaDefId( SchemaDefId );
 		key.setRequiredRoleScope( RoleScope );
@@ -659,23 +659,23 @@ public class CFBamRamSchemaRoleTable
 				"SchemaRole",
 				pkey );
 		}
-		CFBamBuffSchemaRoleBySchemaIdxKey existingKeySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getFactorySchemaRole().newBySchemaIdxKey();
+		CFBamBuffSchemaRoleBySchemaIdxKey existingKeySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchemaIdxKey();
 		existingKeySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
-		CFBamBuffSchemaRoleBySchemaIdxKey newKeySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getFactorySchemaRole().newBySchemaIdxKey();
+		CFBamBuffSchemaRoleBySchemaIdxKey newKeySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchemaIdxKey();
 		newKeySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
-		CFBamBuffSchemaRoleByRoleScopeIdxKey existingKeyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getFactorySchemaRole().newByRoleScopeIdxKey();
+		CFBamBuffSchemaRoleByRoleScopeIdxKey existingKeyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
 		existingKeyRoleScopeIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
 
-		CFBamBuffSchemaRoleByRoleScopeIdxKey newKeyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getFactorySchemaRole().newByRoleScopeIdxKey();
+		CFBamBuffSchemaRoleByRoleScopeIdxKey newKeyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
 		newKeyRoleScopeIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
-		CFBamBuffSchemaRoleBySchRoleScpIdxKey existingKeySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getFactorySchemaRole().newBySchRoleScpIdxKey();
+		CFBamBuffSchemaRoleBySchRoleScpIdxKey existingKeySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
 		existingKeySchRoleScpIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 		existingKeySchRoleScpIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
 
-		CFBamBuffSchemaRoleBySchRoleScpIdxKey newKeySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getFactorySchemaRole().newBySchRoleScpIdxKey();
+		CFBamBuffSchemaRoleBySchRoleScpIdxKey newKeySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
 		newKeySchRoleScpIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 		newKeySchRoleScpIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
@@ -790,13 +790,13 @@ public class CFBamRamSchemaRoleTable
 				"deleteSchemaRole",
 				pkey );
 		}
-		CFBamBuffSchemaRoleBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getFactorySchemaRole().newBySchemaIdxKey();
+		CFBamBuffSchemaRoleBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
-		CFBamBuffSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getFactorySchemaRole().newByRoleScopeIdxKey();
+		CFBamBuffSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
 		keyRoleScopeIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
 
-		CFBamBuffSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getFactorySchemaRole().newBySchRoleScpIdxKey();
+		CFBamBuffSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
 		keySchRoleScpIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 		keySchRoleScpIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
 
@@ -823,7 +823,7 @@ public class CFBamRamSchemaRoleTable
 	public void deleteSchemaRoleBySchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argSchemaDefId )
 	{
-		CFBamBuffSchemaRoleBySchemaIdxKey key = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getFactorySchemaRole().newBySchemaIdxKey();
+		CFBamBuffSchemaRoleBySchemaIdxKey key = (CFBamBuffSchemaRoleBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchemaIdxKey();
 		key.setRequiredSchemaDefId( argSchemaDefId );
 		deleteSchemaRoleBySchemaIdx( Authorization, key );
 	}
@@ -859,7 +859,7 @@ public class CFBamRamSchemaRoleTable
 	public void deleteSchemaRoleByRoleScopeIdx( ICFSecAuthorization Authorization,
 		ICFBamSchema.RoleScopeEnum argRoleScope )
 	{
-		CFBamBuffSchemaRoleByRoleScopeIdxKey key = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getFactorySchemaRole().newByRoleScopeIdxKey();
+		CFBamBuffSchemaRoleByRoleScopeIdxKey key = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
 		key.setRequiredRoleScope( argRoleScope );
 		deleteSchemaRoleByRoleScopeIdx( Authorization, key );
 	}
@@ -896,7 +896,7 @@ public class CFBamRamSchemaRoleTable
 		CFLibDbKeyHash256 argSchemaDefId,
 		ICFBamSchema.RoleScopeEnum argRoleScope )
 	{
-		CFBamBuffSchemaRoleBySchRoleScpIdxKey key = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getFactorySchemaRole().newBySchRoleScpIdxKey();
+		CFBamBuffSchemaRoleBySchRoleScpIdxKey key = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
 		key.setRequiredSchemaDefId( argSchemaDefId );
 		key.setRequiredRoleScope( argRoleScope );
 		deleteSchemaRoleBySchRoleScpIdx( Authorization, key );
@@ -962,7 +962,7 @@ public class CFBamRamSchemaRoleTable
 		CFLibDbKeyHash256 argScopeId,
 		String argName )
 	{
-		CFBamBuffRoleDefByUNameIdxKey key = (CFBamBuffRoleDefByUNameIdxKey)schema.getFactoryRoleDef().newByUNameIdxKey();
+		CFBamBuffRoleDefByUNameIdxKey key = (CFBamBuffRoleDefByUNameIdxKey)schema.getCFBamFactory().getFactoryRoleDef().newByUNameIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		key.setRequiredName( argName );
 		deleteSchemaRoleByUNameIdx( Authorization, key );
@@ -1000,7 +1000,7 @@ public class CFBamRamSchemaRoleTable
 	public void deleteSchemaRoleByScopeIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argScopeId )
 	{
-		CFBamBuffRoleDefByScopeIdxKey key = (CFBamBuffRoleDefByScopeIdxKey)schema.getFactoryRoleDef().newByScopeIdxKey();
+		CFBamBuffRoleDefByScopeIdxKey key = (CFBamBuffRoleDefByScopeIdxKey)schema.getCFBamFactory().getFactoryRoleDef().newByScopeIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		deleteSchemaRoleByScopeIdx( Authorization, key );
 	}
@@ -1036,7 +1036,7 @@ public class CFBamRamSchemaRoleTable
 	public void deleteSchemaRoleByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffRoleDefByDefSchemaIdxKey key = (CFBamBuffRoleDefByDefSchemaIdxKey)schema.getFactoryRoleDef().newByDefSchemaIdxKey();
+		CFBamBuffRoleDefByDefSchemaIdxKey key = (CFBamBuffRoleDefByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryRoleDef().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteSchemaRoleByDefSchemaIdx( Authorization, key );
 	}
@@ -1076,7 +1076,7 @@ public class CFBamRamSchemaRoleTable
 		CFLibDbKeyHash256 argDefSchemaId,
 		String argName )
 	{
-		CFBamBuffRoleDefByUDefIdxKey key = (CFBamBuffRoleDefByUDefIdxKey)schema.getFactoryRoleDef().newByUDefIdxKey();
+		CFBamBuffRoleDefByUDefIdxKey key = (CFBamBuffRoleDefByUDefIdxKey)schema.getCFBamFactory().getFactoryRoleDef().newByUDefIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		key.setRequiredName( argName );

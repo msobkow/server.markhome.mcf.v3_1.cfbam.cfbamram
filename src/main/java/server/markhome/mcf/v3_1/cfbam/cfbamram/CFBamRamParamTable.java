@@ -134,11 +134,11 @@ public class CFBamRamParamTable
 		}
 		else {
 			int classCode = rec.getClassCode();
-			if (classCode == ICFBamParam.CLASS_CODE) {
-				return( ((CFBamBuffParamDefaultFactory)(schema.getFactoryParam())).ensureRec((ICFBamParam)rec) );
-			}
-			else {
-				throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
+			switch (classCode) {
+				case ICFBamParam.CLASS_CODE:
+					return(((CFBamBuffParamFactoryService)(schema.getCFBamFactory().getFactoryParam())).ensureRec((ICFBamParam)rec) );
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
 			}
 		}
 	}
@@ -170,30 +170,30 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 pkey;
 		pkey = schema.nextParamIdGen();
 		Buff.setRequiredId( pkey );
-		CFBamBuffParamByUNameIdxKey keyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getFactoryParam().newByUNameIdxKey();
+		CFBamBuffParamByUNameIdxKey keyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getCFBamFactory().getFactoryParam().newByUNameIdxKey();
 		keyUNameIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffParamByServerMethodIdxKey keyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getFactoryParam().newByServerMethodIdxKey();
+		CFBamBuffParamByServerMethodIdxKey keyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerMethodIdxKey();
 		keyServerMethodIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 
-		CFBamBuffParamByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getFactoryParam().newByDefSchemaIdxKey();
+		CFBamBuffParamByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryParam().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffParamByServerTypeIdxKey keyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getFactoryParam().newByServerTypeIdxKey();
+		CFBamBuffParamByServerTypeIdxKey keyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerTypeIdxKey();
 		keyServerTypeIdx.setOptionalTypeId( Buff.getOptionalTypeId() );
 
-		CFBamBuffParamByPrevIdxKey keyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getFactoryParam().newByPrevIdxKey();
+		CFBamBuffParamByPrevIdxKey keyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffParamByNextIdxKey keyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getFactoryParam().newByNextIdxKey();
+		CFBamBuffParamByNextIdxKey keyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
-		CFBamBuffParamByContPrevIdxKey keyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getFactoryParam().newByContPrevIdxKey();
+		CFBamBuffParamByContPrevIdxKey keyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByContPrevIdxKey();
 		keyContPrevIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 		keyContPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffParamByContNextIdxKey keyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getFactoryParam().newByContNextIdxKey();
+		CFBamBuffParamByContNextIdxKey keyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByContNextIdxKey();
 		keyContNextIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 		keyContNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
@@ -332,7 +332,7 @@ public class CFBamRamParamTable
 		subdictContNextIdx.put( pkey, Buff );
 
 		if( tail != null ) {
-			ICFBamParam tailEdit = schema.getFactoryParam().newRec();
+			ICFBamParam tailEdit = schema.getCFBamFactory().getFactoryParam().newRec();
 			tailEdit.set( (ICFBamParam)tail );
 				tailEdit.setOptionalLookupNext(Buff.getRequiredId());
 			schema.getTableParam().updateParam( Authorization, tailEdit );
@@ -343,7 +343,7 @@ public class CFBamRamParamTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamParam.CLASS_CODE) {
-				CFBamBuffParam retbuff = ((CFBamBuffParam)(schema.getFactoryParam().newRec()));
+				CFBamBuffParam retbuff = ((CFBamBuffParam)(schema.getCFBamFactory().getFactoryParam().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -404,7 +404,7 @@ public class CFBamRamParamTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByUNameIdx";
-		CFBamBuffParamByUNameIdxKey key = (CFBamBuffParamByUNameIdxKey)schema.getFactoryParam().newByUNameIdxKey();
+		CFBamBuffParamByUNameIdxKey key = (CFBamBuffParamByUNameIdxKey)schema.getCFBamFactory().getFactoryParam().newByUNameIdxKey();
 
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setRequiredName( Name );
@@ -423,7 +423,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 ServerMethodId )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByServerMethodIdx";
-		CFBamBuffParamByServerMethodIdxKey key = (CFBamBuffParamByServerMethodIdxKey)schema.getFactoryParam().newByServerMethodIdxKey();
+		CFBamBuffParamByServerMethodIdxKey key = (CFBamBuffParamByServerMethodIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerMethodIdxKey();
 
 		key.setRequiredServerMethodId( ServerMethodId );
 		ICFBamParam[] recArray;
@@ -451,7 +451,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 DefSchemaId )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByDefSchemaIdx";
-		CFBamBuffParamByDefSchemaIdxKey key = (CFBamBuffParamByDefSchemaIdxKey)schema.getFactoryParam().newByDefSchemaIdxKey();
+		CFBamBuffParamByDefSchemaIdxKey key = (CFBamBuffParamByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryParam().newByDefSchemaIdxKey();
 
 		key.setOptionalDefSchemaId( DefSchemaId );
 		ICFBamParam[] recArray;
@@ -479,7 +479,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 TypeId )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByServerTypeIdx";
-		CFBamBuffParamByServerTypeIdxKey key = (CFBamBuffParamByServerTypeIdxKey)schema.getFactoryParam().newByServerTypeIdxKey();
+		CFBamBuffParamByServerTypeIdxKey key = (CFBamBuffParamByServerTypeIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerTypeIdxKey();
 
 		key.setOptionalTypeId( TypeId );
 		ICFBamParam[] recArray;
@@ -507,7 +507,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByPrevIdx";
-		CFBamBuffParamByPrevIdxKey key = (CFBamBuffParamByPrevIdxKey)schema.getFactoryParam().newByPrevIdxKey();
+		CFBamBuffParamByPrevIdxKey key = (CFBamBuffParamByPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByPrevIdxKey();
 
 		key.setOptionalPrevId( PrevId );
 		ICFBamParam[] recArray;
@@ -535,7 +535,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByNextIdx";
-		CFBamBuffParamByNextIdxKey key = (CFBamBuffParamByNextIdxKey)schema.getFactoryParam().newByNextIdxKey();
+		CFBamBuffParamByNextIdxKey key = (CFBamBuffParamByNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByNextIdxKey();
 
 		key.setOptionalNextId( NextId );
 		ICFBamParam[] recArray;
@@ -564,7 +564,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByContPrevIdx";
-		CFBamBuffParamByContPrevIdxKey key = (CFBamBuffParamByContPrevIdxKey)schema.getFactoryParam().newByContPrevIdxKey();
+		CFBamBuffParamByContPrevIdxKey key = (CFBamBuffParamByContPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByContPrevIdxKey();
 
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalPrevId( PrevId );
@@ -594,7 +594,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamParam.readDerivedByContNextIdx";
-		CFBamBuffParamByContNextIdxKey key = (CFBamBuffParamByContNextIdxKey)schema.getFactoryParam().newByContNextIdxKey();
+		CFBamBuffParamByContNextIdxKey key = (CFBamBuffParamByContNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByContNextIdxKey();
 
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalNextId( NextId );
@@ -886,7 +886,7 @@ public class CFBamRamParamTable
 		int classCode = prev.getClassCode();
 		ICFBamParam newInstance;
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -896,7 +896,7 @@ public class CFBamRamParamTable
 
 		classCode = cur.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -908,7 +908,7 @@ public class CFBamRamParamTable
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -921,7 +921,7 @@ public class CFBamRamParamTable
 		if( next != null ) {
 			classCode = next.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1040,7 +1040,7 @@ public class CFBamRamParamTable
 		int classCode = cur.getClassCode();
 		ICFBamParam newInstance;
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1050,7 +1050,7 @@ public class CFBamRamParamTable
 
 		classCode = next.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1062,7 +1062,7 @@ public class CFBamRamParamTable
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1075,7 +1075,7 @@ public class CFBamRamParamTable
 		if( prev != null ) {
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				newInstance = schema.getFactoryParam().newRec();
+				newInstance = schema.getCFBamFactory().getFactoryParam().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1164,57 +1164,57 @@ public class CFBamRamParamTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFBamBuffParamByUNameIdxKey existingKeyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getFactoryParam().newByUNameIdxKey();
+		CFBamBuffParamByUNameIdxKey existingKeyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getCFBamFactory().getFactoryParam().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffParamByUNameIdxKey newKeyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getFactoryParam().newByUNameIdxKey();
+		CFBamBuffParamByUNameIdxKey newKeyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getCFBamFactory().getFactoryParam().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffParamByServerMethodIdxKey existingKeyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getFactoryParam().newByServerMethodIdxKey();
+		CFBamBuffParamByServerMethodIdxKey existingKeyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerMethodIdxKey();
 		existingKeyServerMethodIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 
-		CFBamBuffParamByServerMethodIdxKey newKeyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getFactoryParam().newByServerMethodIdxKey();
+		CFBamBuffParamByServerMethodIdxKey newKeyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerMethodIdxKey();
 		newKeyServerMethodIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 
-		CFBamBuffParamByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getFactoryParam().newByDefSchemaIdxKey();
+		CFBamBuffParamByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryParam().newByDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffParamByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getFactoryParam().newByDefSchemaIdxKey();
+		CFBamBuffParamByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryParam().newByDefSchemaIdxKey();
 		newKeyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffParamByServerTypeIdxKey existingKeyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getFactoryParam().newByServerTypeIdxKey();
+		CFBamBuffParamByServerTypeIdxKey existingKeyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerTypeIdxKey();
 		existingKeyServerTypeIdx.setOptionalTypeId( existing.getOptionalTypeId() );
 
-		CFBamBuffParamByServerTypeIdxKey newKeyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getFactoryParam().newByServerTypeIdxKey();
+		CFBamBuffParamByServerTypeIdxKey newKeyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerTypeIdxKey();
 		newKeyServerTypeIdx.setOptionalTypeId( Buff.getOptionalTypeId() );
 
-		CFBamBuffParamByPrevIdxKey existingKeyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getFactoryParam().newByPrevIdxKey();
+		CFBamBuffParamByPrevIdxKey existingKeyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByPrevIdxKey();
 		existingKeyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffParamByPrevIdxKey newKeyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getFactoryParam().newByPrevIdxKey();
+		CFBamBuffParamByPrevIdxKey newKeyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByPrevIdxKey();
 		newKeyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffParamByNextIdxKey existingKeyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getFactoryParam().newByNextIdxKey();
+		CFBamBuffParamByNextIdxKey existingKeyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByNextIdxKey();
 		existingKeyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffParamByNextIdxKey newKeyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getFactoryParam().newByNextIdxKey();
+		CFBamBuffParamByNextIdxKey newKeyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByNextIdxKey();
 		newKeyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
-		CFBamBuffParamByContPrevIdxKey existingKeyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getFactoryParam().newByContPrevIdxKey();
+		CFBamBuffParamByContPrevIdxKey existingKeyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByContPrevIdxKey();
 		existingKeyContPrevIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		existingKeyContPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffParamByContPrevIdxKey newKeyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getFactoryParam().newByContPrevIdxKey();
+		CFBamBuffParamByContPrevIdxKey newKeyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByContPrevIdxKey();
 		newKeyContPrevIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 		newKeyContPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffParamByContNextIdxKey existingKeyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getFactoryParam().newByContNextIdxKey();
+		CFBamBuffParamByContNextIdxKey existingKeyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByContNextIdxKey();
 		existingKeyContNextIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		existingKeyContNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffParamByContNextIdxKey newKeyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getFactoryParam().newByContNextIdxKey();
+		CFBamBuffParamByContNextIdxKey newKeyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByContNextIdxKey();
 		newKeyContNextIdx.setRequiredServerMethodId( Buff.getRequiredServerMethodId() );
 		newKeyContNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
@@ -1423,7 +1423,7 @@ public class CFBamRamParamTable
 			CFBamBuffParam editPrev;
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				editPrev = (CFBamBuffParam)(schema.getFactoryParam().newRec());
+				editPrev = (CFBamBuffParam)(schema.getCFBamFactory().getFactoryParam().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-prev-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1452,7 +1452,7 @@ public class CFBamRamParamTable
 			CFBamBuffParam editNext;
 			classCode = next.getClassCode();
 			if( classCode == ICFBamParam.CLASS_CODE ) {
-				editNext = (CFBamBuffParam)(schema.getFactoryParam().newRec());
+				editNext = (CFBamBuffParam)(schema.getCFBamFactory().getFactoryParam().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-next-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1467,30 +1467,30 @@ public class CFBamRamParamTable
 			}
 		}
 
-		CFBamBuffParamByUNameIdxKey keyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getFactoryParam().newByUNameIdxKey();
+		CFBamBuffParamByUNameIdxKey keyUNameIdx = (CFBamBuffParamByUNameIdxKey)schema.getCFBamFactory().getFactoryParam().newByUNameIdxKey();
 		keyUNameIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffParamByServerMethodIdxKey keyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getFactoryParam().newByServerMethodIdxKey();
+		CFBamBuffParamByServerMethodIdxKey keyServerMethodIdx = (CFBamBuffParamByServerMethodIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerMethodIdxKey();
 		keyServerMethodIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 
-		CFBamBuffParamByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getFactoryParam().newByDefSchemaIdxKey();
+		CFBamBuffParamByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffParamByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryParam().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffParamByServerTypeIdxKey keyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getFactoryParam().newByServerTypeIdxKey();
+		CFBamBuffParamByServerTypeIdxKey keyServerTypeIdx = (CFBamBuffParamByServerTypeIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerTypeIdxKey();
 		keyServerTypeIdx.setOptionalTypeId( existing.getOptionalTypeId() );
 
-		CFBamBuffParamByPrevIdxKey keyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getFactoryParam().newByPrevIdxKey();
+		CFBamBuffParamByPrevIdxKey keyPrevIdx = (CFBamBuffParamByPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffParamByNextIdxKey keyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getFactoryParam().newByNextIdxKey();
+		CFBamBuffParamByNextIdxKey keyNextIdx = (CFBamBuffParamByNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffParamByContPrevIdxKey keyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getFactoryParam().newByContPrevIdxKey();
+		CFBamBuffParamByContPrevIdxKey keyContPrevIdx = (CFBamBuffParamByContPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByContPrevIdxKey();
 		keyContPrevIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		keyContPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffParamByContNextIdxKey keyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getFactoryParam().newByContNextIdxKey();
+		CFBamBuffParamByContNextIdxKey keyContNextIdx = (CFBamBuffParamByContNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByContNextIdxKey();
 		keyContNextIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		keyContNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
@@ -1557,7 +1557,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 argServerMethodId,
 		String argName )
 	{
-		CFBamBuffParamByUNameIdxKey key = (CFBamBuffParamByUNameIdxKey)schema.getFactoryParam().newByUNameIdxKey();
+		CFBamBuffParamByUNameIdxKey key = (CFBamBuffParamByUNameIdxKey)schema.getCFBamFactory().getFactoryParam().newByUNameIdxKey();
 		key.setRequiredServerMethodId( argServerMethodId );
 		key.setRequiredName( argName );
 		deleteParamByUNameIdx( Authorization, key );
@@ -1595,7 +1595,7 @@ public class CFBamRamParamTable
 	public void deleteParamByServerMethodIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argServerMethodId )
 	{
-		CFBamBuffParamByServerMethodIdxKey key = (CFBamBuffParamByServerMethodIdxKey)schema.getFactoryParam().newByServerMethodIdxKey();
+		CFBamBuffParamByServerMethodIdxKey key = (CFBamBuffParamByServerMethodIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerMethodIdxKey();
 		key.setRequiredServerMethodId( argServerMethodId );
 		deleteParamByServerMethodIdx( Authorization, key );
 	}
@@ -1631,7 +1631,7 @@ public class CFBamRamParamTable
 	public void deleteParamByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffParamByDefSchemaIdxKey key = (CFBamBuffParamByDefSchemaIdxKey)schema.getFactoryParam().newByDefSchemaIdxKey();
+		CFBamBuffParamByDefSchemaIdxKey key = (CFBamBuffParamByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryParam().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteParamByDefSchemaIdx( Authorization, key );
 	}
@@ -1669,7 +1669,7 @@ public class CFBamRamParamTable
 	public void deleteParamByServerTypeIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTypeId )
 	{
-		CFBamBuffParamByServerTypeIdxKey key = (CFBamBuffParamByServerTypeIdxKey)schema.getFactoryParam().newByServerTypeIdxKey();
+		CFBamBuffParamByServerTypeIdxKey key = (CFBamBuffParamByServerTypeIdxKey)schema.getCFBamFactory().getFactoryParam().newByServerTypeIdxKey();
 		key.setOptionalTypeId( argTypeId );
 		deleteParamByServerTypeIdx( Authorization, key );
 	}
@@ -1707,7 +1707,7 @@ public class CFBamRamParamTable
 	public void deleteParamByPrevIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffParamByPrevIdxKey key = (CFBamBuffParamByPrevIdxKey)schema.getFactoryParam().newByPrevIdxKey();
+		CFBamBuffParamByPrevIdxKey key = (CFBamBuffParamByPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByPrevIdxKey();
 		key.setOptionalPrevId( argPrevId );
 		deleteParamByPrevIdx( Authorization, key );
 	}
@@ -1745,7 +1745,7 @@ public class CFBamRamParamTable
 	public void deleteParamByNextIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffParamByNextIdxKey key = (CFBamBuffParamByNextIdxKey)schema.getFactoryParam().newByNextIdxKey();
+		CFBamBuffParamByNextIdxKey key = (CFBamBuffParamByNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByNextIdxKey();
 		key.setOptionalNextId( argNextId );
 		deleteParamByNextIdx( Authorization, key );
 	}
@@ -1784,7 +1784,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 argServerMethodId,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffParamByContPrevIdxKey key = (CFBamBuffParamByContPrevIdxKey)schema.getFactoryParam().newByContPrevIdxKey();
+		CFBamBuffParamByContPrevIdxKey key = (CFBamBuffParamByContPrevIdxKey)schema.getCFBamFactory().getFactoryParam().newByContPrevIdxKey();
 		key.setRequiredServerMethodId( argServerMethodId );
 		key.setOptionalPrevId( argPrevId );
 		deleteParamByContPrevIdx( Authorization, key );
@@ -1825,7 +1825,7 @@ public class CFBamRamParamTable
 		CFLibDbKeyHash256 argServerMethodId,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffParamByContNextIdxKey key = (CFBamBuffParamByContNextIdxKey)schema.getFactoryParam().newByContNextIdxKey();
+		CFBamBuffParamByContNextIdxKey key = (CFBamBuffParamByContNextIdxKey)schema.getCFBamFactory().getFactoryParam().newByContNextIdxKey();
 		key.setRequiredServerMethodId( argServerMethodId );
 		key.setOptionalNextId( argNextId );
 		deleteParamByContNextIdx( Authorization, key );
