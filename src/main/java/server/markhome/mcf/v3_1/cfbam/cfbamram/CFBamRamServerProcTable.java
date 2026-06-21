@@ -87,7 +87,7 @@ public class CFBamRamServerProcTable
 			return( null );
 		}
 		else {
-			return ((CFBamRamScopeTable)(schema.getTableScope())).ensureRec((ICFBamScope)rec);
+			return (((CFBamBuffScopeFactoryService)(schema.getCFBamBuffFactory().getFactoryScope())).ensureRec(rec));
 		}
 	}
 
@@ -139,7 +139,7 @@ public class CFBamRamServerProcTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamServerProc.CLASS_CODE) {
-				CFBamBuffServerProc retbuff = ((CFBamBuffServerProc)(schema.getCFBamFactory().getFactoryServerProc().newRec()));
+				CFBamBuffServerProc retbuff = ((CFBamBuffServerProc)(schema.getCFBamBuffFactory().getFactoryServerProc().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -594,7 +594,7 @@ public class CFBamRamServerProcTable
 		CFLibDbKeyHash256 argTableId,
 		String argName )
 	{
-		CFBamBuffServerMethodByUNameIdxKey key = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByUNameIdxKey();
+		CFBamBuffServerMethodByUNameIdxKey key = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByUNameIdxKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredName( argName );
 		deleteServerProcByUNameIdx( Authorization, key );
@@ -632,7 +632,7 @@ public class CFBamRamServerProcTable
 	public void deleteServerProcByMethTableIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTableId )
 	{
-		CFBamBuffServerMethodByMethTableIdxKey key = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableIdxKey();
+		CFBamBuffServerMethodByMethTableIdxKey key = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableIdxKey();
 		key.setRequiredTableId( argTableId );
 		deleteServerProcByMethTableIdx( Authorization, key );
 	}
@@ -668,7 +668,7 @@ public class CFBamRamServerProcTable
 	public void deleteServerProcByMethCodeVisIdx( ICFSecAuthorization Authorization,
 		ICFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamBuffServerMethodByMethCodeVisIdxKey key = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
+		CFBamBuffServerMethodByMethCodeVisIdxKey key = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
 		key.setRequiredCodeVis( argCodeVis );
 		deleteServerProcByMethCodeVisIdx( Authorization, key );
 	}
@@ -705,7 +705,7 @@ public class CFBamRamServerProcTable
 		CFLibDbKeyHash256 argTableId,
 		ICFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamBuffServerMethodByMethTableVisIdxKey key = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
+		CFBamBuffServerMethodByMethTableVisIdxKey key = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredCodeVis( argCodeVis );
 		deleteServerProcByMethTableVisIdx( Authorization, key );
@@ -743,7 +743,7 @@ public class CFBamRamServerProcTable
 	public void deleteServerProcByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffServerMethodByDefSchemaIdxKey key = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
+		CFBamBuffServerMethodByDefSchemaIdxKey key = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteServerProcByDefSchemaIdx( Authorization, key );
 	}
@@ -808,7 +808,7 @@ public class CFBamRamServerProcTable
 	public void deleteServerProcByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamFactory().getFactoryScope().newByTenantIdxKey();
+		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamBuffFactory().getFactoryScope().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteServerProcByTenantIdx( Authorization, key );
 	}

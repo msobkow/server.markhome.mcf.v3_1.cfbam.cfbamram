@@ -97,7 +97,7 @@ public class CFBamRamClearSubDep2Table
 			return( null );
 		}
 		else {
-			return ((CFBamRamScopeTable)(schema.getTableScope())).ensureRec((ICFBamScope)rec);
+			return (((CFBamBuffScopeFactoryService)(schema.getCFBamBuffFactory().getFactoryScope())).ensureRec(rec));
 		}
 	}
 
@@ -111,10 +111,10 @@ public class CFBamRamClearSubDep2Table
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffClearSubDep2ByClearSubDep1IdxKey keyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
+		CFBamBuffClearSubDep2ByClearSubDep1IdxKey keyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
 		keyClearSubDep1Idx.setRequiredClearSubDep1Id( Buff.getRequiredClearSubDep1Id() );
 
-		CFBamBuffClearSubDep2ByUNameIdxKey keyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByUNameIdxKey();
+		CFBamBuffClearSubDep2ByUNameIdxKey keyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByUNameIdxKey();
 		keyUNameIdx.setRequiredClearSubDep1Id( Buff.getRequiredClearSubDep1Id() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -196,7 +196,7 @@ public class CFBamRamClearSubDep2Table
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamClearSubDep2.CLASS_CODE) {
-				CFBamBuffClearSubDep2 retbuff = ((CFBamBuffClearSubDep2)(schema.getCFBamFactory().getFactoryClearSubDep2().newRec()));
+				CFBamBuffClearSubDep2 retbuff = ((CFBamBuffClearSubDep2)(schema.getCFBamBuffFactory().getFactoryClearSubDep2().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -325,7 +325,7 @@ public class CFBamRamClearSubDep2Table
 		CFLibDbKeyHash256 ClearSubDep1Id )
 	{
 		final String S_ProcName = "CFBamRamClearSubDep2.readDerivedByClearSubDep1Idx";
-		CFBamBuffClearSubDep2ByClearSubDep1IdxKey key = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
+		CFBamBuffClearSubDep2ByClearSubDep1IdxKey key = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
 
 		key.setRequiredClearSubDep1Id( ClearSubDep1Id );
 		ICFBamClearSubDep2[] recArray;
@@ -354,7 +354,7 @@ public class CFBamRamClearSubDep2Table
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamClearSubDep2.readDerivedByUNameIdx";
-		CFBamBuffClearSubDep2ByUNameIdxKey key = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByUNameIdxKey();
+		CFBamBuffClearSubDep2ByUNameIdxKey key = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByUNameIdxKey();
 
 		key.setRequiredClearSubDep1Id( ClearSubDep1Id );
 		key.setRequiredName( Name );
@@ -542,17 +542,17 @@ public class CFBamRamClearSubDep2Table
 				"ClearSubDep2",
 				pkey );
 		}
-		CFBamBuffClearSubDep2ByClearSubDep1IdxKey existingKeyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
+		CFBamBuffClearSubDep2ByClearSubDep1IdxKey existingKeyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
 		existingKeyClearSubDep1Idx.setRequiredClearSubDep1Id( existing.getRequiredClearSubDep1Id() );
 
-		CFBamBuffClearSubDep2ByClearSubDep1IdxKey newKeyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
+		CFBamBuffClearSubDep2ByClearSubDep1IdxKey newKeyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
 		newKeyClearSubDep1Idx.setRequiredClearSubDep1Id( Buff.getRequiredClearSubDep1Id() );
 
-		CFBamBuffClearSubDep2ByUNameIdxKey existingKeyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByUNameIdxKey();
+		CFBamBuffClearSubDep2ByUNameIdxKey existingKeyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredClearSubDep1Id( existing.getRequiredClearSubDep1Id() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffClearSubDep2ByUNameIdxKey newKeyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByUNameIdxKey();
+		CFBamBuffClearSubDep2ByUNameIdxKey newKeyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredClearSubDep1Id( Buff.getRequiredClearSubDep1Id() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -661,10 +661,10 @@ public class CFBamRamClearSubDep2Table
 			schema.getTableClearSubDep3().deleteClearSubDep3ByClearSubDep2Idx( Authorization,
 						existing.getRequiredId() );
 		}
-		CFBamBuffClearSubDep2ByClearSubDep1IdxKey keyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
+		CFBamBuffClearSubDep2ByClearSubDep1IdxKey keyClearSubDep1Idx = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
 		keyClearSubDep1Idx.setRequiredClearSubDep1Id( existing.getRequiredClearSubDep1Id() );
 
-		CFBamBuffClearSubDep2ByUNameIdxKey keyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByUNameIdxKey();
+		CFBamBuffClearSubDep2ByUNameIdxKey keyUNameIdx = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByUNameIdxKey();
 		keyUNameIdx.setRequiredClearSubDep1Id( existing.getRequiredClearSubDep1Id() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
@@ -687,7 +687,7 @@ public class CFBamRamClearSubDep2Table
 	public void deleteClearSubDep2ByClearSubDep1Idx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argClearSubDep1Id )
 	{
-		CFBamBuffClearSubDep2ByClearSubDep1IdxKey key = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
+		CFBamBuffClearSubDep2ByClearSubDep1IdxKey key = (CFBamBuffClearSubDep2ByClearSubDep1IdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByClearSubDep1IdxKey();
 		key.setRequiredClearSubDep1Id( argClearSubDep1Id );
 		deleteClearSubDep2ByClearSubDep1Idx( Authorization, key );
 	}
@@ -724,7 +724,7 @@ public class CFBamRamClearSubDep2Table
 		CFLibDbKeyHash256 argClearSubDep1Id,
 		String argName )
 	{
-		CFBamBuffClearSubDep2ByUNameIdxKey key = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamFactory().getFactoryClearSubDep2().newByUNameIdxKey();
+		CFBamBuffClearSubDep2ByUNameIdxKey key = (CFBamBuffClearSubDep2ByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearSubDep2().newByUNameIdxKey();
 		key.setRequiredClearSubDep1Id( argClearSubDep1Id );
 		key.setRequiredName( argName );
 		deleteClearSubDep2ByUNameIdx( Authorization, key );
@@ -762,7 +762,7 @@ public class CFBamRamClearSubDep2Table
 	public void deleteClearSubDep2ByClearDepIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argRelationId )
 	{
-		CFBamBuffClearDepByClearDepIdxKey key = (CFBamBuffClearDepByClearDepIdxKey)schema.getCFBamFactory().getFactoryClearDep().newByClearDepIdxKey();
+		CFBamBuffClearDepByClearDepIdxKey key = (CFBamBuffClearDepByClearDepIdxKey)schema.getCFBamBuffFactory().getFactoryClearDep().newByClearDepIdxKey();
 		key.setRequiredRelationId( argRelationId );
 		deleteClearSubDep2ByClearDepIdx( Authorization, key );
 	}
@@ -798,7 +798,7 @@ public class CFBamRamClearSubDep2Table
 	public void deleteClearSubDep2ByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffClearDepByDefSchemaIdxKey key = (CFBamBuffClearDepByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryClearDep().newByDefSchemaIdxKey();
+		CFBamBuffClearDepByDefSchemaIdxKey key = (CFBamBuffClearDepByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryClearDep().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteClearSubDep2ByDefSchemaIdx( Authorization, key );
 	}
@@ -863,7 +863,7 @@ public class CFBamRamClearSubDep2Table
 	public void deleteClearSubDep2ByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamFactory().getFactoryScope().newByTenantIdxKey();
+		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamBuffFactory().getFactoryScope().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteClearSubDep2ByTenantIdx( Authorization, key );
 	}

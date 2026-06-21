@@ -93,7 +93,7 @@ public class CFBamRamSchemaTweakTable
 			return( null );
 		}
 		else {
-			return ((CFBamRamTweakTable)(schema.getTableTweak())).ensureRec((ICFBamTweak)rec);
+			return (((CFBamBuffTweakFactoryService)(schema.getCFBamBuffFactory().getFactoryTweak())).ensureRec(rec));
 		}
 	}
 
@@ -107,7 +107,7 @@ public class CFBamRamSchemaTweakTable
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffSchemaTweakBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaTweak().newBySchemaIdxKey();
+		CFBamBuffSchemaTweakBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaTweak().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
 		// Validate unique indexes
@@ -178,7 +178,7 @@ public class CFBamRamSchemaTweakTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamSchemaTweak.CLASS_CODE) {
-				CFBamBuffSchemaTweak retbuff = ((CFBamBuffSchemaTweak)(schema.getCFBamFactory().getFactorySchemaTweak().newRec()));
+				CFBamBuffSchemaTweak retbuff = ((CFBamBuffSchemaTweak)(schema.getCFBamBuffFactory().getFactorySchemaTweak().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -353,7 +353,7 @@ public class CFBamRamSchemaTweakTable
 		CFLibDbKeyHash256 SchemaDefId )
 	{
 		final String S_ProcName = "CFBamRamSchemaTweak.readDerivedBySchemaIdx";
-		CFBamBuffSchemaTweakBySchemaIdxKey key = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaTweak().newBySchemaIdxKey();
+		CFBamBuffSchemaTweakBySchemaIdxKey key = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaTweak().newBySchemaIdxKey();
 
 		key.setRequiredSchemaDefId( SchemaDefId );
 		ICFBamSchemaTweak[] recArray;
@@ -573,10 +573,10 @@ public class CFBamRamSchemaTweakTable
 				"SchemaTweak",
 				pkey );
 		}
-		CFBamBuffSchemaTweakBySchemaIdxKey existingKeySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaTweak().newBySchemaIdxKey();
+		CFBamBuffSchemaTweakBySchemaIdxKey existingKeySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaTweak().newBySchemaIdxKey();
 		existingKeySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
-		CFBamBuffSchemaTweakBySchemaIdxKey newKeySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaTweak().newBySchemaIdxKey();
+		CFBamBuffSchemaTweakBySchemaIdxKey newKeySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaTweak().newBySchemaIdxKey();
 		newKeySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
 		// Check unique indexes
@@ -664,7 +664,7 @@ public class CFBamRamSchemaTweakTable
 				"deleteSchemaTweak",
 				pkey );
 		}
-		CFBamBuffSchemaTweakBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaTweak().newBySchemaIdxKey();
+		CFBamBuffSchemaTweakBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaTweak().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
 		// Validate reverse foreign keys
@@ -684,7 +684,7 @@ public class CFBamRamSchemaTweakTable
 	public void deleteSchemaTweakBySchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argSchemaDefId )
 	{
-		CFBamBuffSchemaTweakBySchemaIdxKey key = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaTweak().newBySchemaIdxKey();
+		CFBamBuffSchemaTweakBySchemaIdxKey key = (CFBamBuffSchemaTweakBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaTweak().newBySchemaIdxKey();
 		key.setRequiredSchemaDefId( argSchemaDefId );
 		deleteSchemaTweakBySchemaIdx( Authorization, key );
 	}
@@ -748,7 +748,7 @@ public class CFBamRamSchemaTweakTable
 		CFLibDbKeyHash256 argScopeId,
 		String argName )
 	{
-		CFBamBuffTweakByUNameIdxKey key = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUNameIdxKey();
+		CFBamBuffTweakByUNameIdxKey key = (CFBamBuffTweakByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryTweak().newByUNameIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		key.setRequiredName( argName );
 		deleteSchemaTweakByUNameIdx( Authorization, key );
@@ -786,7 +786,7 @@ public class CFBamRamSchemaTweakTable
 	public void deleteSchemaTweakByValTentIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffTweakByValTentIdxKey key = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamFactory().getFactoryTweak().newByValTentIdxKey();
+		CFBamBuffTweakByValTentIdxKey key = (CFBamBuffTweakByValTentIdxKey)schema.getCFBamBuffFactory().getFactoryTweak().newByValTentIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteSchemaTweakByValTentIdx( Authorization, key );
 	}
@@ -822,7 +822,7 @@ public class CFBamRamSchemaTweakTable
 	public void deleteSchemaTweakByScopeIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argScopeId )
 	{
-		CFBamBuffTweakByScopeIdxKey key = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamFactory().getFactoryTweak().newByScopeIdxKey();
+		CFBamBuffTweakByScopeIdxKey key = (CFBamBuffTweakByScopeIdxKey)schema.getCFBamBuffFactory().getFactoryTweak().newByScopeIdxKey();
 		key.setRequiredScopeId( argScopeId );
 		deleteSchemaTweakByScopeIdx( Authorization, key );
 	}
@@ -858,7 +858,7 @@ public class CFBamRamSchemaTweakTable
 	public void deleteSchemaTweakByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffTweakByDefSchemaIdxKey key = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryTweak().newByDefSchemaIdxKey();
+		CFBamBuffTweakByDefSchemaIdxKey key = (CFBamBuffTweakByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryTweak().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteSchemaTweakByDefSchemaIdx( Authorization, key );
 	}
@@ -900,7 +900,7 @@ public class CFBamRamSchemaTweakTable
 		CFLibDbKeyHash256 argDefSchemaId,
 		String argName )
 	{
-		CFBamBuffTweakByUDefIdxKey key = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamFactory().getFactoryTweak().newByUDefIdxKey();
+		CFBamBuffTweakByUDefIdxKey key = (CFBamBuffTweakByUDefIdxKey)schema.getCFBamBuffFactory().getFactoryTweak().newByUDefIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );

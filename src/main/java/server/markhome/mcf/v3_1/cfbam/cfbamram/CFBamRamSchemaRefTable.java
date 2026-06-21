@@ -115,7 +115,7 @@ public class CFBamRamSchemaRefTable
 			return( null );
 		}
 		else {
-			return ((CFBamRamScopeTable)(schema.getTableScope())).ensureRec((ICFBamScope)rec);
+			return (((CFBamBuffScopeFactoryService)(schema.getCFBamBuffFactory().getFactoryScope())).ensureRec(rec));
 		}
 	}
 
@@ -146,20 +146,20 @@ public class CFBamRamSchemaRefTable
 		}
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffSchemaRefBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newBySchemaIdxKey();
+		CFBamBuffSchemaRefBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaId( Buff.getRequiredSchemaId() );
 
-		CFBamBuffSchemaRefByUNameIdxKey keyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByUNameIdxKey();
+		CFBamBuffSchemaRefByUNameIdxKey keyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByUNameIdxKey();
 		keyUNameIdx.setRequiredSchemaId( Buff.getRequiredSchemaId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffSchemaRefByRefSchemaIdxKey keyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
+		CFBamBuffSchemaRefByRefSchemaIdxKey keyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
 		keyRefSchemaIdx.setOptionalRefSchemaId( Buff.getOptionalRefSchemaId() );
 
-		CFBamBuffSchemaRefByPrevIdxKey keyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByPrevIdxKey();
+		CFBamBuffSchemaRefByPrevIdxKey keyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffSchemaRefByNextIdxKey keyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByNextIdxKey();
+		CFBamBuffSchemaRefByNextIdxKey keyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Validate unique indexes
@@ -267,7 +267,7 @@ public class CFBamRamSchemaRefTable
 		if( tail != null ) {
 			int tailClassCode = tail.getClassCode();
 			if( tailClassCode == ICFBamSchemaRef.CLASS_CODE ) {
-				ICFBamSchemaRef tailEdit = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				ICFBamSchemaRef tailEdit = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 				tailEdit.set( (ICFBamSchemaRef)tail );
 				tailEdit.setOptionalLookupNext(Buff.getRequiredId());
 				schema.getTableSchemaRef().updateSchemaRef( Authorization, tailEdit );
@@ -282,7 +282,7 @@ public class CFBamRamSchemaRefTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamSchemaRef.CLASS_CODE) {
-				CFBamBuffSchemaRef retbuff = ((CFBamBuffSchemaRef)(schema.getCFBamFactory().getFactorySchemaRef().newRec()));
+				CFBamBuffSchemaRef retbuff = ((CFBamBuffSchemaRef)(schema.getCFBamBuffFactory().getFactorySchemaRef().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -365,7 +365,7 @@ public class CFBamRamSchemaRefTable
 		CFLibDbKeyHash256 SchemaId )
 	{
 		final String S_ProcName = "CFBamRamSchemaRef.readDerivedBySchemaIdx";
-		CFBamBuffSchemaRefBySchemaIdxKey key = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newBySchemaIdxKey();
+		CFBamBuffSchemaRefBySchemaIdxKey key = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newBySchemaIdxKey();
 
 		key.setRequiredSchemaId( SchemaId );
 		ICFBamSchemaRef[] recArray;
@@ -394,7 +394,7 @@ public class CFBamRamSchemaRefTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamSchemaRef.readDerivedByUNameIdx";
-		CFBamBuffSchemaRefByUNameIdxKey key = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByUNameIdxKey();
+		CFBamBuffSchemaRefByUNameIdxKey key = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByUNameIdxKey();
 
 		key.setRequiredSchemaId( SchemaId );
 		key.setRequiredName( Name );
@@ -413,7 +413,7 @@ public class CFBamRamSchemaRefTable
 		CFLibDbKeyHash256 RefSchemaId )
 	{
 		final String S_ProcName = "CFBamRamSchemaRef.readDerivedByRefSchemaIdx";
-		CFBamBuffSchemaRefByRefSchemaIdxKey key = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
+		CFBamBuffSchemaRefByRefSchemaIdxKey key = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
 
 		key.setOptionalRefSchemaId( RefSchemaId );
 		ICFBamSchemaRef[] recArray;
@@ -441,7 +441,7 @@ public class CFBamRamSchemaRefTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamSchemaRef.readDerivedByPrevIdx";
-		CFBamBuffSchemaRefByPrevIdxKey key = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByPrevIdxKey();
+		CFBamBuffSchemaRefByPrevIdxKey key = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByPrevIdxKey();
 
 		key.setOptionalPrevId( PrevId );
 		ICFBamSchemaRef[] recArray;
@@ -469,7 +469,7 @@ public class CFBamRamSchemaRefTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamSchemaRef.readDerivedByNextIdx";
-		CFBamBuffSchemaRefByNextIdxKey key = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByNextIdxKey();
+		CFBamBuffSchemaRefByNextIdxKey key = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByNextIdxKey();
 
 		key.setOptionalNextId( NextId );
 		ICFBamSchemaRef[] recArray;
@@ -720,7 +720,7 @@ public class CFBamRamSchemaRefTable
 		int classCode = prev.getClassCode();
 		ICFBamSchemaRef newInstance;
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -730,7 +730,7 @@ public class CFBamRamSchemaRefTable
 
 		classCode = cur.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -742,7 +742,7 @@ public class CFBamRamSchemaRefTable
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -755,7 +755,7 @@ public class CFBamRamSchemaRefTable
 		if( next != null ) {
 			classCode = next.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -874,7 +874,7 @@ public class CFBamRamSchemaRefTable
 		int classCode = cur.getClassCode();
 		ICFBamSchemaRef newInstance;
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -884,7 +884,7 @@ public class CFBamRamSchemaRefTable
 
 		classCode = next.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -896,7 +896,7 @@ public class CFBamRamSchemaRefTable
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -909,7 +909,7 @@ public class CFBamRamSchemaRefTable
 		if( prev != null ) {
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactorySchemaRef().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactorySchemaRef().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -992,36 +992,36 @@ public class CFBamRamSchemaRefTable
 				"SchemaRef",
 				pkey );
 		}
-		CFBamBuffSchemaRefBySchemaIdxKey existingKeySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newBySchemaIdxKey();
+		CFBamBuffSchemaRefBySchemaIdxKey existingKeySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newBySchemaIdxKey();
 		existingKeySchemaIdx.setRequiredSchemaId( existing.getRequiredSchemaId() );
 
-		CFBamBuffSchemaRefBySchemaIdxKey newKeySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newBySchemaIdxKey();
+		CFBamBuffSchemaRefBySchemaIdxKey newKeySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newBySchemaIdxKey();
 		newKeySchemaIdx.setRequiredSchemaId( Buff.getRequiredSchemaId() );
 
-		CFBamBuffSchemaRefByUNameIdxKey existingKeyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByUNameIdxKey();
+		CFBamBuffSchemaRefByUNameIdxKey existingKeyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredSchemaId( existing.getRequiredSchemaId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffSchemaRefByUNameIdxKey newKeyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByUNameIdxKey();
+		CFBamBuffSchemaRefByUNameIdxKey newKeyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredSchemaId( Buff.getRequiredSchemaId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffSchemaRefByRefSchemaIdxKey existingKeyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
+		CFBamBuffSchemaRefByRefSchemaIdxKey existingKeyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
 		existingKeyRefSchemaIdx.setOptionalRefSchemaId( existing.getOptionalRefSchemaId() );
 
-		CFBamBuffSchemaRefByRefSchemaIdxKey newKeyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
+		CFBamBuffSchemaRefByRefSchemaIdxKey newKeyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
 		newKeyRefSchemaIdx.setOptionalRefSchemaId( Buff.getOptionalRefSchemaId() );
 
-		CFBamBuffSchemaRefByPrevIdxKey existingKeyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByPrevIdxKey();
+		CFBamBuffSchemaRefByPrevIdxKey existingKeyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByPrevIdxKey();
 		existingKeyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffSchemaRefByPrevIdxKey newKeyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByPrevIdxKey();
+		CFBamBuffSchemaRefByPrevIdxKey newKeyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByPrevIdxKey();
 		newKeyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffSchemaRefByNextIdxKey existingKeyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByNextIdxKey();
+		CFBamBuffSchemaRefByNextIdxKey existingKeyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByNextIdxKey();
 		existingKeyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffSchemaRefByNextIdxKey newKeyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByNextIdxKey();
+		CFBamBuffSchemaRefByNextIdxKey newKeyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByNextIdxKey();
 		newKeyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Check unique indexes
@@ -1188,7 +1188,7 @@ public class CFBamRamSchemaRefTable
 			CFBamBuffSchemaRef editPrev;
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				editPrev = (CFBamBuffSchemaRef)(schema.getCFBamFactory().getFactorySchemaRef().newRec());
+				editPrev = (CFBamBuffSchemaRef)(schema.getCFBamBuffFactory().getFactorySchemaRef().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-prev-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1217,7 +1217,7 @@ public class CFBamRamSchemaRefTable
 			CFBamBuffSchemaRef editNext;
 			classCode = next.getClassCode();
 			if( classCode == ICFBamSchemaRef.CLASS_CODE ) {
-				editNext = (CFBamBuffSchemaRef)(schema.getCFBamFactory().getFactorySchemaRef().newRec());
+				editNext = (CFBamBuffSchemaRef)(schema.getCFBamBuffFactory().getFactorySchemaRef().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-next-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1232,20 +1232,20 @@ public class CFBamRamSchemaRefTable
 			}
 		}
 
-		CFBamBuffSchemaRefBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newBySchemaIdxKey();
+		CFBamBuffSchemaRefBySchemaIdxKey keySchemaIdx = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newBySchemaIdxKey();
 		keySchemaIdx.setRequiredSchemaId( existing.getRequiredSchemaId() );
 
-		CFBamBuffSchemaRefByUNameIdxKey keyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByUNameIdxKey();
+		CFBamBuffSchemaRefByUNameIdxKey keyUNameIdx = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByUNameIdxKey();
 		keyUNameIdx.setRequiredSchemaId( existing.getRequiredSchemaId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffSchemaRefByRefSchemaIdxKey keyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
+		CFBamBuffSchemaRefByRefSchemaIdxKey keyRefSchemaIdx = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
 		keyRefSchemaIdx.setOptionalRefSchemaId( existing.getOptionalRefSchemaId() );
 
-		CFBamBuffSchemaRefByPrevIdxKey keyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByPrevIdxKey();
+		CFBamBuffSchemaRefByPrevIdxKey keyPrevIdx = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffSchemaRefByNextIdxKey keyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByNextIdxKey();
+		CFBamBuffSchemaRefByNextIdxKey keyNextIdx = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
 		// Validate reverse foreign keys
@@ -1276,7 +1276,7 @@ public class CFBamRamSchemaRefTable
 	public void deleteSchemaRefBySchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argSchemaId )
 	{
-		CFBamBuffSchemaRefBySchemaIdxKey key = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newBySchemaIdxKey();
+		CFBamBuffSchemaRefBySchemaIdxKey key = (CFBamBuffSchemaRefBySchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newBySchemaIdxKey();
 		key.setRequiredSchemaId( argSchemaId );
 		deleteSchemaRefBySchemaIdx( Authorization, key );
 	}
@@ -1313,7 +1313,7 @@ public class CFBamRamSchemaRefTable
 		CFLibDbKeyHash256 argSchemaId,
 		String argName )
 	{
-		CFBamBuffSchemaRefByUNameIdxKey key = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByUNameIdxKey();
+		CFBamBuffSchemaRefByUNameIdxKey key = (CFBamBuffSchemaRefByUNameIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByUNameIdxKey();
 		key.setRequiredSchemaId( argSchemaId );
 		key.setRequiredName( argName );
 		deleteSchemaRefByUNameIdx( Authorization, key );
@@ -1351,7 +1351,7 @@ public class CFBamRamSchemaRefTable
 	public void deleteSchemaRefByRefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argRefSchemaId )
 	{
-		CFBamBuffSchemaRefByRefSchemaIdxKey key = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
+		CFBamBuffSchemaRefByRefSchemaIdxKey key = (CFBamBuffSchemaRefByRefSchemaIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByRefSchemaIdxKey();
 		key.setOptionalRefSchemaId( argRefSchemaId );
 		deleteSchemaRefByRefSchemaIdx( Authorization, key );
 	}
@@ -1389,7 +1389,7 @@ public class CFBamRamSchemaRefTable
 	public void deleteSchemaRefByPrevIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffSchemaRefByPrevIdxKey key = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByPrevIdxKey();
+		CFBamBuffSchemaRefByPrevIdxKey key = (CFBamBuffSchemaRefByPrevIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByPrevIdxKey();
 		key.setOptionalPrevId( argPrevId );
 		deleteSchemaRefByPrevIdx( Authorization, key );
 	}
@@ -1427,7 +1427,7 @@ public class CFBamRamSchemaRefTable
 	public void deleteSchemaRefByNextIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffSchemaRefByNextIdxKey key = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamFactory().getFactorySchemaRef().newByNextIdxKey();
+		CFBamBuffSchemaRefByNextIdxKey key = (CFBamBuffSchemaRefByNextIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRef().newByNextIdxKey();
 		key.setOptionalNextId( argNextId );
 		deleteSchemaRefByNextIdx( Authorization, key );
 	}
@@ -1492,7 +1492,7 @@ public class CFBamRamSchemaRefTable
 	public void deleteSchemaRefByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamFactory().getFactoryScope().newByTenantIdxKey();
+		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamBuffFactory().getFactoryScope().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteSchemaRefByTenantIdx( Authorization, key );
 	}

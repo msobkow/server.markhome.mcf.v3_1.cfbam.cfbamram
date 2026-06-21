@@ -64,6 +64,13 @@ import server.markhome.mcf.v3_1.cfint.cfint.buff.*;
 import server.markhome.mcf.v3_1.cfbam.cfbam.buff.*;
 import server.markhome.mcf.v3_1.cfbam.cfbamsaxloader.*;
 
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSchema;
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffFactoryService;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.CFIntBuffSchema;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.CFIntBuffFactoryService;
+import server.markhome.mcf.v3_1.cfbam.cfbam.buff.CFBamBuffSchema;
+import server.markhome.mcf.v3_1.cfbam.cfbam.buff.CFBamBuffFactoryService;
+
 public class CFBamRamSchema
 	extends CFBamBuffSchema
 	implements ICFBamSchema

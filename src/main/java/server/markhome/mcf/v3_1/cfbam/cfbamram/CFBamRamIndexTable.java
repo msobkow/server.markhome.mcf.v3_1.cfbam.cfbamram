@@ -115,7 +115,7 @@ public class CFBamRamIndexTable
 			return( null );
 		}
 		else {
-			return ((CFBamRamScopeTable)(schema.getTableScope())).ensureRec((ICFBamScope)rec);
+			return (((CFBamBuffScopeFactoryService)(schema.getCFBamBuffFactory().getFactoryScope())).ensureRec(rec));
 		}
 	}
 
@@ -129,21 +129,21 @@ public class CFBamRamIndexTable
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffIndexByUNameIdxKey keyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamFactory().getFactoryIndex().newByUNameIdxKey();
+		CFBamBuffIndexByUNameIdxKey keyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffIndexByIdxTableIdxKey keyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTableIdxKey();
+		CFBamBuffIndexByIdxTableIdxKey keyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTableIdxKey();
 		keyIdxTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffIndexByIdxCodeVisIdxKey keyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
+		CFBamBuffIndexByIdxCodeVisIdxKey keyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
 		keyIdxCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffIndexByIdxTblCdVisXKey keyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTblCdVisXKey();
+		CFBamBuffIndexByIdxTblCdVisXKey keyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTblCdVisXKey();
 		keyIdxTblCdVisX.setRequiredTableId( Buff.getRequiredTableId() );
 		keyIdxTblCdVisX.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffIndexByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryIndex().newByDefSchemaIdxKey();
+		CFBamBuffIndexByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
 		// Validate unique indexes
@@ -254,7 +254,7 @@ public class CFBamRamIndexTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamIndex.CLASS_CODE) {
-				CFBamBuffIndex retbuff = ((CFBamBuffIndex)(schema.getCFBamFactory().getFactoryIndex().newRec()));
+				CFBamBuffIndex retbuff = ((CFBamBuffIndex)(schema.getCFBamBuffFactory().getFactoryIndex().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -338,7 +338,7 @@ public class CFBamRamIndexTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamIndex.readDerivedByUNameIdx";
-		CFBamBuffIndexByUNameIdxKey key = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamFactory().getFactoryIndex().newByUNameIdxKey();
+		CFBamBuffIndexByUNameIdxKey key = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByUNameIdxKey();
 
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
@@ -357,7 +357,7 @@ public class CFBamRamIndexTable
 		CFLibDbKeyHash256 TableId )
 	{
 		final String S_ProcName = "CFBamRamIndex.readDerivedByIdxTableIdx";
-		CFBamBuffIndexByIdxTableIdxKey key = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTableIdxKey();
+		CFBamBuffIndexByIdxTableIdxKey key = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTableIdxKey();
 
 		key.setRequiredTableId( TableId );
 		ICFBamIndex[] recArray;
@@ -385,7 +385,7 @@ public class CFBamRamIndexTable
 		ICFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamIndex.readDerivedByIdxCodeVisIdx";
-		CFBamBuffIndexByIdxCodeVisIdxKey key = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
+		CFBamBuffIndexByIdxCodeVisIdxKey key = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
 
 		key.setRequiredCodeVis( CodeVis );
 		ICFBamIndex[] recArray;
@@ -414,7 +414,7 @@ public class CFBamRamIndexTable
 		ICFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamIndex.readDerivedByIdxTblCdVisX";
-		CFBamBuffIndexByIdxTblCdVisXKey key = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTblCdVisXKey();
+		CFBamBuffIndexByIdxTblCdVisXKey key = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTblCdVisXKey();
 
 		key.setRequiredTableId( TableId );
 		key.setRequiredCodeVis( CodeVis );
@@ -443,7 +443,7 @@ public class CFBamRamIndexTable
 		CFLibDbKeyHash256 DefSchemaId )
 	{
 		final String S_ProcName = "CFBamRamIndex.readDerivedByDefSchemaIdx";
-		CFBamBuffIndexByDefSchemaIdxKey key = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryIndex().newByDefSchemaIdxKey();
+		CFBamBuffIndexByDefSchemaIdxKey key = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByDefSchemaIdxKey();
 
 		key.setOptionalDefSchemaId( DefSchemaId );
 		ICFBamIndex[] recArray;
@@ -660,38 +660,38 @@ public class CFBamRamIndexTable
 				"Index",
 				pkey );
 		}
-		CFBamBuffIndexByUNameIdxKey existingKeyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamFactory().getFactoryIndex().newByUNameIdxKey();
+		CFBamBuffIndexByUNameIdxKey existingKeyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffIndexByUNameIdxKey newKeyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamFactory().getFactoryIndex().newByUNameIdxKey();
+		CFBamBuffIndexByUNameIdxKey newKeyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffIndexByIdxTableIdxKey existingKeyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTableIdxKey();
+		CFBamBuffIndexByIdxTableIdxKey existingKeyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTableIdxKey();
 		existingKeyIdxTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffIndexByIdxTableIdxKey newKeyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTableIdxKey();
+		CFBamBuffIndexByIdxTableIdxKey newKeyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTableIdxKey();
 		newKeyIdxTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffIndexByIdxCodeVisIdxKey existingKeyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
+		CFBamBuffIndexByIdxCodeVisIdxKey existingKeyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
 		existingKeyIdxCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffIndexByIdxCodeVisIdxKey newKeyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
+		CFBamBuffIndexByIdxCodeVisIdxKey newKeyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
 		newKeyIdxCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffIndexByIdxTblCdVisXKey existingKeyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTblCdVisXKey();
+		CFBamBuffIndexByIdxTblCdVisXKey existingKeyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTblCdVisXKey();
 		existingKeyIdxTblCdVisX.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyIdxTblCdVisX.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffIndexByIdxTblCdVisXKey newKeyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTblCdVisXKey();
+		CFBamBuffIndexByIdxTblCdVisXKey newKeyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTblCdVisXKey();
 		newKeyIdxTblCdVisX.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyIdxTblCdVisX.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffIndexByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryIndex().newByDefSchemaIdxKey();
+		CFBamBuffIndexByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffIndexByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryIndex().newByDefSchemaIdxKey();
+		CFBamBuffIndexByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByDefSchemaIdxKey();
 		newKeyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
 		// Check unique indexes
@@ -849,21 +849,21 @@ public class CFBamRamIndexTable
 		}
 					schema.getTableIndexCol().deleteIndexColByIndexIdx( Authorization,
 						existing.getRequiredId() );
-		CFBamBuffIndexByUNameIdxKey keyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamFactory().getFactoryIndex().newByUNameIdxKey();
+		CFBamBuffIndexByUNameIdxKey keyUNameIdx = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffIndexByIdxTableIdxKey keyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTableIdxKey();
+		CFBamBuffIndexByIdxTableIdxKey keyIdxTableIdx = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTableIdxKey();
 		keyIdxTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffIndexByIdxCodeVisIdxKey keyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
+		CFBamBuffIndexByIdxCodeVisIdxKey keyIdxCodeVisIdx = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
 		keyIdxCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffIndexByIdxTblCdVisXKey keyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTblCdVisXKey();
+		CFBamBuffIndexByIdxTblCdVisXKey keyIdxTblCdVisX = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTblCdVisXKey();
 		keyIdxTblCdVisX.setRequiredTableId( existing.getRequiredTableId() );
 		keyIdxTblCdVisX.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffIndexByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryIndex().newByDefSchemaIdxKey();
+		CFBamBuffIndexByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
 		// Validate reverse foreign keys
@@ -923,7 +923,7 @@ public class CFBamRamIndexTable
 		CFLibDbKeyHash256 argTableId,
 		String argName )
 	{
-		CFBamBuffIndexByUNameIdxKey key = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamFactory().getFactoryIndex().newByUNameIdxKey();
+		CFBamBuffIndexByUNameIdxKey key = (CFBamBuffIndexByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByUNameIdxKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredName( argName );
 		deleteIndexByUNameIdx( Authorization, key );
@@ -961,7 +961,7 @@ public class CFBamRamIndexTable
 	public void deleteIndexByIdxTableIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTableId )
 	{
-		CFBamBuffIndexByIdxTableIdxKey key = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTableIdxKey();
+		CFBamBuffIndexByIdxTableIdxKey key = (CFBamBuffIndexByIdxTableIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTableIdxKey();
 		key.setRequiredTableId( argTableId );
 		deleteIndexByIdxTableIdx( Authorization, key );
 	}
@@ -997,7 +997,7 @@ public class CFBamRamIndexTable
 	public void deleteIndexByIdxCodeVisIdx( ICFSecAuthorization Authorization,
 		ICFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamBuffIndexByIdxCodeVisIdxKey key = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
+		CFBamBuffIndexByIdxCodeVisIdxKey key = (CFBamBuffIndexByIdxCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxCodeVisIdxKey();
 		key.setRequiredCodeVis( argCodeVis );
 		deleteIndexByIdxCodeVisIdx( Authorization, key );
 	}
@@ -1034,7 +1034,7 @@ public class CFBamRamIndexTable
 		CFLibDbKeyHash256 argTableId,
 		ICFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamBuffIndexByIdxTblCdVisXKey key = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamFactory().getFactoryIndex().newByIdxTblCdVisXKey();
+		CFBamBuffIndexByIdxTblCdVisXKey key = (CFBamBuffIndexByIdxTblCdVisXKey)schema.getCFBamBuffFactory().getFactoryIndex().newByIdxTblCdVisXKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredCodeVis( argCodeVis );
 		deleteIndexByIdxTblCdVisX( Authorization, key );
@@ -1072,7 +1072,7 @@ public class CFBamRamIndexTable
 	public void deleteIndexByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffIndexByDefSchemaIdxKey key = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryIndex().newByDefSchemaIdxKey();
+		CFBamBuffIndexByDefSchemaIdxKey key = (CFBamBuffIndexByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryIndex().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteIndexByDefSchemaIdx( Authorization, key );
 	}
@@ -1137,7 +1137,7 @@ public class CFBamRamIndexTable
 	public void deleteIndexByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamFactory().getFactoryScope().newByTenantIdxKey();
+		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamBuffFactory().getFactoryScope().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteIndexByTenantIdx( Authorization, key );
 	}

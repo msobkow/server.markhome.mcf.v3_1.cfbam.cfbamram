@@ -109,7 +109,7 @@ public class CFBamRamDelTopDepTable
 			return( null );
 		}
 		else {
-			return ((CFBamRamScopeTable)(schema.getTableScope())).ensureRec((ICFBamScope)rec);
+			return (((CFBamBuffScopeFactoryService)(schema.getCFBamBuffFactory().getFactoryScope())).ensureRec(rec));
 		}
 	}
 
@@ -140,17 +140,17 @@ public class CFBamRamDelTopDepTable
 		}
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffDelTopDepByDelTopDepTblIdxKey keyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
+		CFBamBuffDelTopDepByDelTopDepTblIdxKey keyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
 		keyDelTopDepTblIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffDelTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByUNameIdxKey();
+		CFBamBuffDelTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffDelTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByPrevIdxKey();
+		CFBamBuffDelTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffDelTopDepByNextIdxKey keyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByNextIdxKey();
+		CFBamBuffDelTopDepByNextIdxKey keyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Validate unique indexes
@@ -248,7 +248,7 @@ public class CFBamRamDelTopDepTable
 		if( tail != null ) {
 			int tailClassCode = tail.getClassCode();
 			if( tailClassCode == ICFBamDelTopDep.CLASS_CODE ) {
-				ICFBamDelTopDep tailEdit = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				ICFBamDelTopDep tailEdit = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 				tailEdit.set( (ICFBamDelTopDep)tail );
 				tailEdit.setOptionalLookupNext(Buff.getRequiredId());
 				schema.getTableDelTopDep().updateDelTopDep( Authorization, tailEdit );
@@ -263,7 +263,7 @@ public class CFBamRamDelTopDepTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamDelTopDep.CLASS_CODE) {
-				CFBamBuffDelTopDep retbuff = ((CFBamBuffDelTopDep)(schema.getCFBamFactory().getFactoryDelTopDep().newRec()));
+				CFBamBuffDelTopDep retbuff = ((CFBamBuffDelTopDep)(schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -392,7 +392,7 @@ public class CFBamRamDelTopDepTable
 		CFLibDbKeyHash256 TableId )
 	{
 		final String S_ProcName = "CFBamRamDelTopDep.readDerivedByDelTopDepTblIdx";
-		CFBamBuffDelTopDepByDelTopDepTblIdxKey key = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
+		CFBamBuffDelTopDepByDelTopDepTblIdxKey key = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
 
 		key.setRequiredTableId( TableId );
 		ICFBamDelTopDep[] recArray;
@@ -421,7 +421,7 @@ public class CFBamRamDelTopDepTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamDelTopDep.readDerivedByUNameIdx";
-		CFBamBuffDelTopDepByUNameIdxKey key = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByUNameIdxKey();
+		CFBamBuffDelTopDepByUNameIdxKey key = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByUNameIdxKey();
 
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
@@ -440,7 +440,7 @@ public class CFBamRamDelTopDepTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamDelTopDep.readDerivedByPrevIdx";
-		CFBamBuffDelTopDepByPrevIdxKey key = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByPrevIdxKey();
+		CFBamBuffDelTopDepByPrevIdxKey key = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByPrevIdxKey();
 
 		key.setOptionalPrevId( PrevId );
 		ICFBamDelTopDep[] recArray;
@@ -468,7 +468,7 @@ public class CFBamRamDelTopDepTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamDelTopDep.readDerivedByNextIdx";
-		CFBamBuffDelTopDepByNextIdxKey key = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByNextIdxKey();
+		CFBamBuffDelTopDepByNextIdxKey key = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByNextIdxKey();
 
 		key.setOptionalNextId( NextId );
 		ICFBamDelTopDep[] recArray;
@@ -737,7 +737,7 @@ public class CFBamRamDelTopDepTable
 		int classCode = prev.getClassCode();
 		ICFBamDelTopDep newInstance;
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -747,7 +747,7 @@ public class CFBamRamDelTopDepTable
 
 		classCode = cur.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -759,7 +759,7 @@ public class CFBamRamDelTopDepTable
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -772,7 +772,7 @@ public class CFBamRamDelTopDepTable
 		if( next != null ) {
 			classCode = next.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -891,7 +891,7 @@ public class CFBamRamDelTopDepTable
 		int classCode = cur.getClassCode();
 		ICFBamDelTopDep newInstance;
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -901,7 +901,7 @@ public class CFBamRamDelTopDepTable
 
 		classCode = next.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -913,7 +913,7 @@ public class CFBamRamDelTopDepTable
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -926,7 +926,7 @@ public class CFBamRamDelTopDepTable
 		if( prev != null ) {
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryDelTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1009,30 +1009,30 @@ public class CFBamRamDelTopDepTable
 				"DelTopDep",
 				pkey );
 		}
-		CFBamBuffDelTopDepByDelTopDepTblIdxKey existingKeyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
+		CFBamBuffDelTopDepByDelTopDepTblIdxKey existingKeyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
 		existingKeyDelTopDepTblIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffDelTopDepByDelTopDepTblIdxKey newKeyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
+		CFBamBuffDelTopDepByDelTopDepTblIdxKey newKeyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
 		newKeyDelTopDepTblIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffDelTopDepByUNameIdxKey existingKeyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByUNameIdxKey();
+		CFBamBuffDelTopDepByUNameIdxKey existingKeyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffDelTopDepByUNameIdxKey newKeyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByUNameIdxKey();
+		CFBamBuffDelTopDepByUNameIdxKey newKeyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffDelTopDepByPrevIdxKey existingKeyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByPrevIdxKey();
+		CFBamBuffDelTopDepByPrevIdxKey existingKeyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByPrevIdxKey();
 		existingKeyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffDelTopDepByPrevIdxKey newKeyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByPrevIdxKey();
+		CFBamBuffDelTopDepByPrevIdxKey newKeyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByPrevIdxKey();
 		newKeyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffDelTopDepByNextIdxKey existingKeyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByNextIdxKey();
+		CFBamBuffDelTopDepByNextIdxKey existingKeyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByNextIdxKey();
 		existingKeyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffDelTopDepByNextIdxKey newKeyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByNextIdxKey();
+		CFBamBuffDelTopDepByNextIdxKey newKeyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByNextIdxKey();
 		newKeyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Check unique indexes
@@ -1186,7 +1186,7 @@ public class CFBamRamDelTopDepTable
 			CFBamBuffDelTopDep editPrev;
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				editPrev = (CFBamBuffDelTopDep)(schema.getCFBamFactory().getFactoryDelTopDep().newRec());
+				editPrev = (CFBamBuffDelTopDep)(schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-prev-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1215,7 +1215,7 @@ public class CFBamRamDelTopDepTable
 			CFBamBuffDelTopDep editNext;
 			classCode = next.getClassCode();
 			if( classCode == ICFBamDelTopDep.CLASS_CODE ) {
-				editNext = (CFBamBuffDelTopDep)(schema.getCFBamFactory().getFactoryDelTopDep().newRec());
+				editNext = (CFBamBuffDelTopDep)(schema.getCFBamBuffFactory().getFactoryDelTopDep().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-next-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1237,17 +1237,17 @@ public class CFBamRamDelTopDepTable
 			schema.getTableDelSubDep1().deleteDelSubDep1ByDelTopDepIdx( Authorization,
 						existing.getRequiredId() );
 		}
-		CFBamBuffDelTopDepByDelTopDepTblIdxKey keyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
+		CFBamBuffDelTopDepByDelTopDepTblIdxKey keyDelTopDepTblIdx = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
 		keyDelTopDepTblIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffDelTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByUNameIdxKey();
+		CFBamBuffDelTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffDelTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByPrevIdxKey();
+		CFBamBuffDelTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffDelTopDepByNextIdxKey keyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByNextIdxKey();
+		CFBamBuffDelTopDepByNextIdxKey keyNextIdx = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
 		// Validate reverse foreign keys
@@ -1275,7 +1275,7 @@ public class CFBamRamDelTopDepTable
 	public void deleteDelTopDepByDelTopDepTblIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTableId )
 	{
-		CFBamBuffDelTopDepByDelTopDepTblIdxKey key = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
+		CFBamBuffDelTopDepByDelTopDepTblIdxKey key = (CFBamBuffDelTopDepByDelTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByDelTopDepTblIdxKey();
 		key.setRequiredTableId( argTableId );
 		deleteDelTopDepByDelTopDepTblIdx( Authorization, key );
 	}
@@ -1312,7 +1312,7 @@ public class CFBamRamDelTopDepTable
 		CFLibDbKeyHash256 argTableId,
 		String argName )
 	{
-		CFBamBuffDelTopDepByUNameIdxKey key = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByUNameIdxKey();
+		CFBamBuffDelTopDepByUNameIdxKey key = (CFBamBuffDelTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByUNameIdxKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredName( argName );
 		deleteDelTopDepByUNameIdx( Authorization, key );
@@ -1350,7 +1350,7 @@ public class CFBamRamDelTopDepTable
 	public void deleteDelTopDepByPrevIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffDelTopDepByPrevIdxKey key = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByPrevIdxKey();
+		CFBamBuffDelTopDepByPrevIdxKey key = (CFBamBuffDelTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByPrevIdxKey();
 		key.setOptionalPrevId( argPrevId );
 		deleteDelTopDepByPrevIdx( Authorization, key );
 	}
@@ -1388,7 +1388,7 @@ public class CFBamRamDelTopDepTable
 	public void deleteDelTopDepByNextIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffDelTopDepByNextIdxKey key = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryDelTopDep().newByNextIdxKey();
+		CFBamBuffDelTopDepByNextIdxKey key = (CFBamBuffDelTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryDelTopDep().newByNextIdxKey();
 		key.setOptionalNextId( argNextId );
 		deleteDelTopDepByNextIdx( Authorization, key );
 	}
@@ -1426,7 +1426,7 @@ public class CFBamRamDelTopDepTable
 	public void deleteDelTopDepByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffDelDepByDefSchemaIdxKey key = (CFBamBuffDelDepByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryDelDep().newByDefSchemaIdxKey();
+		CFBamBuffDelDepByDefSchemaIdxKey key = (CFBamBuffDelDepByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryDelDep().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteDelTopDepByDefSchemaIdx( Authorization, key );
 	}
@@ -1464,7 +1464,7 @@ public class CFBamRamDelTopDepTable
 	public void deleteDelTopDepByDelDepIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argRelationId )
 	{
-		CFBamBuffDelDepByDelDepIdxKey key = (CFBamBuffDelDepByDelDepIdxKey)schema.getCFBamFactory().getFactoryDelDep().newByDelDepIdxKey();
+		CFBamBuffDelDepByDelDepIdxKey key = (CFBamBuffDelDepByDelDepIdxKey)schema.getCFBamBuffFactory().getFactoryDelDep().newByDelDepIdxKey();
 		key.setRequiredRelationId( argRelationId );
 		deleteDelTopDepByDelDepIdx( Authorization, key );
 	}
@@ -1527,7 +1527,7 @@ public class CFBamRamDelTopDepTable
 	public void deleteDelTopDepByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamFactory().getFactoryScope().newByTenantIdxKey();
+		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamBuffFactory().getFactoryScope().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteDelTopDepByTenantIdx( Authorization, key );
 	}

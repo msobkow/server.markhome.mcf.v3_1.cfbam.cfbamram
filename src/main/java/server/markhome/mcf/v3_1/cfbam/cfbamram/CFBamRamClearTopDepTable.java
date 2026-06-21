@@ -109,7 +109,7 @@ public class CFBamRamClearTopDepTable
 			return( null );
 		}
 		else {
-			return ((CFBamRamScopeTable)(schema.getTableScope())).ensureRec((ICFBamScope)rec);
+			return (((CFBamBuffScopeFactoryService)(schema.getCFBamBuffFactory().getFactoryScope())).ensureRec(rec));
 		}
 	}
 
@@ -140,17 +140,17 @@ public class CFBamRamClearTopDepTable
 		}
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffClearTopDepByClrTopDepTblIdxKey keyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
+		CFBamBuffClearTopDepByClrTopDepTblIdxKey keyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
 		keyClrTopDepTblIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffClearTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByUNameIdxKey();
+		CFBamBuffClearTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffClearTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByPrevIdxKey();
+		CFBamBuffClearTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffClearTopDepByNextIdxKey keyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByNextIdxKey();
+		CFBamBuffClearTopDepByNextIdxKey keyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Validate unique indexes
@@ -248,7 +248,7 @@ public class CFBamRamClearTopDepTable
 		if( tail != null ) {
 			int tailClassCode = tail.getClassCode();
 			if( tailClassCode == ICFBamClearTopDep.CLASS_CODE ) {
-				ICFBamClearTopDep tailEdit = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				ICFBamClearTopDep tailEdit = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 				tailEdit.set( (ICFBamClearTopDep)tail );
 				tailEdit.setOptionalLookupNext(Buff.getRequiredId());
 				schema.getTableClearTopDep().updateClearTopDep( Authorization, tailEdit );
@@ -263,7 +263,7 @@ public class CFBamRamClearTopDepTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamClearTopDep.CLASS_CODE) {
-				CFBamBuffClearTopDep retbuff = ((CFBamBuffClearTopDep)(schema.getCFBamFactory().getFactoryClearTopDep().newRec()));
+				CFBamBuffClearTopDep retbuff = ((CFBamBuffClearTopDep)(schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -392,7 +392,7 @@ public class CFBamRamClearTopDepTable
 		CFLibDbKeyHash256 TableId )
 	{
 		final String S_ProcName = "CFBamRamClearTopDep.readDerivedByClrTopDepTblIdx";
-		CFBamBuffClearTopDepByClrTopDepTblIdxKey key = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
+		CFBamBuffClearTopDepByClrTopDepTblIdxKey key = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
 
 		key.setRequiredTableId( TableId );
 		ICFBamClearTopDep[] recArray;
@@ -421,7 +421,7 @@ public class CFBamRamClearTopDepTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamClearTopDep.readDerivedByUNameIdx";
-		CFBamBuffClearTopDepByUNameIdxKey key = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByUNameIdxKey();
+		CFBamBuffClearTopDepByUNameIdxKey key = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByUNameIdxKey();
 
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
@@ -440,7 +440,7 @@ public class CFBamRamClearTopDepTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamClearTopDep.readDerivedByPrevIdx";
-		CFBamBuffClearTopDepByPrevIdxKey key = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByPrevIdxKey();
+		CFBamBuffClearTopDepByPrevIdxKey key = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByPrevIdxKey();
 
 		key.setOptionalPrevId( PrevId );
 		ICFBamClearTopDep[] recArray;
@@ -468,7 +468,7 @@ public class CFBamRamClearTopDepTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamClearTopDep.readDerivedByNextIdx";
-		CFBamBuffClearTopDepByNextIdxKey key = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByNextIdxKey();
+		CFBamBuffClearTopDepByNextIdxKey key = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByNextIdxKey();
 
 		key.setOptionalNextId( NextId );
 		ICFBamClearTopDep[] recArray;
@@ -737,7 +737,7 @@ public class CFBamRamClearTopDepTable
 		int classCode = prev.getClassCode();
 		ICFBamClearTopDep newInstance;
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -747,7 +747,7 @@ public class CFBamRamClearTopDepTable
 
 		classCode = cur.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -759,7 +759,7 @@ public class CFBamRamClearTopDepTable
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -772,7 +772,7 @@ public class CFBamRamClearTopDepTable
 		if( next != null ) {
 			classCode = next.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -891,7 +891,7 @@ public class CFBamRamClearTopDepTable
 		int classCode = cur.getClassCode();
 		ICFBamClearTopDep newInstance;
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -901,7 +901,7 @@ public class CFBamRamClearTopDepTable
 
 		classCode = next.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -913,7 +913,7 @@ public class CFBamRamClearTopDepTable
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -926,7 +926,7 @@ public class CFBamRamClearTopDepTable
 		if( prev != null ) {
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryClearTopDep().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1009,30 +1009,30 @@ public class CFBamRamClearTopDepTable
 				"ClearTopDep",
 				pkey );
 		}
-		CFBamBuffClearTopDepByClrTopDepTblIdxKey existingKeyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
+		CFBamBuffClearTopDepByClrTopDepTblIdxKey existingKeyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
 		existingKeyClrTopDepTblIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffClearTopDepByClrTopDepTblIdxKey newKeyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
+		CFBamBuffClearTopDepByClrTopDepTblIdxKey newKeyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
 		newKeyClrTopDepTblIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffClearTopDepByUNameIdxKey existingKeyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByUNameIdxKey();
+		CFBamBuffClearTopDepByUNameIdxKey existingKeyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffClearTopDepByUNameIdxKey newKeyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByUNameIdxKey();
+		CFBamBuffClearTopDepByUNameIdxKey newKeyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffClearTopDepByPrevIdxKey existingKeyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByPrevIdxKey();
+		CFBamBuffClearTopDepByPrevIdxKey existingKeyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByPrevIdxKey();
 		existingKeyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffClearTopDepByPrevIdxKey newKeyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByPrevIdxKey();
+		CFBamBuffClearTopDepByPrevIdxKey newKeyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByPrevIdxKey();
 		newKeyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffClearTopDepByNextIdxKey existingKeyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByNextIdxKey();
+		CFBamBuffClearTopDepByNextIdxKey existingKeyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByNextIdxKey();
 		existingKeyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffClearTopDepByNextIdxKey newKeyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByNextIdxKey();
+		CFBamBuffClearTopDepByNextIdxKey newKeyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByNextIdxKey();
 		newKeyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Check unique indexes
@@ -1186,7 +1186,7 @@ public class CFBamRamClearTopDepTable
 			CFBamBuffClearTopDep editPrev;
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				editPrev = (CFBamBuffClearTopDep)(schema.getCFBamFactory().getFactoryClearTopDep().newRec());
+				editPrev = (CFBamBuffClearTopDep)(schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-prev-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1215,7 +1215,7 @@ public class CFBamRamClearTopDepTable
 			CFBamBuffClearTopDep editNext;
 			classCode = next.getClassCode();
 			if( classCode == ICFBamClearTopDep.CLASS_CODE ) {
-				editNext = (CFBamBuffClearTopDep)(schema.getCFBamFactory().getFactoryClearTopDep().newRec());
+				editNext = (CFBamBuffClearTopDep)(schema.getCFBamBuffFactory().getFactoryClearTopDep().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-next-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1237,17 +1237,17 @@ public class CFBamRamClearTopDepTable
 			schema.getTableClearSubDep1().deleteClearSubDep1ByClearTopDepIdx( Authorization,
 						existing.getRequiredId() );
 		}
-		CFBamBuffClearTopDepByClrTopDepTblIdxKey keyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
+		CFBamBuffClearTopDepByClrTopDepTblIdxKey keyClrTopDepTblIdx = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
 		keyClrTopDepTblIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffClearTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByUNameIdxKey();
+		CFBamBuffClearTopDepByUNameIdxKey keyUNameIdx = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffClearTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByPrevIdxKey();
+		CFBamBuffClearTopDepByPrevIdxKey keyPrevIdx = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffClearTopDepByNextIdxKey keyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByNextIdxKey();
+		CFBamBuffClearTopDepByNextIdxKey keyNextIdx = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
 		// Validate reverse foreign keys
@@ -1275,7 +1275,7 @@ public class CFBamRamClearTopDepTable
 	public void deleteClearTopDepByClrTopDepTblIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTableId )
 	{
-		CFBamBuffClearTopDepByClrTopDepTblIdxKey key = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
+		CFBamBuffClearTopDepByClrTopDepTblIdxKey key = (CFBamBuffClearTopDepByClrTopDepTblIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByClrTopDepTblIdxKey();
 		key.setRequiredTableId( argTableId );
 		deleteClearTopDepByClrTopDepTblIdx( Authorization, key );
 	}
@@ -1312,7 +1312,7 @@ public class CFBamRamClearTopDepTable
 		CFLibDbKeyHash256 argTableId,
 		String argName )
 	{
-		CFBamBuffClearTopDepByUNameIdxKey key = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByUNameIdxKey();
+		CFBamBuffClearTopDepByUNameIdxKey key = (CFBamBuffClearTopDepByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByUNameIdxKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredName( argName );
 		deleteClearTopDepByUNameIdx( Authorization, key );
@@ -1350,7 +1350,7 @@ public class CFBamRamClearTopDepTable
 	public void deleteClearTopDepByPrevIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffClearTopDepByPrevIdxKey key = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByPrevIdxKey();
+		CFBamBuffClearTopDepByPrevIdxKey key = (CFBamBuffClearTopDepByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByPrevIdxKey();
 		key.setOptionalPrevId( argPrevId );
 		deleteClearTopDepByPrevIdx( Authorization, key );
 	}
@@ -1388,7 +1388,7 @@ public class CFBamRamClearTopDepTable
 	public void deleteClearTopDepByNextIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffClearTopDepByNextIdxKey key = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamFactory().getFactoryClearTopDep().newByNextIdxKey();
+		CFBamBuffClearTopDepByNextIdxKey key = (CFBamBuffClearTopDepByNextIdxKey)schema.getCFBamBuffFactory().getFactoryClearTopDep().newByNextIdxKey();
 		key.setOptionalNextId( argNextId );
 		deleteClearTopDepByNextIdx( Authorization, key );
 	}
@@ -1426,7 +1426,7 @@ public class CFBamRamClearTopDepTable
 	public void deleteClearTopDepByClearDepIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argRelationId )
 	{
-		CFBamBuffClearDepByClearDepIdxKey key = (CFBamBuffClearDepByClearDepIdxKey)schema.getCFBamFactory().getFactoryClearDep().newByClearDepIdxKey();
+		CFBamBuffClearDepByClearDepIdxKey key = (CFBamBuffClearDepByClearDepIdxKey)schema.getCFBamBuffFactory().getFactoryClearDep().newByClearDepIdxKey();
 		key.setRequiredRelationId( argRelationId );
 		deleteClearTopDepByClearDepIdx( Authorization, key );
 	}
@@ -1462,7 +1462,7 @@ public class CFBamRamClearTopDepTable
 	public void deleteClearTopDepByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffClearDepByDefSchemaIdxKey key = (CFBamBuffClearDepByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryClearDep().newByDefSchemaIdxKey();
+		CFBamBuffClearDepByDefSchemaIdxKey key = (CFBamBuffClearDepByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryClearDep().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteClearTopDepByDefSchemaIdx( Authorization, key );
 	}
@@ -1527,7 +1527,7 @@ public class CFBamRamClearTopDepTable
 	public void deleteClearTopDepByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamFactory().getFactoryScope().newByTenantIdxKey();
+		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamBuffFactory().getFactoryScope().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteClearTopDepByTenantIdx( Authorization, key );
 	}

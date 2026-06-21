@@ -111,18 +111,7 @@ public class CFBamRamEnumTagTable
 	}
 
 	public CFBamBuffEnumTag ensureRec(ICFBamEnumTag rec) {
-		if (rec == null) {
-			return( null );
-		}
-		else {
-			int classCode = rec.getClassCode();
-			switch (classCode) {
-				case ICFBamEnumTag.CLASS_CODE:
-					return(((CFBamBuffEnumTagFactoryService)(schema.getCFBamFactory().getFactoryEnumTag())).ensureRec((ICFBamEnumTag)rec) );
-				default:
-					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
-			}
-		}
+		return (((CFBamBuffEnumTagFactoryService)(schema.getCFBamBuffFactory().getFactoryEnumTag())).ensureRec(rec));
 	}
 
 	@Override
@@ -152,20 +141,20 @@ public class CFBamRamEnumTagTable
 		CFLibDbKeyHash256 pkey;
 		pkey = schema.nextEnumTagIdGen();
 		Buff.setRequiredId( pkey );
-		CFBamBuffEnumTagByEnumIdxKey keyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumIdxKey();
+		CFBamBuffEnumTagByEnumIdxKey keyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumIdxKey();
 		keyEnumIdx.setRequiredEnumId( Buff.getRequiredEnumId() );
 
-		CFBamBuffEnumTagByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
+		CFBamBuffEnumTagByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffEnumTagByEnumNameIdxKey keyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumNameIdxKey();
+		CFBamBuffEnumTagByEnumNameIdxKey keyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumNameIdxKey();
 		keyEnumNameIdx.setRequiredEnumId( Buff.getRequiredEnumId() );
 		keyEnumNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffEnumTagByPrevIdxKey keyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByPrevIdxKey();
+		CFBamBuffEnumTagByPrevIdxKey keyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffEnumTagByNextIdxKey keyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByNextIdxKey();
+		CFBamBuffEnumTagByNextIdxKey keyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Validate unique indexes
@@ -251,7 +240,7 @@ public class CFBamRamEnumTagTable
 		subdictNextIdx.put( pkey, Buff );
 
 		if( tail != null ) {
-			ICFBamEnumTag tailEdit = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+			ICFBamEnumTag tailEdit = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			tailEdit.set( (ICFBamEnumTag)tail );
 				tailEdit.setOptionalLookupNext(Buff.getRequiredId());
 			schema.getTableEnumTag().updateEnumTag( Authorization, tailEdit );
@@ -262,7 +251,7 @@ public class CFBamRamEnumTagTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamEnumTag.CLASS_CODE) {
-				CFBamBuffEnumTag retbuff = ((CFBamBuffEnumTag)(schema.getCFBamFactory().getFactoryEnumTag().newRec()));
+				CFBamBuffEnumTag retbuff = ((CFBamBuffEnumTag)(schema.getCFBamBuffFactory().getFactoryEnumTag().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -322,7 +311,7 @@ public class CFBamRamEnumTagTable
 		CFLibDbKeyHash256 EnumId )
 	{
 		final String S_ProcName = "CFBamRamEnumTag.readDerivedByEnumIdx";
-		CFBamBuffEnumTagByEnumIdxKey key = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumIdxKey();
+		CFBamBuffEnumTagByEnumIdxKey key = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumIdxKey();
 
 		key.setRequiredEnumId( EnumId );
 		ICFBamEnumTag[] recArray;
@@ -350,7 +339,7 @@ public class CFBamRamEnumTagTable
 		CFLibDbKeyHash256 DefSchemaId )
 	{
 		final String S_ProcName = "CFBamRamEnumTag.readDerivedByDefSchemaIdx";
-		CFBamBuffEnumTagByDefSchemaIdxKey key = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
+		CFBamBuffEnumTagByDefSchemaIdxKey key = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
 
 		key.setOptionalDefSchemaId( DefSchemaId );
 		ICFBamEnumTag[] recArray;
@@ -379,7 +368,7 @@ public class CFBamRamEnumTagTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamEnumTag.readDerivedByEnumNameIdx";
-		CFBamBuffEnumTagByEnumNameIdxKey key = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumNameIdxKey();
+		CFBamBuffEnumTagByEnumNameIdxKey key = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumNameIdxKey();
 
 		key.setRequiredEnumId( EnumId );
 		key.setRequiredName( Name );
@@ -398,7 +387,7 @@ public class CFBamRamEnumTagTable
 		CFLibDbKeyHash256 PrevId )
 	{
 		final String S_ProcName = "CFBamRamEnumTag.readDerivedByPrevIdx";
-		CFBamBuffEnumTagByPrevIdxKey key = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByPrevIdxKey();
+		CFBamBuffEnumTagByPrevIdxKey key = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByPrevIdxKey();
 
 		key.setOptionalPrevId( PrevId );
 		ICFBamEnumTag[] recArray;
@@ -426,7 +415,7 @@ public class CFBamRamEnumTagTable
 		CFLibDbKeyHash256 NextId )
 	{
 		final String S_ProcName = "CFBamRamEnumTag.readDerivedByNextIdx";
-		CFBamBuffEnumTagByNextIdxKey key = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByNextIdxKey();
+		CFBamBuffEnumTagByNextIdxKey key = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByNextIdxKey();
 
 		key.setOptionalNextId( NextId );
 		ICFBamEnumTag[] recArray;
@@ -659,7 +648,7 @@ public class CFBamRamEnumTagTable
 		int classCode = prev.getClassCode();
 		ICFBamEnumTag newInstance;
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -669,7 +658,7 @@ public class CFBamRamEnumTagTable
 
 		classCode = cur.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -681,7 +670,7 @@ public class CFBamRamEnumTagTable
 		if( grandprev != null ) {
 			classCode = grandprev.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -694,7 +683,7 @@ public class CFBamRamEnumTagTable
 		if( next != null ) {
 			classCode = next.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -813,7 +802,7 @@ public class CFBamRamEnumTagTable
 		int classCode = cur.getClassCode();
 		ICFBamEnumTag newInstance;
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -823,7 +812,7 @@ public class CFBamRamEnumTagTable
 
 		classCode = next.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -835,7 +824,7 @@ public class CFBamRamEnumTagTable
 		if( grandnext != null ) {
 			classCode = grandnext.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -848,7 +837,7 @@ public class CFBamRamEnumTagTable
 		if( prev != null ) {
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				newInstance = schema.getCFBamFactory().getFactoryEnumTag().newRec();
+				newInstance = schema.getCFBamBuffFactory().getFactoryEnumTag().newRec();
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-instantiate-buff-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -937,36 +926,36 @@ public class CFBamRamEnumTagTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFBamBuffEnumTagByEnumIdxKey existingKeyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumIdxKey();
+		CFBamBuffEnumTagByEnumIdxKey existingKeyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumIdxKey();
 		existingKeyEnumIdx.setRequiredEnumId( existing.getRequiredEnumId() );
 
-		CFBamBuffEnumTagByEnumIdxKey newKeyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumIdxKey();
+		CFBamBuffEnumTagByEnumIdxKey newKeyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumIdxKey();
 		newKeyEnumIdx.setRequiredEnumId( Buff.getRequiredEnumId() );
 
-		CFBamBuffEnumTagByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
+		CFBamBuffEnumTagByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffEnumTagByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
+		CFBamBuffEnumTagByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
 		newKeyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamBuffEnumTagByEnumNameIdxKey existingKeyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumNameIdxKey();
+		CFBamBuffEnumTagByEnumNameIdxKey existingKeyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumNameIdxKey();
 		existingKeyEnumNameIdx.setRequiredEnumId( existing.getRequiredEnumId() );
 		existingKeyEnumNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffEnumTagByEnumNameIdxKey newKeyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumNameIdxKey();
+		CFBamBuffEnumTagByEnumNameIdxKey newKeyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumNameIdxKey();
 		newKeyEnumNameIdx.setRequiredEnumId( Buff.getRequiredEnumId() );
 		newKeyEnumNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffEnumTagByPrevIdxKey existingKeyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByPrevIdxKey();
+		CFBamBuffEnumTagByPrevIdxKey existingKeyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByPrevIdxKey();
 		existingKeyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffEnumTagByPrevIdxKey newKeyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByPrevIdxKey();
+		CFBamBuffEnumTagByPrevIdxKey newKeyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByPrevIdxKey();
 		newKeyPrevIdx.setOptionalPrevId( Buff.getOptionalPrevId() );
 
-		CFBamBuffEnumTagByNextIdxKey existingKeyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByNextIdxKey();
+		CFBamBuffEnumTagByNextIdxKey existingKeyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByNextIdxKey();
 		existingKeyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamBuffEnumTagByNextIdxKey newKeyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByNextIdxKey();
+		CFBamBuffEnumTagByNextIdxKey newKeyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByNextIdxKey();
 		newKeyNextIdx.setOptionalNextId( Buff.getOptionalNextId() );
 
 		// Check unique indexes
@@ -1113,7 +1102,7 @@ public class CFBamRamEnumTagTable
 			CFBamBuffEnumTag editPrev;
 			classCode = prev.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				editPrev = (CFBamBuffEnumTag)(schema.getCFBamFactory().getFactoryEnumTag().newRec());
+				editPrev = (CFBamBuffEnumTag)(schema.getCFBamBuffFactory().getFactoryEnumTag().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-prev-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1142,7 +1131,7 @@ public class CFBamRamEnumTagTable
 			CFBamBuffEnumTag editNext;
 			classCode = next.getClassCode();
 			if( classCode == ICFBamEnumTag.CLASS_CODE ) {
-				editNext = (CFBamBuffEnumTag)(schema.getCFBamFactory().getFactoryEnumTag().newRec());
+				editNext = (CFBamBuffEnumTag)(schema.getCFBamBuffFactory().getFactoryEnumTag().newRec());
 			}
 			else {
 				throw new CFLibUnsupportedClassException(getClass(), S_ProcName, "-delete-update-next-", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
@@ -1157,20 +1146,20 @@ public class CFBamRamEnumTagTable
 			}
 		}
 
-		CFBamBuffEnumTagByEnumIdxKey keyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumIdxKey();
+		CFBamBuffEnumTagByEnumIdxKey keyEnumIdx = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumIdxKey();
 		keyEnumIdx.setRequiredEnumId( existing.getRequiredEnumId() );
 
-		CFBamBuffEnumTagByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
+		CFBamBuffEnumTagByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffEnumTagByEnumNameIdxKey keyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumNameIdxKey();
+		CFBamBuffEnumTagByEnumNameIdxKey keyEnumNameIdx = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumNameIdxKey();
 		keyEnumNameIdx.setRequiredEnumId( existing.getRequiredEnumId() );
 		keyEnumNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffEnumTagByPrevIdxKey keyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByPrevIdxKey();
+		CFBamBuffEnumTagByPrevIdxKey keyPrevIdx = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByPrevIdxKey();
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamBuffEnumTagByNextIdxKey keyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByNextIdxKey();
+		CFBamBuffEnumTagByNextIdxKey keyNextIdx = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByNextIdxKey();
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
 		// Validate reverse foreign keys
@@ -1226,7 +1215,7 @@ public class CFBamRamEnumTagTable
 	public void deleteEnumTagByEnumIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argEnumId )
 	{
-		CFBamBuffEnumTagByEnumIdxKey key = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumIdxKey();
+		CFBamBuffEnumTagByEnumIdxKey key = (CFBamBuffEnumTagByEnumIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumIdxKey();
 		key.setRequiredEnumId( argEnumId );
 		deleteEnumTagByEnumIdx( Authorization, key );
 	}
@@ -1262,7 +1251,7 @@ public class CFBamRamEnumTagTable
 	public void deleteEnumTagByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffEnumTagByDefSchemaIdxKey key = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
+		CFBamBuffEnumTagByDefSchemaIdxKey key = (CFBamBuffEnumTagByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteEnumTagByDefSchemaIdx( Authorization, key );
 	}
@@ -1301,7 +1290,7 @@ public class CFBamRamEnumTagTable
 		CFLibDbKeyHash256 argEnumId,
 		String argName )
 	{
-		CFBamBuffEnumTagByEnumNameIdxKey key = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByEnumNameIdxKey();
+		CFBamBuffEnumTagByEnumNameIdxKey key = (CFBamBuffEnumTagByEnumNameIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByEnumNameIdxKey();
 		key.setRequiredEnumId( argEnumId );
 		key.setRequiredName( argName );
 		deleteEnumTagByEnumNameIdx( Authorization, key );
@@ -1339,7 +1328,7 @@ public class CFBamRamEnumTagTable
 	public void deleteEnumTagByPrevIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argPrevId )
 	{
-		CFBamBuffEnumTagByPrevIdxKey key = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByPrevIdxKey();
+		CFBamBuffEnumTagByPrevIdxKey key = (CFBamBuffEnumTagByPrevIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByPrevIdxKey();
 		key.setOptionalPrevId( argPrevId );
 		deleteEnumTagByPrevIdx( Authorization, key );
 	}
@@ -1377,7 +1366,7 @@ public class CFBamRamEnumTagTable
 	public void deleteEnumTagByNextIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argNextId )
 	{
-		CFBamBuffEnumTagByNextIdxKey key = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamFactory().getFactoryEnumTag().newByNextIdxKey();
+		CFBamBuffEnumTagByNextIdxKey key = (CFBamBuffEnumTagByNextIdxKey)schema.getCFBamBuffFactory().getFactoryEnumTag().newByNextIdxKey();
 		key.setOptionalNextId( argNextId );
 		deleteEnumTagByNextIdx( Authorization, key );
 	}

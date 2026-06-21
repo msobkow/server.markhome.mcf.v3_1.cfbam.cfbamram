@@ -115,7 +115,7 @@ public class CFBamRamServerMethodTable
 			return( null );
 		}
 		else {
-			return ((CFBamRamScopeTable)(schema.getTableScope())).ensureRec((ICFBamScope)rec);
+			return (((CFBamBuffScopeFactoryService)(schema.getCFBamBuffFactory().getFactoryScope())).ensureRec(rec));
 		}
 	}
 
@@ -129,21 +129,21 @@ public class CFBamRamServerMethodTable
 			iBuff ));
 		CFLibDbKeyHash256 pkey;
 		pkey = (CFLibDbKeyHash256)Buff.getPKey();
-		CFBamBuffServerMethodByUNameIdxKey keyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByUNameIdxKey();
+		CFBamBuffServerMethodByUNameIdxKey keyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffServerMethodByMethTableIdxKey keyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableIdxKey();
+		CFBamBuffServerMethodByMethTableIdxKey keyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableIdxKey();
 		keyMethTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffServerMethodByMethCodeVisIdxKey keyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
+		CFBamBuffServerMethodByMethCodeVisIdxKey keyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
 		keyMethCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByMethTableVisIdxKey keyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
+		CFBamBuffServerMethodByMethTableVisIdxKey keyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
 		keyMethTableVisIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyMethTableVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
+		CFBamBuffServerMethodByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
 		// Validate unique indexes
@@ -254,22 +254,22 @@ public class CFBamRamServerMethodTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFBamServerMethod.CLASS_CODE) {
-				CFBamBuffServerMethod retbuff = ((CFBamBuffServerMethod)(schema.getCFBamFactory().getFactoryServerMethod().newRec()));
+				CFBamBuffServerMethod retbuff = ((CFBamBuffServerMethod)(schema.getCFBamBuffFactory().getFactoryServerMethod().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamServerObjFunc.CLASS_CODE) {
-				CFBamBuffServerObjFunc retbuff = ((CFBamBuffServerObjFunc)(schema.getCFBamFactory().getFactoryServerObjFunc().newRec()));
+				CFBamBuffServerObjFunc retbuff = ((CFBamBuffServerObjFunc)(schema.getCFBamBuffFactory().getFactoryServerObjFunc().newRec()));
 				retbuff.set((ICFBamServerObjFunc)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamServerProc.CLASS_CODE) {
-				CFBamBuffServerProc retbuff = ((CFBamBuffServerProc)(schema.getCFBamFactory().getFactoryServerProc().newRec()));
+				CFBamBuffServerProc retbuff = ((CFBamBuffServerProc)(schema.getCFBamBuffFactory().getFactoryServerProc().newRec()));
 				retbuff.set((ICFBamServerProc)Buff);
 				return( retbuff );
 			}
 			else if (classCode == ICFBamServerListFunc.CLASS_CODE) {
-				CFBamBuffServerListFunc retbuff = ((CFBamBuffServerListFunc)(schema.getCFBamFactory().getFactoryServerListFunc().newRec()));
+				CFBamBuffServerListFunc retbuff = ((CFBamBuffServerListFunc)(schema.getCFBamBuffFactory().getFactoryServerListFunc().newRec()));
 				retbuff.set((ICFBamServerListFunc)Buff);
 				return( retbuff );
 			}
@@ -353,7 +353,7 @@ public class CFBamRamServerMethodTable
 		String Name )
 	{
 		final String S_ProcName = "CFBamRamServerMethod.readDerivedByUNameIdx";
-		CFBamBuffServerMethodByUNameIdxKey key = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByUNameIdxKey();
+		CFBamBuffServerMethodByUNameIdxKey key = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByUNameIdxKey();
 
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
@@ -372,7 +372,7 @@ public class CFBamRamServerMethodTable
 		CFLibDbKeyHash256 TableId )
 	{
 		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethTableIdx";
-		CFBamBuffServerMethodByMethTableIdxKey key = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableIdxKey();
+		CFBamBuffServerMethodByMethTableIdxKey key = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableIdxKey();
 
 		key.setRequiredTableId( TableId );
 		ICFBamServerMethod[] recArray;
@@ -400,7 +400,7 @@ public class CFBamRamServerMethodTable
 		ICFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethCodeVisIdx";
-		CFBamBuffServerMethodByMethCodeVisIdxKey key = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
+		CFBamBuffServerMethodByMethCodeVisIdxKey key = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
 
 		key.setRequiredCodeVis( CodeVis );
 		ICFBamServerMethod[] recArray;
@@ -429,7 +429,7 @@ public class CFBamRamServerMethodTable
 		ICFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethTableVisIdx";
-		CFBamBuffServerMethodByMethTableVisIdxKey key = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
+		CFBamBuffServerMethodByMethTableVisIdxKey key = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
 
 		key.setRequiredTableId( TableId );
 		key.setRequiredCodeVis( CodeVis );
@@ -458,7 +458,7 @@ public class CFBamRamServerMethodTable
 		CFLibDbKeyHash256 DefSchemaId )
 	{
 		final String S_ProcName = "CFBamRamServerMethod.readDerivedByDefSchemaIdx";
-		CFBamBuffServerMethodByDefSchemaIdxKey key = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
+		CFBamBuffServerMethodByDefSchemaIdxKey key = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
 
 		key.setOptionalDefSchemaId( DefSchemaId );
 		ICFBamServerMethod[] recArray;
@@ -675,38 +675,38 @@ public class CFBamRamServerMethodTable
 				"ServerMethod",
 				pkey );
 		}
-		CFBamBuffServerMethodByUNameIdxKey existingKeyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByUNameIdxKey();
+		CFBamBuffServerMethodByUNameIdxKey existingKeyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffServerMethodByUNameIdxKey newKeyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByUNameIdxKey();
+		CFBamBuffServerMethodByUNameIdxKey newKeyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamBuffServerMethodByMethTableIdxKey existingKeyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableIdxKey();
+		CFBamBuffServerMethodByMethTableIdxKey existingKeyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableIdxKey();
 		existingKeyMethTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffServerMethodByMethTableIdxKey newKeyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableIdxKey();
+		CFBamBuffServerMethodByMethTableIdxKey newKeyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableIdxKey();
 		newKeyMethTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamBuffServerMethodByMethCodeVisIdxKey existingKeyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
+		CFBamBuffServerMethodByMethCodeVisIdxKey existingKeyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
 		existingKeyMethCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByMethCodeVisIdxKey newKeyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
+		CFBamBuffServerMethodByMethCodeVisIdxKey newKeyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
 		newKeyMethCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByMethTableVisIdxKey existingKeyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
+		CFBamBuffServerMethodByMethTableVisIdxKey existingKeyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
 		existingKeyMethTableVisIdx.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyMethTableVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByMethTableVisIdxKey newKeyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
+		CFBamBuffServerMethodByMethTableVisIdxKey newKeyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
 		newKeyMethTableVisIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyMethTableVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
+		CFBamBuffServerMethodByDefSchemaIdxKey existingKeyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamBuffServerMethodByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
+		CFBamBuffServerMethodByDefSchemaIdxKey newKeyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
 		newKeyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
 		// Check unique indexes
@@ -853,21 +853,21 @@ public class CFBamRamServerMethodTable
 			schema.getTableParam().deleteParamByServerMethodIdx( Authorization,
 						existing.getRequiredId() );
 		}
-		CFBamBuffServerMethodByUNameIdxKey keyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByUNameIdxKey();
+		CFBamBuffServerMethodByUNameIdxKey keyUNameIdx = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamBuffServerMethodByMethTableIdxKey keyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableIdxKey();
+		CFBamBuffServerMethodByMethTableIdxKey keyMethTableIdx = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableIdxKey();
 		keyMethTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamBuffServerMethodByMethCodeVisIdxKey keyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
+		CFBamBuffServerMethodByMethCodeVisIdxKey keyMethCodeVisIdx = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
 		keyMethCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByMethTableVisIdxKey keyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
+		CFBamBuffServerMethodByMethTableVisIdxKey keyMethTableVisIdx = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
 		keyMethTableVisIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyMethTableVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamBuffServerMethodByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
+		CFBamBuffServerMethodByDefSchemaIdxKey keyDefSchemaIdx = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
 		// Validate reverse foreign keys
@@ -941,7 +941,7 @@ public class CFBamRamServerMethodTable
 		CFLibDbKeyHash256 argTableId,
 		String argName )
 	{
-		CFBamBuffServerMethodByUNameIdxKey key = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByUNameIdxKey();
+		CFBamBuffServerMethodByUNameIdxKey key = (CFBamBuffServerMethodByUNameIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByUNameIdxKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredName( argName );
 		deleteServerMethodByUNameIdx( Authorization, key );
@@ -995,7 +995,7 @@ public class CFBamRamServerMethodTable
 	public void deleteServerMethodByMethTableIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTableId )
 	{
-		CFBamBuffServerMethodByMethTableIdxKey key = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableIdxKey();
+		CFBamBuffServerMethodByMethTableIdxKey key = (CFBamBuffServerMethodByMethTableIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableIdxKey();
 		key.setRequiredTableId( argTableId );
 		deleteServerMethodByMethTableIdx( Authorization, key );
 	}
@@ -1047,7 +1047,7 @@ public class CFBamRamServerMethodTable
 	public void deleteServerMethodByMethCodeVisIdx( ICFSecAuthorization Authorization,
 		ICFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamBuffServerMethodByMethCodeVisIdxKey key = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
+		CFBamBuffServerMethodByMethCodeVisIdxKey key = (CFBamBuffServerMethodByMethCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethCodeVisIdxKey();
 		key.setRequiredCodeVis( argCodeVis );
 		deleteServerMethodByMethCodeVisIdx( Authorization, key );
 	}
@@ -1100,7 +1100,7 @@ public class CFBamRamServerMethodTable
 		CFLibDbKeyHash256 argTableId,
 		ICFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamBuffServerMethodByMethTableVisIdxKey key = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
+		CFBamBuffServerMethodByMethTableVisIdxKey key = (CFBamBuffServerMethodByMethTableVisIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByMethTableVisIdxKey();
 		key.setRequiredTableId( argTableId );
 		key.setRequiredCodeVis( argCodeVis );
 		deleteServerMethodByMethTableVisIdx( Authorization, key );
@@ -1154,7 +1154,7 @@ public class CFBamRamServerMethodTable
 	public void deleteServerMethodByDefSchemaIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argDefSchemaId )
 	{
-		CFBamBuffServerMethodByDefSchemaIdxKey key = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
+		CFBamBuffServerMethodByDefSchemaIdxKey key = (CFBamBuffServerMethodByDefSchemaIdxKey)schema.getCFBamBuffFactory().getFactoryServerMethod().newByDefSchemaIdxKey();
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteServerMethodByDefSchemaIdx( Authorization, key );
 	}
@@ -1251,7 +1251,7 @@ public class CFBamRamServerMethodTable
 	public void deleteServerMethodByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamFactory().getFactoryScope().newByTenantIdxKey();
+		CFBamBuffScopeByTenantIdxKey key = (CFBamBuffScopeByTenantIdxKey)schema.getCFBamBuffFactory().getFactoryScope().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteServerMethodByTenantIdx( Authorization, key );
 	}
