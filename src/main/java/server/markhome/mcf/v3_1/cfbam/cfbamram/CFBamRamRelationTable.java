@@ -518,7 +518,7 @@ public class CFBamRamRelationTable
 
 	@Override
 	public ICFBamRelation[] readDerivedByRelCodeVisIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamRelation.readDerivedByRelCodeVisIdx";
 		CFBamBuffRelationByRelCodeVisIdxKey key = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryRelation().newByRelCodeVisIdxKey();
@@ -547,7 +547,7 @@ public class CFBamRamRelationTable
 	@Override
 	public ICFBamRelation[] readDerivedByRelTableCodeVisX( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamRelation.readDerivedByRelTableCodeVisX";
 		CFBamBuffRelationByRelTableCodeVisXKey key = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getCFBamBuffFactory().getFactoryRelation().newByRelTableCodeVisXKey();
@@ -839,7 +839,7 @@ public class CFBamRamRelationTable
 
 	@Override
 	public ICFBamRelation[] readRecByRelCodeVisIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamRelation.readRecByRelCodeVisIdx() ";
 		ICFBamRelation buff;
@@ -858,7 +858,7 @@ public class CFBamRamRelationTable
 	@Override
 	public ICFBamRelation[] readRecByRelTableCodeVisX( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamRelation.readRecByRelTableCodeVisX() ";
 		ICFBamRelation buff;
@@ -1503,7 +1503,7 @@ public class CFBamRamRelationTable
 
 	@Override
 	public void deleteRelationByRelCodeVisIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum argCodeVis )
 	{
 		CFBamBuffRelationByRelCodeVisIdxKey key = (CFBamBuffRelationByRelCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryRelation().newByRelCodeVisIdxKey();
 		key.setRequiredCodeVis( argCodeVis );
@@ -1540,7 +1540,7 @@ public class CFBamRamRelationTable
 	@Override
 	public void deleteRelationByRelTableCodeVisX( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTableId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum argCodeVis )
 	{
 		CFBamBuffRelationByRelTableCodeVisXKey key = (CFBamBuffRelationByRelTableCodeVisXKey)schema.getCFBamBuffFactory().getFactoryRelation().newByRelTableCodeVisXKey();
 		key.setRequiredTableId( argTableId );

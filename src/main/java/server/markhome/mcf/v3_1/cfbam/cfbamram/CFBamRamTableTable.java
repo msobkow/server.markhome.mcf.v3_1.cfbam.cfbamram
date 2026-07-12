@@ -456,7 +456,7 @@ public class CFBamRamTableTable
 
 	@Override
 	public ICFBamTable[] readDerivedByCodeVisIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamTable.readDerivedByCodeVisIdx";
 		CFBamBuffTableByCodeVisIdxKey key = (CFBamBuffTableByCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryTable().newByCodeVisIdxKey();
@@ -485,7 +485,7 @@ public class CFBamRamTableTable
 	@Override
 	public ICFBamTable[] readDerivedBySchemaCodeVisIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 SchemaDefId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamTable.readDerivedBySchemaCodeVisIdx";
 		CFBamBuffTableBySchemaCodeVisIdxKey key = (CFBamBuffTableBySchemaCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryTable().newBySchemaCodeVisIdxKey();
@@ -800,7 +800,7 @@ public class CFBamRamTableTable
 
 	@Override
 	public ICFBamTable[] readRecByCodeVisIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamTable.readRecByCodeVisIdx() ";
 		ICFBamTable buff;
@@ -819,7 +819,7 @@ public class CFBamRamTableTable
 	@Override
 	public ICFBamTable[] readRecBySchemaCodeVisIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 SchemaDefId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "CFBamRamTable.readRecBySchemaCodeVisIdx() ";
 		ICFBamTable buff;
@@ -1465,7 +1465,7 @@ public class CFBamRamTableTable
 
 	@Override
 	public void deleteTableByCodeVisIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum argCodeVis )
 	{
 		CFBamBuffTableByCodeVisIdxKey key = (CFBamBuffTableByCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryTable().newByCodeVisIdxKey();
 		key.setRequiredCodeVis( argCodeVis );
@@ -1502,7 +1502,7 @@ public class CFBamRamTableTable
 	@Override
 	public void deleteTableBySchemaCodeVisIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argSchemaDefId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+		ICFBamPubSchema.CodeVisibilityEnum argCodeVis )
 	{
 		CFBamBuffTableBySchemaCodeVisIdxKey key = (CFBamBuffTableBySchemaCodeVisIdxKey)schema.getCFBamBuffFactory().getFactoryTable().newBySchemaCodeVisIdxKey();
 		key.setRequiredSchemaDefId( argSchemaDefId );

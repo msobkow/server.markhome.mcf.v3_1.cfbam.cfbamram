@@ -390,7 +390,7 @@ public class CFBamRamSchemaRoleTable
 
 	@Override
 	public ICFBamSchemaRole[] readDerivedByRoleScopeIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+		ICFBamPubSchema.RoleScopeEnum RoleScope )
 	{
 		final String S_ProcName = "CFBamRamSchemaRole.readDerivedByRoleScopeIdx";
 		CFBamBuffSchemaRoleByRoleScopeIdxKey key = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
@@ -419,7 +419,7 @@ public class CFBamRamSchemaRoleTable
 	@Override
 	public ICFBamSchemaRole[] readDerivedBySchRoleScpIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+		ICFBamPubSchema.RoleScopeEnum RoleScope )
 	{
 		final String S_ProcName = "CFBamRamSchemaRole.readDerivedBySchRoleScpIdx";
 		CFBamBuffSchemaRoleBySchRoleScpIdxKey key = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
@@ -608,7 +608,7 @@ public class CFBamRamSchemaRoleTable
 
 	@Override
 	public ICFBamSchemaRole[] readRecByRoleScopeIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+		ICFBamPubSchema.RoleScopeEnum RoleScope )
 	{
 		final String S_ProcName = "CFBamRamSchemaRole.readRecByRoleScopeIdx() ";
 		ICFBamSchemaRole buff;
@@ -627,7 +627,7 @@ public class CFBamRamSchemaRoleTable
 	@Override
 	public ICFBamSchemaRole[] readRecBySchRoleScpIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+		ICFBamPubSchema.RoleScopeEnum RoleScope )
 	{
 		final String S_ProcName = "CFBamRamSchemaRole.readRecBySchRoleScpIdx() ";
 		ICFBamSchemaRole buff;
@@ -857,7 +857,7 @@ public class CFBamRamSchemaRoleTable
 
 	@Override
 	public void deleteSchemaRoleByRoleScopeIdx( ICFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum argRoleScope )
+		ICFBamPubSchema.RoleScopeEnum argRoleScope )
 	{
 		CFBamBuffSchemaRoleByRoleScopeIdxKey key = (CFBamBuffSchemaRoleByRoleScopeIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRole().newByRoleScopeIdxKey();
 		key.setRequiredRoleScope( argRoleScope );
@@ -894,7 +894,7 @@ public class CFBamRamSchemaRoleTable
 	@Override
 	public void deleteSchemaRoleBySchRoleScpIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argSchemaDefId,
-		ICFBamSchema.RoleScopeEnum argRoleScope )
+		ICFBamPubSchema.RoleScopeEnum argRoleScope )
 	{
 		CFBamBuffSchemaRoleBySchRoleScpIdxKey key = (CFBamBuffSchemaRoleBySchRoleScpIdxKey)schema.getCFBamBuffFactory().getFactorySchemaRole().newBySchRoleScpIdxKey();
 		key.setRequiredSchemaDefId( argSchemaDefId );
